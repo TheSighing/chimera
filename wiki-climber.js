@@ -15,6 +15,9 @@ app.get('/climb:title', function(req, res){
 
             var text;
             var json = {text : ""};
+
+            //filter the results
+            $('')
         }
     })
 
