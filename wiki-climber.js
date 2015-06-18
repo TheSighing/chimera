@@ -15,7 +15,12 @@ var PORT = process.envPort || 8080;
 //The routes for out API
 var router = express.Router();
 
-router.get('/climb:title', function(req, res){
+router.get('/', function(req, res){
+    json = { help: "helpful message on how to use api."};
+    res.json(json);
+})
+
+router.get('/search:title', function(req, res){
     //TODO: Add a check to see if this is a valid title
     var url = 'http://en.wikipedia.org/?title=' + req.params.title;
 
@@ -39,7 +44,7 @@ router.get('/climb:title', function(req, res){
 })
 
 //Prefixing all the routes in the api
-wc.use('/api', router);
+wc.use('/climb', router);
 
 //Starting Server
 wc.listen(PORT)
