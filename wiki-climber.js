@@ -1,11 +1,22 @@
-var wc = require('')(),
-//replace with uri-request
+var express = require('express'),
+wc = express(),
+bodyParser = require('body-parser'),
+//TODO: replace with uri-request
 request = require('request'),
-//replace with the usage of zero mq to communicate to python and use beautiful soup
+//TODO: replace with the usage of zero mq to communicate to python and use beautiful soup
 cheerio = require('cheerio');
 
-wc.get('/climb:title', function(req, res){
-    //add a check to see if this is a valid title
+//Preparing to derive data from POST
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+
+var PORT = process.envPort || 8080;
+
+//The routes for out API
+var router = express.Router();
+
+router.get('/climb:title', function(req, res){
+    //TODO: Add a check to see if this is a valid title
     var url = 'http://en.wikipedia.org/?title=' + req.params.title;
 
     request(url, function(err, response, data){
@@ -24,10 +35,14 @@ wc.get('/climb:title', function(req, res){
         }
     })
 
-    res.send(json);
+    res.json(json);
 })
 
-wc.listen('8081')
+//Prefixing all the routes in the api
+wc.use('/api', router);
+
+//Starting Server
+wc.listen(PORT)
 
 console.log('Base of the cliff is at port 8081');
 
