@@ -9,6 +9,15 @@ app.get('/climb:title', function(req, res){
     //add a check to see if this is a valid title
     var url = 'http://en.wikipedia.org/?title=' + req.params.title;
 
+    request(url, function(err, response, data){
+        if(!err){
+            var $ = cheerio.load(data);
+
+            var text;
+            var json = {text : ""};
+        }
+    })
+
 
 })
 
