@@ -1,0 +1,12 @@
+{
+    "name": "wiki-climber",
+    "version": "0.0.0",
+    "description": "Climb mount wiki.",
+    "main": "wiki-climber.js",
+    "author": "Jared Godfrey",
+    "dependencies": {
+        "express": "*",
+        "request": "*",
+        "cheerio": "*"
+    }
+}
