@@ -20,28 +20,30 @@ router.get('/', function(req, res){
     res.json(json);
 })
 
-router.get('/search:title', function(req, res){
-    //TODO: Add a check to see if this is a valid title
-    var url = 'http://en.wikipedia.org/?title=' + req.params.title;
+router.route('/search')
 
-    request(url, function(err, response, data){
-        if(!err){
-            var $ = cheerio.load(data);
+    .get('/search/:title', function(req, res){
+        //TODO: Add a check to see if this is a valid title
+        var url = 'http://en.wikipedia.org/?title=' + req.params.title;
 
-            var text;
-            var json = {text : ""};
+        request(url, function(err, response, data){
+            if(!err){
+                var $ = cheerio.load(data);
 
-            //filter the results
-            $('p:first').filter(function(){
-                var p = $(this);
+                var text;
+                var json = {text : ""};
 
-                json.text = p;
-            })
-        }
+                //filter the results
+                $('p:first').filter(function(){
+                    var p = $(this);
+
+                    json.text = p;
+                })
+            }
+        })
+
+        res.json(json);
     })
-
-    res.json(json);
-})
 
 //Prefixing all the routes in the api
 wc.use('/climb', router);
