@@ -1,11 +1,10 @@
-var app = require('')(),
-fs = require('fs'),
+var wc = require('')(),
 //replace with uri-request
-fs = require('request'),
+request = require('request'),
 //replace with the usage of zero mq to communicate to python and use beautiful soup
-fs = require('cheerio');
+cheerio = require('cheerio');
 
-app.get('/climb:title', function(req, res){
+wc.get('/climb:title', function(req, res){
     //add a check to see if this is a valid title
     var url = 'http://en.wikipedia.org/?title=' + req.params.title;
 
@@ -17,15 +16,19 @@ app.get('/climb:title', function(req, res){
             var json = {text : ""};
 
             //filter the results
-            $('')
+            $('p:first').filter(function(){
+                var p = $(this);
+
+                json.text = p;
+            })
         }
     })
 
-
+    res.send(json);
 })
 
-app.listen('8081')
+wc.listen('8081')
 
 console.log('Base of the cliff is at port 8081');
 
-exports = module.exports = app;
+exports = module.exports = wc;
