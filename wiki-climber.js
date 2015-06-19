@@ -7,8 +7,8 @@ request = require('request'),
 cheerio = require('cheerio');
 
 //Preparing to derive data from POST
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
+wc.use(bodyParser.urlencoded({extended: true}));
+wc.use(bodyParser.json());
 
 var PORT = process.envPort || 8080;
 
