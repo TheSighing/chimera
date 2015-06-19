@@ -23,11 +23,9 @@ router.get('/', function(req, res){
 });
 
 router.get('/climb/:title', function(req, res){
-    console.log("climbing");
     //TODO: Add a check to see if this is a valid title
     var url = 'http://en.wikipedia.org/?title=' + req.params.title;
-    var text;
-    var json = {text : ""};
+    var text, json = {text : ""};
 
     request(url, function(err, response, data){
         if(!err){
@@ -39,19 +37,26 @@ router.get('/climb/:title', function(req, res){
                 var result = $(this);
 
                 var first_paragraph = result.children();
-                async.each(first_paragraph, function(){
+                var i = 0;
+                async.eachSeries(first_paragraph, function(_item, callback){
+                    console.log("item:", i);
+                    i++;
+                    callback();
                 }, function(err){
                     if(err){
-                        console.log("failed ot process pargraph children.");
+                        console.log("FAILED.");
                     }
-                })
+                    else{
+                        json.text = "hey";
+                        console.log("finished:", i);
+                        res.json(json);
+                    }
+                });
 
-                json.text = primary_content;
             })
         }
     })
 
-    res.json(json);
 });
 
 //Prefixing all the routes in the api
