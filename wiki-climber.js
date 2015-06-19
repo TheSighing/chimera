@@ -5,7 +5,10 @@ bodyParser = require('body-parser'),
 request = require('request'),
 //TODO: replace with the usage of zero mq to communicate to python and use beautiful soup
 cheerio = require('cheerio'),
-async = require('async');
+async = require('async'),
+events = require('events');
+
+var e = new events.EventEmitter();
 
 //Preparing to derive data from POST
 wc.use(bodyParser.urlencoded({extended: true}));
@@ -25,46 +28,38 @@ router.get('/', function(req, res){
 router.get('/climb/:title', function(req, res){
     //TODO: Add a check to see if this is a valid title
     var url = 'http://en.wikipedia.org/?title=' + req.params.title;
-    var text, json = {text : ""};
+    var text = [], json = {text : ""};
 
     request(url, function(err, response, data){
         if(!err){
             var $ = cheerio.load(data);
+            e.on('parse_complete', function(){
+                res.json(json);
+            });
 
 
-            //filter the results
-            $('#mw-content-text p').filter(function(){
-                var result = $(this);
-
-                var first_paragraph = result.children();
-                var i = 0;
-                async.eachSeries(first_paragraph, function(_item, callback){
-                    console.log("item:", i);
-                    i++;
-                    callback();
-                }, function(err){
-                    if(err){
-                        console.log("FAILED.");
-                    }
-                    else{
-                        json.text = "hey";
-                        console.log("finished:", i);
-                        res.json(json);
-                    }
-                });
-
-            })
+            async.eachSeries(first_paragraph, function(_item, callback){
+                console.log("item: ", i);
+                i++;
+                callback();
+            }, function(err){
+                if(err){
+                    console.log("FAILED.");
+                }
+                else{
+                    console.log("SUCCESS.");
+                    e.emit('parse_complete');
+                }
+            });
         }
-    })
-
+    });
 });
 
 //Prefixing all the routes in the api
 wc.use('/api', router);
 
 //Starting Server
-wc.listen(PORT)
-
+wc.listen(PORT);
 console.log('Base of the cliff is at port ', PORT);
 
 exports = module.exports = wc;
