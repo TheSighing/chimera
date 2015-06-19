@@ -38,18 +38,32 @@ router.get('/climb/:title', function(req, res){
             });
 
 
-            async.eachSeries(first_paragraph, function(_item, callback){
-                console.log("item: ", i);
-                i++;
-                callback();
-            }, function(err){
-                if(err){
-                    console.log("FAILED.");
+            async.waterfall([
+                function(callback){
+                    //filter the results
+                    //later have all of these accessible and ready to be parsed
+                    $('#mw-content-text p').each(function(i, elem){
+                        var p = $(this);
+                        text[i] = p.text();
+                    });
+
+                    callback(null, text);
+                },
+                function(arr, callback){
+                    //later this wont be hard coded it wil happen after sendign a message to user of api to designate choices
+                    //or somethign like that
+                    json.text = arr[0];
+
+                    callback();
                 }
-                else{
-                    console.log("SUCCESS.");
-                    e.emit('parse_complete');
-                }
+            ], function(err){
+                    if(err){
+                        console.log("FAILED.");
+                    }
+                    else{
+                        console.log("SUCCESS.");
+                        e.emit('parse_complete');
+                    }
             });
         }
     });
