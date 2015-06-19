@@ -10,7 +10,7 @@ cheerio = require('cheerio');
 wc.use(bodyParser.urlencoded({extended: true}));
 wc.use(bodyParser.json());
 
-var PORT = process.envPort || 8080;
+var PORT = 8080;
 
 //The routes for out API
 var router = express.Router();
@@ -18,39 +18,39 @@ var router = express.Router();
 router.get('/', function(req, res){
     json = { help: "helpful message on how to use api."};
     res.json(json);
-})
+    console.log("logging the json ", json);
+});
 
-router.route('/search')
+router.get('/climb/:title', function(req, res){
+    console.log("climbing");
+    //TODO: Add a check to see if this is a valid title
+    var url = 'http://en.wikipedia.org/?title=' + req.params.title;
+    var text;
+    var json = {text : ""};
 
-    .get('/search/:title', function(req, res){
-        //TODO: Add a check to see if this is a valid title
-        var url = 'http://en.wikipedia.org/?title=' + req.params.title;
+    request(url, function(err, response, data){
+        if(!err){
+            var $ = cheerio.load(data);
 
-        request(url, function(err, response, data){
-            if(!err){
-                var $ = cheerio.load(data);
 
-                var text;
-                var json = {text : ""};
+            //filter the results
+            $('p:first').filter(function(){
+                var p = $(this);
 
-                //filter the results
-                $('p:first').filter(function(){
-                    var p = $(this);
-
-                    json.text = p;
-                })
-            }
-        })
-
-        res.json(json);
+                json.text = p;
+            })
+        }
     })
 
+    res.json(json);
+});
+
 //Prefixing all the routes in the api
-wc.use('/climb', router);
+wc.use('/api', router);
 
 //Starting Server
 wc.listen(PORT)
 
-console.log('Base of the cliff is at port 8081');
+console.log('Base of the cliff is at port ', PORT);
 
 exports = module.exports = wc;
