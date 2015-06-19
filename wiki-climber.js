@@ -4,7 +4,8 @@ bodyParser = require('body-parser'),
 //TODO: replace with uri-request
 request = require('request'),
 //TODO: replace with the usage of zero mq to communicate to python and use beautiful soup
-cheerio = require('cheerio');
+cheerio = require('cheerio'),
+async = require('async');
 
 //Preparing to derive data from POST
 wc.use(bodyParser.urlencoded({extended: true}));
@@ -34,10 +35,18 @@ router.get('/climb/:title', function(req, res){
 
 
             //filter the results
-            $('p:first').filter(function(){
-                var p = $(this);
+            $('#mw-content-text p').filter(function(){
+                var result = $(this);
 
-                json.text = p;
+                var first_paragraph = result.children();
+                async.each(first_paragraph, function(){
+                }, function(err){
+                    if(err){
+                        console.log("failed ot process pargraph children.");
+                    }
+                })
+
+                json.text = primary_content;
             })
         }
     })
