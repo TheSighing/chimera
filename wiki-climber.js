@@ -25,9 +25,9 @@ router.get('/', function(req, res){
     console.log("logging the json ", json);
 });
 
-router.get('/climb/:title', function(req, res){
+router.get('/climb/:topic', function(req, res){
     //TODO: Add a check to see if this is a valid title
-    var url = 'http://en.wikipedia.org/?title=' + req.params.title;
+    var url = 'http://en.wikipedia.org/?title=' + req.params.topic;
     var text = [], json = {text : ""};
 
     request(url, function(err, response, data){
