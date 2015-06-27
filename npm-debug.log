@@ -1,0 +1,1418 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', '--save', 'zerorpc' ]
+2 info using npm@1.4.14
+3 info using node@v0.10.29
+4 verbose readDependencies using package.json deps
+5 verbose cache add [ 'zerorpc', null ]
+6 verbose cache add name=undefined spec="zerorpc" args=["zerorpc",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'zerorpc',
+7 verbose parsed url   path: 'zerorpc',
+7 verbose parsed url   href: 'zerorpc' }
+8 silly lockFile 97cd84c6-zerorpc zerorpc
+9 verbose lock zerorpc /Users/jaredgodfrey/.npm/97cd84c6-zerorpc.lock
+10 silly lockFile 97cd84c6-zerorpc zerorpc
+11 silly lockFile 97cd84c6-zerorpc zerorpc
+12 verbose addNamed [ 'zerorpc', '' ]
+13 verbose addNamed [ null, '*' ]
+14 silly lockFile 866fe8e6-zerorpc zerorpc@
+15 verbose lock zerorpc@ /Users/jaredgodfrey/.npm/866fe8e6-zerorpc.lock
+16 silly addNameRange { name: 'zerorpc', range: '*', hasData: false }
+17 verbose url raw zerorpc
+18 verbose url resolving [ 'https://registry.npmjs.org/', './zerorpc' ]
+19 verbose url resolved https://registry.npmjs.org/zerorpc
+20 info trying registry request attempt 1 at 11:15:37
+21 verbose etag "980KTSZGRQ28KLZI39VZMIUAC"
+22 http GET https://registry.npmjs.org/zerorpc
+23 http 304 https://registry.npmjs.org/zerorpc
+24 silly registry.get cb [ 304,
+24 silly registry.get   { date: 'Sat, 27 Jun 2015 18:15:37 GMT',
+24 silly registry.get     via: '1.1 varnish',
+24 silly registry.get     'cache-control': 'max-age=60',
+24 silly registry.get     etag: '"980KTSZGRQ28KLZI39VZMIUAC"',
+24 silly registry.get     age: '59',
+24 silly registry.get     connection: 'keep-alive',
+24 silly registry.get     'x-served-by': 'cache-lax1434-LAX',
+24 silly registry.get     'x-cache': 'HIT',
+24 silly registry.get     'x-cache-hits': '1',
+24 silly registry.get     'x-timer': 'S1435428937.978611,VS0,VE0',
+24 silly registry.get     vary: 'Accept' } ]
+25 verbose etag zerorpc from cache
+26 silly addNameRange number 2 { name: 'zerorpc', range: '*', hasData: true }
+27 silly addNameRange versions [ 'zerorpc',
+27 silly addNameRange   [ '0.1.0',
+27 silly addNameRange     '0.2.0',
+27 silly addNameRange     '0.3.0',
+27 silly addNameRange     '0.4.0',
+27 silly addNameRange     '0.5.0',
+27 silly addNameRange     '0.6.0',
+27 silly addNameRange     '0.6.1',
+27 silly addNameRange     '0.7.0',
+27 silly addNameRange     '0.7.1',
+27 silly addNameRange     '0.7.2',
+27 silly addNameRange     '0.7.3',
+27 silly addNameRange     '0.7.4',
+27 silly addNameRange     '0.8.0',
+27 silly addNameRange     '0.8.1',
+27 silly addNameRange     '0.8.2',
+27 silly addNameRange     '0.8.3',
+27 silly addNameRange     '0.8.4',
+27 silly addNameRange     '0.8.5',
+27 silly addNameRange     '0.8.6',
+27 silly addNameRange     '0.8.7',
+27 silly addNameRange     '0.8.8',
+27 silly addNameRange     '0.9.0',
+27 silly addNameRange     '0.9.1',
+27 silly addNameRange     '0.9.2',
+27 silly addNameRange     '0.9.3',
+27 silly addNameRange     '0.9.4',
+27 silly addNameRange     '0.9.5' ] ]
+28 verbose addNamed [ 'zerorpc', '0.9.5' ]
+29 verbose addNamed [ '0.9.5', '0.9.5' ]
+30 silly lockFile a326818a-zerorpc-0-9-5 zerorpc@0.9.5
+31 verbose lock zerorpc@0.9.5 /Users/jaredgodfrey/.npm/a326818a-zerorpc-0-9-5.lock
+32 silly lockFile a326818a-zerorpc-0-9-5 zerorpc@0.9.5
+33 silly lockFile a326818a-zerorpc-0-9-5 zerorpc@0.9.5
+34 silly lockFile 866fe8e6-zerorpc zerorpc@
+35 silly lockFile 866fe8e6-zerorpc zerorpc@
+36 silly resolved [ { name: 'zerorpc',
+36 silly resolved     version: '0.9.5',
+36 silly resolved     main: './index.js',
+36 silly resolved     author:
+36 silly resolved      { name: 'François-Xavier Bourlet',
+36 silly resolved        email: 'bombela+zerorpc@gmail.com' },
+36 silly resolved     description: 'A port of ZeroRPC to node.js',
+36 silly resolved     contributors: [ [Object], [Object] ],
+36 silly resolved     scripts: { test: 'nodeunit test' },
+36 silly resolved     repository:
+36 silly resolved      { type: 'git',
+36 silly resolved        url: 'git+https://github.com/0rpc/zerorpc-node.git' },
+36 silly resolved     keywords: [ 'zerorpc', 'rpc', 'distributed', 'communication' ],
+36 silly resolved     dependencies:
+36 silly resolved      { underscore: '1.3.3',
+36 silly resolved        msgpack: '0.2.6',
+36 silly resolved        'node-uuid': '1.3.3',
+36 silly resolved        zmq: '2.x' },
+36 silly resolved     devDependencies: { nodeunit: '0.9.1', temp: '0.8.1' },
+36 silly resolved     license: 'MIT',
+36 silly resolved     gitHead: '595065097d7f9bdd89276295286af6a2c0fb5cea',
+36 silly resolved     bugs: { url: 'https://github.com/0rpc/zerorpc-node/issues' },
+36 silly resolved     homepage: 'https://github.com/0rpc/zerorpc-node#readme',
+36 silly resolved     _id: 'zerorpc@0.9.5',
+36 silly resolved     _shasum: '57dff6382bfa87e90a807b0743c2c104275d8bd3',
+36 silly resolved     _from: 'zerorpc@',
+36 silly resolved     _npmVersion: '2.9.1',
+36 silly resolved     _nodeVersion: '0.12.3',
+36 silly resolved     _npmUser: { name: 'bombela', email: 'bombela@gmail.com' },
+36 silly resolved     dist:
+36 silly resolved      { shasum: '57dff6382bfa87e90a807b0743c2c104275d8bd3',
+36 silly resolved        tarball: 'http://registry.npmjs.org/zerorpc/-/zerorpc-0.9.5.tgz' },
+36 silly resolved     maintainers: [ [Object], [Object] ],
+36 silly resolved     directories: {},
+36 silly resolved     _resolved: 'https://registry.npmjs.org/zerorpc/-/zerorpc-0.9.5.tgz',
+36 silly resolved     readme: 'ERROR: No README data found!' } ]
+37 info install zerorpc@0.9.5 into /Users/jaredgodfrey/Developer/chimera
+38 info installOne zerorpc@0.9.5
+39 info /Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc unbuild
+40 verbose tar unpack /Users/jaredgodfrey/.npm/zerorpc/0.9.5/package.tgz
+41 silly lockFile c35b421d-per-chimera-node-modules-zerorpc tar:///Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc
+42 verbose lock tar:///Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc /Users/jaredgodfrey/.npm/c35b421d-per-chimera-node-modules-zerorpc.lock
+43 silly lockFile 7408e358-ey-npm-zerorpc-0-9-5-package-tgz tar:///Users/jaredgodfrey/.npm/zerorpc/0.9.5/package.tgz
+44 verbose lock tar:///Users/jaredgodfrey/.npm/zerorpc/0.9.5/package.tgz /Users/jaredgodfrey/.npm/7408e358-ey-npm-zerorpc-0-9-5-package-tgz.lock
+45 silly gunzTarPerm modes [ '755', '644' ]
+46 silly gunzTarPerm extractEntry package.json
+47 silly gunzTarPerm modified mode [ 'package.json', 416, 420 ]
+48 silly gunzTarPerm extractEntry .npmignore
+49 silly gunzTarPerm modified mode [ '.npmignore', 416, 420 ]
+50 silly gunzTarPerm extractEntry README.md
+51 silly gunzTarPerm modified mode [ 'README.md', 416, 420 ]
+52 silly gunzTarPerm extractEntry LICENSE
+53 silly gunzTarPerm modified mode [ 'LICENSE', 416, 420 ]
+54 silly gunzTarPerm extractEntry index.js
+55 silly gunzTarPerm modified mode [ 'index.js', 416, 420 ]
+56 silly gunzTarPerm extractEntry .travis.yml
+57 silly gunzTarPerm modified mode [ '.travis.yml', 416, 420 ]
+58 silly gunzTarPerm extractEntry lib/buffer.js
+59 silly gunzTarPerm modified mode [ 'lib/buffer.js', 416, 420 ]
+60 silly gunzTarPerm extractEntry lib/channel.js
+61 silly gunzTarPerm modified mode [ 'lib/channel.js', 416, 420 ]
+62 silly gunzTarPerm extractEntry lib/client.js
+63 silly gunzTarPerm modified mode [ 'lib/client.js', 416, 420 ]
+64 silly gunzTarPerm extractEntry lib/events.js
+65 silly gunzTarPerm modified mode [ 'lib/events.js', 416, 420 ]
+66 silly gunzTarPerm extractEntry lib/middleware.js
+67 silly gunzTarPerm modified mode [ 'lib/middleware.js', 416, 420 ]
+68 silly gunzTarPerm extractEntry lib/server.js
+69 silly gunzTarPerm modified mode [ 'lib/server.js', 416, 420 ]
+70 silly gunzTarPerm extractEntry lib/socket.js
+71 silly gunzTarPerm modified mode [ 'lib/socket.js', 416, 420 ]
+72 silly gunzTarPerm extractEntry lib/util.js
+73 silly gunzTarPerm modified mode [ 'lib/util.js', 416, 420 ]
+74 silly gunzTarPerm extractEntry test/buffers.js
+75 silly gunzTarPerm modified mode [ 'test/buffers.js', 416, 420 ]
+76 silly gunzTarPerm extractEntry test/errors.js
+77 silly gunzTarPerm modified mode [ 'test/errors.js', 416, 420 ]
+78 silly gunzTarPerm extractEntry test/heartbeats.js
+79 silly gunzTarPerm modified mode [ 'test/heartbeats.js', 416, 420 ]
+80 silly gunzTarPerm extractEntry test/invocation.js
+81 silly gunzTarPerm modified mode [ 'test/invocation.js', 416, 420 ]
+82 silly gunzTarPerm extractEntry test/repro-10.js
+83 silly gunzTarPerm modified mode [ 'test/repro-10.js', 416, 420 ]
+84 silly gunzTarPerm extractEntry test/streams.js
+85 silly gunzTarPerm modified mode [ 'test/streams.js', 416, 420 ]
+86 silly gunzTarPerm extractEntry test/timeouts.js
+87 silly gunzTarPerm modified mode [ 'test/timeouts.js', 416, 420 ]
+88 silly gunzTarPerm extractEntry test/lib/testutil.js
+89 silly gunzTarPerm modified mode [ 'test/lib/testutil.js', 416, 420 ]
+90 silly lockFile c35b421d-per-chimera-node-modules-zerorpc tar:///Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc
+91 silly lockFile c35b421d-per-chimera-node-modules-zerorpc tar:///Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc
+92 silly lockFile 7408e358-ey-npm-zerorpc-0-9-5-package-tgz tar:///Users/jaredgodfrey/.npm/zerorpc/0.9.5/package.tgz
+93 silly lockFile 7408e358-ey-npm-zerorpc-0-9-5-package-tgz tar:///Users/jaredgodfrey/.npm/zerorpc/0.9.5/package.tgz
+94 info preinstall zerorpc@0.9.5
+95 verbose readDependencies using package.json deps
+96 verbose readDependencies using package.json deps
+97 verbose cache add [ 'underscore@1.3.3', null ]
+98 verbose cache add name=undefined spec="underscore@1.3.3" args=["underscore@1.3.3",null]
+99 verbose parsed url { protocol: null,
+99 verbose parsed url   slashes: null,
+99 verbose parsed url   auth: null,
+99 verbose parsed url   host: null,
+99 verbose parsed url   port: null,
+99 verbose parsed url   hostname: null,
+99 verbose parsed url   hash: null,
+99 verbose parsed url   search: null,
+99 verbose parsed url   query: null,
+99 verbose parsed url   pathname: 'underscore@1.3.3',
+99 verbose parsed url   path: 'underscore@1.3.3',
+99 verbose parsed url   href: 'underscore@1.3.3' }
+100 verbose cache add [ 'msgpack@0.2.6', null ]
+101 verbose cache add name=undefined spec="msgpack@0.2.6" args=["msgpack@0.2.6",null]
+102 verbose parsed url { protocol: null,
+102 verbose parsed url   slashes: null,
+102 verbose parsed url   auth: null,
+102 verbose parsed url   host: null,
+102 verbose parsed url   port: null,
+102 verbose parsed url   hostname: null,
+102 verbose parsed url   hash: null,
+102 verbose parsed url   search: null,
+102 verbose parsed url   query: null,
+102 verbose parsed url   pathname: 'msgpack@0.2.6',
+102 verbose parsed url   path: 'msgpack@0.2.6',
+102 verbose parsed url   href: 'msgpack@0.2.6' }
+103 verbose cache add name="underscore" spec="1.3.3" args=["underscore","1.3.3"]
+104 verbose parsed url { protocol: null,
+104 verbose parsed url   slashes: null,
+104 verbose parsed url   auth: null,
+104 verbose parsed url   host: null,
+104 verbose parsed url   port: null,
+104 verbose parsed url   hostname: null,
+104 verbose parsed url   hash: null,
+104 verbose parsed url   search: null,
+104 verbose parsed url   query: null,
+104 verbose parsed url   pathname: '1.3.3',
+104 verbose parsed url   path: '1.3.3',
+104 verbose parsed url   href: '1.3.3' }
+105 verbose addNamed [ 'underscore', '1.3.3' ]
+106 verbose addNamed [ '1.3.3', '1.3.3' ]
+107 silly lockFile 99e765c4-underscore-1-3-3 underscore@1.3.3
+108 verbose lock underscore@1.3.3 /Users/jaredgodfrey/.npm/99e765c4-underscore-1-3-3.lock
+109 verbose cache add name="msgpack" spec="0.2.6" args=["msgpack","0.2.6"]
+110 verbose parsed url { protocol: null,
+110 verbose parsed url   slashes: null,
+110 verbose parsed url   auth: null,
+110 verbose parsed url   host: null,
+110 verbose parsed url   port: null,
+110 verbose parsed url   hostname: null,
+110 verbose parsed url   hash: null,
+110 verbose parsed url   search: null,
+110 verbose parsed url   query: null,
+110 verbose parsed url   pathname: '0.2.6',
+110 verbose parsed url   path: '0.2.6',
+110 verbose parsed url   href: '0.2.6' }
+111 verbose addNamed [ 'msgpack', '0.2.6' ]
+112 verbose addNamed [ '0.2.6', '0.2.6' ]
+113 silly lockFile 471f1817-msgpack-0-2-6 msgpack@0.2.6
+114 verbose lock msgpack@0.2.6 /Users/jaredgodfrey/.npm/471f1817-msgpack-0-2-6.lock
+115 verbose cache add [ 'zmq@2.x', null ]
+116 verbose cache add name=undefined spec="zmq@2.x" args=["zmq@2.x",null]
+117 verbose parsed url { protocol: null,
+117 verbose parsed url   slashes: null,
+117 verbose parsed url   auth: null,
+117 verbose parsed url   host: null,
+117 verbose parsed url   port: null,
+117 verbose parsed url   hostname: null,
+117 verbose parsed url   hash: null,
+117 verbose parsed url   search: null,
+117 verbose parsed url   query: null,
+117 verbose parsed url   pathname: 'zmq@2.x',
+117 verbose parsed url   path: 'zmq@2.x',
+117 verbose parsed url   href: 'zmq@2.x' }
+118 verbose cache add [ 'node-uuid@1.3.3', null ]
+119 verbose cache add name=undefined spec="node-uuid@1.3.3" args=["node-uuid@1.3.3",null]
+120 verbose parsed url { protocol: null,
+120 verbose parsed url   slashes: null,
+120 verbose parsed url   auth: null,
+120 verbose parsed url   host: null,
+120 verbose parsed url   port: null,
+120 verbose parsed url   hostname: null,
+120 verbose parsed url   hash: null,
+120 verbose parsed url   search: null,
+120 verbose parsed url   query: null,
+120 verbose parsed url   pathname: 'node-uuid@1.3.3',
+120 verbose parsed url   path: 'node-uuid@1.3.3',
+120 verbose parsed url   href: 'node-uuid@1.3.3' }
+121 verbose cache add name="zmq" spec="2.x" args=["zmq","2.x"]
+122 verbose parsed url { protocol: null,
+122 verbose parsed url   slashes: null,
+122 verbose parsed url   auth: null,
+122 verbose parsed url   host: null,
+122 verbose parsed url   port: null,
+122 verbose parsed url   hostname: null,
+122 verbose parsed url   hash: null,
+122 verbose parsed url   search: null,
+122 verbose parsed url   query: null,
+122 verbose parsed url   pathname: '2.x',
+122 verbose parsed url   path: '2.x',
+122 verbose parsed url   href: '2.x' }
+123 verbose addNamed [ 'zmq', '2.x' ]
+124 verbose addNamed [ null, '>=2.0.0-0 <3.0.0-0' ]
+125 silly lockFile 1919049f-zmq-2-x zmq@2.x
+126 verbose lock zmq@2.x /Users/jaredgodfrey/.npm/1919049f-zmq-2-x.lock
+127 verbose cache add name="node-uuid" spec="1.3.3" args=["node-uuid","1.3.3"]
+128 verbose parsed url { protocol: null,
+128 verbose parsed url   slashes: null,
+128 verbose parsed url   auth: null,
+128 verbose parsed url   host: null,
+128 verbose parsed url   port: null,
+128 verbose parsed url   hostname: null,
+128 verbose parsed url   hash: null,
+128 verbose parsed url   search: null,
+128 verbose parsed url   query: null,
+128 verbose parsed url   pathname: '1.3.3',
+128 verbose parsed url   path: '1.3.3',
+128 verbose parsed url   href: '1.3.3' }
+129 verbose addNamed [ 'node-uuid', '1.3.3' ]
+130 verbose addNamed [ '1.3.3', '1.3.3' ]
+131 silly lockFile 90b69d15-node-uuid-1-3-3 node-uuid@1.3.3
+132 verbose lock node-uuid@1.3.3 /Users/jaredgodfrey/.npm/90b69d15-node-uuid-1-3-3.lock
+133 silly addNameRange { name: 'zmq', range: '>=2.0.0-0 <3.0.0-0', hasData: false }
+134 verbose url raw underscore
+135 verbose url resolving [ 'https://registry.npmjs.org/', './underscore' ]
+136 verbose url resolved https://registry.npmjs.org/underscore
+137 info trying registry request attempt 1 at 11:15:38
+138 verbose etag "3UQP1FXOKYE5RILZ0ME3VNRI2"
+139 http GET https://registry.npmjs.org/underscore
+140 verbose url raw msgpack
+141 verbose url resolving [ 'https://registry.npmjs.org/', './msgpack' ]
+142 verbose url resolved https://registry.npmjs.org/msgpack
+143 info trying registry request attempt 1 at 11:15:38
+144 verbose etag "4LWCJZ4HXTOT9RKXTMPHYFBUH"
+145 http GET https://registry.npmjs.org/msgpack
+146 verbose url raw zmq
+147 verbose url resolving [ 'https://registry.npmjs.org/', './zmq' ]
+148 verbose url resolved https://registry.npmjs.org/zmq
+149 info trying registry request attempt 1 at 11:15:38
+150 verbose etag "9XG6ZHS9M2Z20EXM8I6NODZS6"
+151 http GET https://registry.npmjs.org/zmq
+152 verbose url raw node-uuid
+153 verbose url resolving [ 'https://registry.npmjs.org/', './node-uuid' ]
+154 verbose url resolved https://registry.npmjs.org/node-uuid
+155 info trying registry request attempt 1 at 11:15:38
+156 verbose etag "63YHTP34EUHYY35OWD1G5RPRT"
+157 http GET https://registry.npmjs.org/node-uuid
+158 http 304 https://registry.npmjs.org/node-uuid
+159 silly registry.get cb [ 304,
+159 silly registry.get   { date: 'Sat, 27 Jun 2015 18:15:38 GMT',
+159 silly registry.get     via: '1.1 varnish',
+159 silly registry.get     'cache-control': 'max-age=60',
+159 silly registry.get     etag: '"63YHTP34EUHYY35OWD1G5RPRT"',
+159 silly registry.get     age: '26',
+159 silly registry.get     connection: 'keep-alive',
+159 silly registry.get     'x-served-by': 'cache-lax1427-LAX',
+159 silly registry.get     'x-cache': 'HIT',
+159 silly registry.get     'x-cache-hits': '22',
+159 silly registry.get     'x-timer': 'S1435428938.283626,VS0,VE0',
+159 silly registry.get     vary: 'Accept' } ]
+160 verbose etag node-uuid from cache
+161 http 304 https://registry.npmjs.org/msgpack
+162 silly registry.get cb [ 304,
+162 silly registry.get   { date: 'Sat, 27 Jun 2015 18:15:38 GMT',
+162 silly registry.get     via: '1.1 varnish',
+162 silly registry.get     'cache-control': 'max-age=60',
+162 silly registry.get     etag: '"4LWCJZ4HXTOT9RKXTMPHYFBUH"',
+162 silly registry.get     age: '58',
+162 silly registry.get     connection: 'keep-alive',
+162 silly registry.get     'x-served-by': 'cache-lax1428-LAX',
+162 silly registry.get     'x-cache': 'HIT',
+162 silly registry.get     'x-cache-hits': '1',
+162 silly registry.get     'x-timer': 'S1435428938.283629,VS0,VE0',
+162 silly registry.get     vary: 'Accept' } ]
+163 verbose etag msgpack from cache
+164 http 304 https://registry.npmjs.org/zmq
+165 silly registry.get cb [ 304,
+165 silly registry.get   { date: 'Sat, 27 Jun 2015 18:15:38 GMT',
+165 silly registry.get     via: '1.1 varnish',
+165 silly registry.get     'cache-control': 'max-age=60',
+165 silly registry.get     etag: '"9XG6ZHS9M2Z20EXM8I6NODZS6"',
+165 silly registry.get     age: '58',
+165 silly registry.get     connection: 'keep-alive',
+165 silly registry.get     'x-served-by': 'cache-lax1435-LAX',
+165 silly registry.get     'x-cache': 'HIT',
+165 silly registry.get     'x-cache-hits': '1',
+165 silly registry.get     'x-timer': 'S1435428938.283554,VS0,VE0',
+165 silly registry.get     vary: 'Accept' } ]
+166 verbose etag zmq from cache
+167 http 304 https://registry.npmjs.org/underscore
+168 silly registry.get cb [ 304,
+168 silly registry.get   { date: 'Sat, 27 Jun 2015 18:15:38 GMT',
+168 silly registry.get     via: '1.1 varnish',
+168 silly registry.get     'cache-control': 'max-age=60',
+168 silly registry.get     etag: '"3UQP1FXOKYE5RILZ0ME3VNRI2"',
+168 silly registry.get     age: '18',
+168 silly registry.get     connection: 'keep-alive',
+168 silly registry.get     'x-served-by': 'cache-lax1433-LAX',
+168 silly registry.get     'x-cache': 'HIT',
+168 silly registry.get     'x-cache-hits': '2',
+168 silly registry.get     'x-timer': 'S1435428938.283716,VS0,VE0',
+168 silly registry.get     vary: 'Accept' } ]
+169 verbose etag underscore from cache
+170 silly addNameRange number 2 { name: 'zmq', range: '>=2.0.0-0 <3.0.0-0', hasData: true }
+171 silly addNameRange versions [ 'zmq',
+171 silly addNameRange   [ '1.0.0',
+171 silly addNameRange     '1.0.1',
+171 silly addNameRange     '1.0.2',
+171 silly addNameRange     '1.0.3',
+171 silly addNameRange     '1.0.4',
+171 silly addNameRange     '2.0.0',
+171 silly addNameRange     '2.0.1',
+171 silly addNameRange     '2.0.2',
+171 silly addNameRange     '2.0.3',
+171 silly addNameRange     '2.1.0',
+171 silly addNameRange     '2.2.0',
+171 silly addNameRange     '2.3.0',
+171 silly addNameRange     '2.4.0',
+171 silly addNameRange     '2.5.0',
+171 silly addNameRange     '2.5.1',
+171 silly addNameRange     '2.6.0',
+171 silly addNameRange     '2.7.0',
+171 silly addNameRange     '2.8.0',
+171 silly addNameRange     '2.9.0',
+171 silly addNameRange     '2.10.0',
+171 silly addNameRange     '2.11.0',
+171 silly addNameRange     '2.11.1' ] ]
+172 verbose addNamed [ 'zmq', '2.11.1' ]
+173 verbose addNamed [ '2.11.1', '2.11.1' ]
+174 silly lockFile 2e00cfae-zmq-2-11-1 zmq@2.11.1
+175 verbose lock zmq@2.11.1 /Users/jaredgodfrey/.npm/2e00cfae-zmq-2-11-1.lock
+176 silly lockFile 90b69d15-node-uuid-1-3-3 node-uuid@1.3.3
+177 silly lockFile 90b69d15-node-uuid-1-3-3 node-uuid@1.3.3
+178 silly lockFile 99e765c4-underscore-1-3-3 underscore@1.3.3
+179 silly lockFile 99e765c4-underscore-1-3-3 underscore@1.3.3
+180 silly lockFile 471f1817-msgpack-0-2-6 msgpack@0.2.6
+181 silly lockFile 471f1817-msgpack-0-2-6 msgpack@0.2.6
+182 silly lockFile 2e00cfae-zmq-2-11-1 zmq@2.11.1
+183 silly lockFile 2e00cfae-zmq-2-11-1 zmq@2.11.1
+184 silly lockFile 1919049f-zmq-2-x zmq@2.x
+185 silly lockFile 1919049f-zmq-2-x zmq@2.x
+186 silly resolved [ { name: 'underscore',
+186 silly resolved     description: 'JavaScript\'s functional programming helper library.',
+186 silly resolved     homepage: 'http://documentcloud.github.com/underscore/',
+186 silly resolved     keywords: [ 'util', 'functional', 'server', 'client', 'browser' ],
+186 silly resolved     author: { name: 'Jeremy Ashkenas', email: 'jeremy@documentcloud.org' },
+186 silly resolved     repository:
+186 silly resolved      { type: 'git',
+186 silly resolved        url: 'git://github.com/documentcloud/underscore.git' },
+186 silly resolved     main: 'underscore.js',
+186 silly resolved     version: '1.3.3',
+186 silly resolved     _npmUser: { name: 'jashkenas', email: 'jashkenas@gmail.com' },
+186 silly resolved     _id: 'underscore@1.3.3',
+186 silly resolved     dependencies: {},
+186 silly resolved     devDependencies: {},
+186 silly resolved     optionalDependencies: {},
+186 silly resolved     engines: { node: '*' },
+186 silly resolved     _engineSupported: true,
+186 silly resolved     _npmVersion: '1.1.1',
+186 silly resolved     _nodeVersion: 'v0.6.11',
+186 silly resolved     _defaultsLoaded: true,
+186 silly resolved     dist:
+186 silly resolved      { shasum: '47ac53683daf832bfa952e1774417da47817ae42',
+186 silly resolved        tarball: 'http://registry.npmjs.org/underscore/-/underscore-1.3.3.tgz' },
+186 silly resolved     maintainers: [ [Object], [Object] ],
+186 silly resolved     directories: {},
+186 silly resolved     _shasum: '47ac53683daf832bfa952e1774417da47817ae42',
+186 silly resolved     _from: 'underscore@1.3.3',
+186 silly resolved     _resolved: 'https://registry.npmjs.org/underscore/-/underscore-1.3.3.tgz',
+186 silly resolved     bugs: { url: 'https://github.com/documentcloud/underscore/issues' },
+186 silly resolved     readme: 'ERROR: No README data found!' },
+186 silly resolved   { name: 'msgpack',
+186 silly resolved     description: 'A space-efficient object serialization library for node.js',
+186 silly resolved     version: '0.2.6',
+186 silly resolved     homepage: 'https://github.com/msgpack/msgpack-node',
+186 silly resolved     contributors:
+186 silly resolved      [ [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object] ],
+186 silly resolved     repository:
+186 silly resolved      { type: 'git',
+186 silly resolved        url: 'https://github.com/msgpack/msgpack-node.git' },
+186 silly resolved     main: './lib/msgpack',
+186 silly resolved     directories: { lib: 'lib' },
+186 silly resolved     dependencies: { nan: '^1.6.2' },
+186 silly resolved     devDependencies: { nodeunit: 'https://github.com/godsflaw/nodeunit/archive/master.tar.gz' },
+186 silly resolved     engines: { node: '>=0.8.x' },
+186 silly resolved     bin:
+186 silly resolved      { json2msgpack: './bin/json2msgpack',
+186 silly resolved        msgpack2json: './bin/msgpack2json' },
+186 silly resolved     scripts: { test: './run_tests', install: 'node-gyp rebuild' },
+186 silly resolved     gypfile: true,
+186 silly resolved     gitHead: 'eeaafcbdc3e70b44362f89b959ecd9a40e695d8f',
+186 silly resolved     bugs: { url: 'https://github.com/msgpack/msgpack-node/issues' },
+186 silly resolved     _id: 'msgpack@0.2.6',
+186 silly resolved     _shasum: 'e0eda501c43972efabb48eb34ee9daaeffd8eb4c',
+186 silly resolved     _from: 'msgpack@0.2.6',
+186 silly resolved     _npmVersion: '1.4.14',
+186 silly resolved     _npmUser: { name: 'godsflaw', email: 'chris@dod.net' },
+186 silly resolved     maintainers: [ [Object], [Object], [Object] ],
+186 silly resolved     dist:
+186 silly resolved      { shasum: 'e0eda501c43972efabb48eb34ee9daaeffd8eb4c',
+186 silly resolved        tarball: 'http://registry.npmjs.org/msgpack/-/msgpack-0.2.6.tgz' },
+186 silly resolved     _resolved: 'https://registry.npmjs.org/msgpack/-/msgpack-0.2.6.tgz',
+186 silly resolved     readme: 'ERROR: No README data found!' },
+186 silly resolved   { name: 'node-uuid',
+186 silly resolved     description: 'Rigorous implementation of RFC4122 (v1 and v4) UUIDs.',
+186 silly resolved     url: 'http://github.com/broofa/node-uuid',
+186 silly resolved     keywords: [ 'uuid', 'guid', 'rfc4122' ],
+186 silly resolved     author: { name: 'Robert Kieffer', email: 'robert@broofa.com' },
+186 silly resolved     contributors: [ [Object] ],
+186 silly resolved     lib: '.',
+186 silly resolved     main: './uuid.js',
+186 silly resolved     repository: { type: 'git', url: 'git://github.com/broofa/node-uuid.git' },
+186 silly resolved     version: '1.3.3',
+186 silly resolved     _npmUser: { name: 'broofa', email: 'robert@broofa.com' },
+186 silly resolved     _id: 'node-uuid@1.3.3',
+186 silly resolved     dependencies: {},
+186 silly resolved     devDependencies: {},
+186 silly resolved     engines: { node: '*' },
+186 silly resolved     _engineSupported: true,
+186 silly resolved     _npmVersion: '1.0.106',
+186 silly resolved     _nodeVersion: 'v0.4.6',
+186 silly resolved     _defaultsLoaded: true,
+186 silly resolved     dist:
+186 silly resolved      { shasum: 'd3db4d7b56810d9e4032342766282af07391729b',
+186 silly resolved        tarball: 'http://registry.npmjs.org/node-uuid/-/node-uuid-1.3.3.tgz' },
+186 silly resolved     maintainers: [ [Object] ],
+186 silly resolved     directories: {},
+186 silly resolved     _shasum: 'd3db4d7b56810d9e4032342766282af07391729b',
+186 silly resolved     _from: 'node-uuid@1.3.3',
+186 silly resolved     _resolved: 'https://registry.npmjs.org/node-uuid/-/node-uuid-1.3.3.tgz',
+186 silly resolved     bugs: { url: 'https://github.com/broofa/node-uuid/issues' },
+186 silly resolved     readme: 'ERROR: No README data found!',
+186 silly resolved     homepage: 'https://github.com/broofa/node-uuid' },
+186 silly resolved   { name: 'zmq',
+186 silly resolved     version: '2.11.1',
+186 silly resolved     description: 'Bindings for node.js and io.js to ZeroMQ',
+186 silly resolved     main: 'index',
+186 silly resolved     repository:
+186 silly resolved      { type: 'git',
+186 silly resolved        url: 'git+ssh://git@github.com/JustinTulloss/zeromq.node.git' },
+186 silly resolved     dependencies: { nan: '~1.8.4', bindings: '~1.1.1' },
+186 silly resolved     devDependencies: { should: '2.1.x', semver: '~4.1.1', mocha: '~1.13.0' },
+186 silly resolved     engines: { node: '>=0.8' },
+186 silly resolved     scripts: { test: 'make test', install: 'node-gyp rebuild' },
+186 silly resolved     keywords:
+186 silly resolved      [ 'zeromq',
+186 silly resolved        'zmq',
+186 silly resolved        '0mq',
+186 silly resolved        'ømq',
+186 silly resolved        'libzmq',
+186 silly resolved        'native',
+186 silly resolved        'binding',
+186 silly resolved        'addon' ],
+186 silly resolved     author:
+186 silly resolved      { name: 'Justin Tulloss',
+186 silly resolved        email: 'justin.tulloss@gmail.com',
+186 silly resolved        url: 'http://justin.harmonize.fm' },
+186 silly resolved     contributors:
+186 silly resolved      [ [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object],
+186 silly resolved        [Object] ],
+186 silly resolved     gypfile: true,
+186 silly resolved     gitHead: 'f9df21688ac0aeb37d0249eb8b24198f55b86eed',
+186 silly resolved     bugs: { url: 'https://github.com/JustinTulloss/zeromq.node/issues' },
+186 silly resolved     homepage: 'https://github.com/JustinTulloss/zeromq.node#readme',
+186 silly resolved     _id: 'zmq@2.11.1',
+186 silly resolved     _shasum: '79028f7c6957518a711f98937884c700b6b47c01',
+186 silly resolved     _from: 'zmq@2.x',
+186 silly resolved     _npmVersion: '2.9.1',
+186 silly resolved     _nodeVersion: '0.12.3',
+186 silly resolved     _npmUser: { name: 'ronkorving', email: 'ron@ronkorving.nl' },
+186 silly resolved     maintainers: [ [Object], [Object], [Object] ],
+186 silly resolved     dist:
+186 silly resolved      { shasum: '79028f7c6957518a711f98937884c700b6b47c01',
+186 silly resolved        tarball: 'http://registry.npmjs.org/zmq/-/zmq-2.11.1.tgz' },
+186 silly resolved     directories: {},
+186 silly resolved     _resolved: 'https://registry.npmjs.org/zmq/-/zmq-2.11.1.tgz',
+186 silly resolved     readme: 'ERROR: No README data found!' } ]
+187 info install underscore@1.3.3 into /Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc
+188 info install msgpack@0.2.6 into /Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc
+189 info install node-uuid@1.3.3 into /Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc
+190 info install zmq@2.11.1 into /Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc
+191 info installOne underscore@1.3.3
+192 info installOne msgpack@0.2.6
+193 info installOne node-uuid@1.3.3
+194 info installOne zmq@2.11.1
+195 info /Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/underscore unbuild
+196 info /Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/msgpack unbuild
+197 info /Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/node-uuid unbuild
+198 info /Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/zmq unbuild
+199 verbose tar unpack /Users/jaredgodfrey/.npm/underscore/1.3.3/package.tgz
+200 silly lockFile 7e6287ca--zerorpc-node-modules-underscore tar:///Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/underscore
+201 verbose lock tar:///Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/underscore /Users/jaredgodfrey/.npm/7e6287ca--zerorpc-node-modules-underscore.lock
+202 silly lockFile 08c9f1cc-npm-underscore-1-3-3-package-tgz tar:///Users/jaredgodfrey/.npm/underscore/1.3.3/package.tgz
+203 verbose lock tar:///Users/jaredgodfrey/.npm/underscore/1.3.3/package.tgz /Users/jaredgodfrey/.npm/08c9f1cc-npm-underscore-1-3-3-package-tgz.lock
+204 verbose tar unpack /Users/jaredgodfrey/.npm/msgpack/0.2.6/package.tgz
+205 silly lockFile 1b300f97-les-zerorpc-node-modules-msgpack tar:///Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/msgpack
+206 verbose lock tar:///Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/msgpack /Users/jaredgodfrey/.npm/1b300f97-les-zerorpc-node-modules-msgpack.lock
+207 silly lockFile a957e58b-ey-npm-msgpack-0-2-6-package-tgz tar:///Users/jaredgodfrey/.npm/msgpack/0.2.6/package.tgz
+208 verbose lock tar:///Users/jaredgodfrey/.npm/msgpack/0.2.6/package.tgz /Users/jaredgodfrey/.npm/a957e58b-ey-npm-msgpack-0-2-6-package-tgz.lock
+209 verbose tar unpack /Users/jaredgodfrey/.npm/node-uuid/1.3.3/package.tgz
+210 silly lockFile eba28fd2-s-zerorpc-node-modules-node-uuid tar:///Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/node-uuid
+211 verbose lock tar:///Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/node-uuid /Users/jaredgodfrey/.npm/eba28fd2-s-zerorpc-node-modules-node-uuid.lock
+212 silly lockFile ee5540f9--npm-node-uuid-1-3-3-package-tgz tar:///Users/jaredgodfrey/.npm/node-uuid/1.3.3/package.tgz
+213 verbose lock tar:///Users/jaredgodfrey/.npm/node-uuid/1.3.3/package.tgz /Users/jaredgodfrey/.npm/ee5540f9--npm-node-uuid-1-3-3-package-tgz.lock
+214 verbose tar unpack /Users/jaredgodfrey/.npm/zmq/2.11.1/package.tgz
+215 silly lockFile 888dfe8d-modules-zerorpc-node-modules-zmq tar:///Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/zmq
+216 verbose lock tar:///Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/zmq /Users/jaredgodfrey/.npm/888dfe8d-modules-zerorpc-node-modules-zmq.lock
+217 silly lockFile 8c1b0cff-dfrey-npm-zmq-2-11-1-package-tgz tar:///Users/jaredgodfrey/.npm/zmq/2.11.1/package.tgz
+218 verbose lock tar:///Users/jaredgodfrey/.npm/zmq/2.11.1/package.tgz /Users/jaredgodfrey/.npm/8c1b0cff-dfrey-npm-zmq-2-11-1-package-tgz.lock
+219 silly gunzTarPerm modes [ '755', '644' ]
+220 silly gunzTarPerm modes [ '755', '644' ]
+221 silly gunzTarPerm modes [ '755', '644' ]
+222 silly gunzTarPerm modes [ '755', '644' ]
+223 silly gunzTarPerm extractEntry .npmignore
+224 silly gunzTarPerm extractEntry package.json
+225 silly gunzTarPerm extractEntry uuid.js
+226 silly gunzTarPerm extractEntry package.json
+227 silly gunzTarPerm extractEntry CNAME
+228 silly gunzTarPerm extractEntry favicon.ico
+229 silly gunzTarPerm extractEntry .npmignore
+230 silly gunzTarPerm extractEntry README.md
+231 silly gunzTarPerm extractEntry package.json
+232 silly gunzTarPerm extractEntry LICENSE.md
+233 silly gunzTarPerm extractEntry .npmignore
+234 silly gunzTarPerm extractEntry README.md
+235 silly gunzTarPerm extractEntry index.html
+236 silly gunzTarPerm extractEntry index.js
+237 silly gunzTarPerm extractEntry LICENSE
+238 silly gunzTarPerm extractEntry binding.gyp
+239 silly gunzTarPerm extractEntry LICENSE
+240 silly gunzTarPerm extractEntry index.js
+241 silly gunzTarPerm extractEntry LICENSE
+242 silly gunzTarPerm extractEntry package.json
+243 silly gunzTarPerm extractEntry deps/msgpack/LICENSE
+244 silly gunzTarPerm extractEntry binding.gyp
+245 silly gunzTarPerm extractEntry .travis.yml
+246 silly gunzTarPerm extractEntry .gitignore
+247 silly gunzTarPerm extractEntry README.md
+248 silly gunzTarPerm extractEntry raw/
+249 silly gunzTarPerm extractEntry raw/underscore.psd
+250 silly gunzTarPerm extractEntry test/test.js
+251 silly gunzTarPerm extractEntry binding.cc
+252 silly gunzTarPerm extractEntry History.md
+253 silly gunzTarPerm extractEntry deps/msgpack/msgpack.h
+254 silly gunzTarPerm extractEntry deps/msgpack/AUTHORS
+255 silly gunzTarPerm extractEntry test/compare_v1.js
+256 silly gunzTarPerm extractEntry test/test.html
+257 silly gunzTarPerm extractEntry examples/dealer_router.js
+258 silly gunzTarPerm extractEntry examples/pub_sub.js
+259 silly gunzTarPerm extractEntry benchmark/benchmark.js
+260 silly gunzTarPerm extractEntry benchmark/bench.gnu
+261 silly gunzTarPerm extractEntry deps/msgpack/gcc_atomic.cpp
+262 silly gunzTarPerm extractEntry deps/msgpack/gcc_atomic.h
+263 silly gunzTarPerm extractEntry examples/push_pull.js
+264 silly gunzTarPerm extractEntry examples/rep_req.js
+265 silly gunzTarPerm extractEntry deps/msgpack/msgpack/unpack.h
+266 silly gunzTarPerm extractEntry deps/msgpack/msgpack/object.h
+267 silly gunzTarPerm extractEntry examples/req_rep.js
+268 silly gunzTarPerm extractEntry examples/router_dealer.js
+269 silly gunzTarPerm extractEntry benchmark/bench.sh
+270 silly gunzTarPerm extractEntry benchmark/README.md
+271 silly gunzTarPerm extractEntry examples/rpc.js
+272 silly gunzTarPerm extractEntry examples/devices/forwarder.js
+273 silly gunzTarPerm extractEntry benchmark/benchmark-native.c
+274 silly gunzTarPerm extractEntry deps/msgpack/msgpack/pack.h
+275 silly gunzTarPerm extractEntry deps/msgpack/msgpack/pack.hpp
+276 silly gunzTarPerm extractEntry deps/msgpack/msgpack/pack_define.h
+277 silly gunzTarPerm extractEntry deps/msgpack/msgpack/pack_template.h
+278 silly gunzTarPerm extractEntry deps/msgpack/msgpack/sbuffer.h
+279 silly gunzTarPerm extractEntry deps/msgpack/msgpack/sbuffer.hpp
+280 silly gunzTarPerm extractEntry deps/msgpack/msgpack/sysdep.h
+281 silly gunzTarPerm extractEntry deps/msgpack/msgpack/type/nil.hpp
+282 silly gunzTarPerm extractEntry deps/msgpack/msgpack/type/bool.hpp
+283 silly gunzTarPerm extractEntry deps/msgpack/msgpack/type/deque.hpp
+284 silly gunzTarPerm extractEntry examples/devices/queue.js
+285 silly gunzTarPerm extractEntry examples/devices/streamer.js
+286 silly gunzTarPerm extractEntry deps/msgpack/msgpack/type/fixint.hpp
+287 silly gunzTarPerm extractEntry deps/msgpack/msgpack/type/float.hpp
+288 silly gunzTarPerm extractEntry examples/workers/producer.js
+289 silly gunzTarPerm extractEntry examples/workers/worker.js
+290 silly gunzTarPerm extractEntry deps/msgpack/msgpack/type/int.hpp
+291 silly gunzTarPerm extractEntry deps/msgpack/msgpack/type/list.hpp
+292 silly gunzTarPerm extractEntry README.md
+293 silly lockFile eba28fd2-s-zerorpc-node-modules-node-uuid tar:///Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/node-uuid
+294 silly lockFile eba28fd2-s-zerorpc-node-modules-node-uuid tar:///Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/node-uuid
+295 silly gunzTarPerm extractEntry underscore-min.js
+296 silly gunzTarPerm extractEntry underscore.js
+297 silly lockFile ee5540f9--npm-node-uuid-1-3-3-package-tgz tar:///Users/jaredgodfrey/.npm/node-uuid/1.3.3/package.tgz
+298 silly lockFile ee5540f9--npm-node-uuid-1-3-3-package-tgz tar:///Users/jaredgodfrey/.npm/node-uuid/1.3.3/package.tgz
+299 silly gunzTarPerm extractEntry lib/index.js
+300 silly gunzTarPerm extractEntry test/context.js
+301 info preinstall node-uuid@1.3.3
+302 silly gunzTarPerm extractEntry deps/msgpack/msgpack/type/map.hpp
+303 silly gunzTarPerm extractEntry deps/msgpack/msgpack/type/define.hpp
+304 verbose readDependencies using package.json deps
+305 verbose readDependencies using package.json deps
+306 silly resolved []
+307 verbose about to build /Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/node-uuid
+308 info build /Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/node-uuid
+309 verbose linkStuff [ false,
+309 verbose linkStuff   false,
+309 verbose linkStuff   false,
+309 verbose linkStuff   '/Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules' ]
+310 info linkStuff node-uuid@1.3.3
+311 verbose linkBins node-uuid@1.3.3
+312 verbose linkMans node-uuid@1.3.3
+313 verbose rebuildBundles node-uuid@1.3.3
+314 info install node-uuid@1.3.3
+315 info postinstall node-uuid@1.3.3
+316 silly gunzTarPerm extractEntry test/socket.monitor.js
+317 silly gunzTarPerm extractEntry test/socket.pair.js
+318 silly gunzTarPerm extractEntry test/socket.pub-sub.js
+319 silly gunzTarPerm extractEntry test/socket.push-pull.js
+320 silly gunzTarPerm extractEntry test/socket.messages.js
+321 silly gunzTarPerm extractEntry test/socket.router.js
+322 silly gunzTarPerm extractEntry deps/msgpack/msgpack/type/pair.hpp
+323 silly gunzTarPerm extractEntry deps/msgpack/msgpack/type/raw.hpp
+324 silly gunzTarPerm extractEntry test/socket.stream.js
+325 silly gunzTarPerm extractEntry test/socket.unbind.js
+326 silly gunzTarPerm extractEntry deps/msgpack/msgpack/type/set.hpp
+327 silly gunzTarPerm extractEntry deps/msgpack/msgpack/type/string.hpp
+328 silly gunzTarPerm extractEntry test/socket.xpub-xsub.js
+329 silly gunzTarPerm extractEntry test/socket.zap.js
+330 silly gunzTarPerm extractEntry test/socket.js
+331 silly gunzTarPerm extractEntry test/zap.js
+332 silly gunzTarPerm extractEntry test/socket.events.js
+333 silly gunzTarPerm extractEntry test/zmq_proxy.js
+334 silly gunzTarPerm extractEntry deps/msgpack/msgpack/type/tr1/unordered_map.hpp
+335 silly gunzTarPerm extractEntry deps/msgpack/msgpack/type/tr1/unordered_set.hpp
+336 silly gunzTarPerm extractEntry test/zmq_proxy.xpub-xsub.js
+337 silly gunzTarPerm extractEntry test/zmq_proxy.push-pull.js
+338 silly gunzTarPerm extractEntry deps/msgpack/msgpack/type/tuple.hpp
+339 silly gunzTarPerm extractEntry deps/msgpack/msgpack/type/vector.hpp
+340 silly gunzTarPerm extractEntry test/gc.js
+341 silly gunzTarPerm extractEntry test/zmq_proxy.router-dealer.js
+342 silly gunzTarPerm extractEntry deps/msgpack/msgpack/type.hpp
+343 silly gunzTarPerm extractEntry deps/msgpack/msgpack/object.hpp
+344 silly gunzTarPerm extractEntry test/exports.js
+345 silly gunzTarPerm extractEntry test/zmq_proxy.xrep-xreq.js
+346 silly gunzTarPerm extractEntry test/socket.req-rep.js
+347 silly gunzTarPerm extractEntry test/mocha.opts
+348 silly gunzTarPerm extractEntry deps/msgpack/msgpack/unpack.hpp
+349 silly gunzTarPerm extractEntry deps/msgpack/msgpack/unpack_define.h
+350 silly gunzTarPerm extractEntry deps/msgpack/msgpack/unpack_template.h
+351 silly gunzTarPerm extractEntry deps/msgpack/msgpack/version.h
+352 silly gunzTarPerm extractEntry deps/msgpack/msgpack/vrefbuffer.h
+353 silly gunzTarPerm extractEntry deps/msgpack/msgpack/vrefbuffer.hpp
+354 silly gunzTarPerm extractEntry Makefile
+355 silly gunzTarPerm extractEntry perf/local_lat.js
+356 silly gunzTarPerm extractEntry deps/msgpack/msgpack/zbuffer.h
+357 silly gunzTarPerm extractEntry deps/msgpack/msgpack/zbuffer.hpp
+358 silly gunzTarPerm extractEntry perf/local_thr.js
+359 silly gunzTarPerm extractEntry perf/remote_lat.js
+360 silly gunzTarPerm extractEntry perf/remote_thr.js
+361 silly gunzTarPerm extractEntry windows/include/zmq.h
+362 silly gunzTarPerm extractEntry deps/msgpack/msgpack/zone.h
+363 silly gunzTarPerm extractEntry deps/msgpack/msgpack/zone.hpp
+364 silly gunzTarPerm extractEntry windows/include/zmq_utils.h
+365 silly gunzTarPerm extractEntry windows/lib/x64/libzmq-v100-mt-3_2_2.dll
+366 silly gunzTarPerm extractEntry deps/msgpack/msgpack.gyp
+367 silly gunzTarPerm extractEntry deps/msgpack/COPYING
+368 silly gunzTarPerm extractEntry deps/msgpack/msgpack.hpp
+369 silly gunzTarPerm extractEntry deps/msgpack/object.cpp
+370 silly gunzTarPerm extractEntry deps/msgpack/objectc.c
+371 silly gunzTarPerm extractEntry deps/msgpack/unpack.c
+372 silly gunzTarPerm extractEntry windows/lib/x64/libzmq-v100-mt-3_2_2.lib
+373 silly gunzTarPerm extractEntry deps/msgpack/version.c
+374 silly gunzTarPerm extractEntry deps/msgpack/vrefbuffer.c
+375 silly gunzTarPerm extractEntry windows/lib/x86/libzmq-v100-mt-3_2_2.dll
+376 silly gunzTarPerm extractEntry windows/lib/x86/libzmq-v100-mt-3_2_2.lib
+377 silly gunzTarPerm extractEntry deps/msgpack/zone.c
+378 silly gunzTarPerm extractEntry test/regression.js
+379 silly gunzTarPerm extractEntry test/benchmark/benchmark.js
+380 silly gunzTarPerm extractEntry test/fixtures/stub.js
+381 silly gunzTarPerm extractEntry test/lib/msgpack.js
+382 silly gunzTarPerm extractEntry src/msgpack.cc
+383 silly gunzTarPerm extractEntry bin/json2msgpack
+384 silly gunzTarPerm extractEntry bin/msgpack2json
+385 silly gunzTarPerm extractEntry run_tests
+386 silly gunzTarPerm extractEntry lib/msgpack.js
+387 silly lockFile 7e6287ca--zerorpc-node-modules-underscore tar:///Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/underscore
+388 silly lockFile 7e6287ca--zerorpc-node-modules-underscore tar:///Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/underscore
+389 silly lockFile 08c9f1cc-npm-underscore-1-3-3-package-tgz tar:///Users/jaredgodfrey/.npm/underscore/1.3.3/package.tgz
+390 silly lockFile 08c9f1cc-npm-underscore-1-3-3-package-tgz tar:///Users/jaredgodfrey/.npm/underscore/1.3.3/package.tgz
+391 info preinstall underscore@1.3.3
+392 verbose readDependencies using package.json deps
+393 verbose readDependencies using package.json deps
+394 silly resolved []
+395 verbose about to build /Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/underscore
+396 info build /Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/underscore
+397 verbose linkStuff [ false,
+397 verbose linkStuff   false,
+397 verbose linkStuff   false,
+397 verbose linkStuff   '/Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules' ]
+398 info linkStuff underscore@1.3.3
+399 verbose linkBins underscore@1.3.3
+400 verbose linkMans underscore@1.3.3
+401 verbose rebuildBundles underscore@1.3.3
+402 info install underscore@1.3.3
+403 info postinstall underscore@1.3.3
+404 silly lockFile 888dfe8d-modules-zerorpc-node-modules-zmq tar:///Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/zmq
+405 silly lockFile 888dfe8d-modules-zerorpc-node-modules-zmq tar:///Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/zmq
+406 silly lockFile 8c1b0cff-dfrey-npm-zmq-2-11-1-package-tgz tar:///Users/jaredgodfrey/.npm/zmq/2.11.1/package.tgz
+407 silly lockFile 8c1b0cff-dfrey-npm-zmq-2-11-1-package-tgz tar:///Users/jaredgodfrey/.npm/zmq/2.11.1/package.tgz
+408 info preinstall zmq@2.11.1
+409 verbose readDependencies using package.json deps
+410 verbose readDependencies using package.json deps
+411 verbose cache add [ 'nan@~1.8.4', null ]
+412 verbose cache add name=undefined spec="nan@~1.8.4" args=["nan@~1.8.4",null]
+413 verbose parsed url { protocol: null,
+413 verbose parsed url   slashes: null,
+413 verbose parsed url   auth: null,
+413 verbose parsed url   host: null,
+413 verbose parsed url   port: null,
+413 verbose parsed url   hostname: null,
+413 verbose parsed url   hash: null,
+413 verbose parsed url   search: null,
+413 verbose parsed url   query: null,
+413 verbose parsed url   pathname: 'nan@~1.8.4',
+413 verbose parsed url   path: 'nan@~1.8.4',
+413 verbose parsed url   href: 'nan@~1.8.4' }
+414 verbose cache add [ 'bindings@~1.1.1', null ]
+415 verbose cache add name=undefined spec="bindings@~1.1.1" args=["bindings@~1.1.1",null]
+416 verbose parsed url { protocol: null,
+416 verbose parsed url   slashes: null,
+416 verbose parsed url   auth: null,
+416 verbose parsed url   host: null,
+416 verbose parsed url   port: null,
+416 verbose parsed url   hostname: null,
+416 verbose parsed url   hash: null,
+416 verbose parsed url   search: null,
+416 verbose parsed url   query: null,
+416 verbose parsed url   pathname: 'bindings@~1.1.1',
+416 verbose parsed url   path: 'bindings@~1.1.1',
+416 verbose parsed url   href: 'bindings@~1.1.1' }
+417 verbose cache add name="nan" spec="~1.8.4" args=["nan","~1.8.4"]
+418 verbose parsed url { protocol: null,
+418 verbose parsed url   slashes: null,
+418 verbose parsed url   auth: null,
+418 verbose parsed url   host: null,
+418 verbose parsed url   port: null,
+418 verbose parsed url   hostname: null,
+418 verbose parsed url   hash: null,
+418 verbose parsed url   search: null,
+418 verbose parsed url   query: null,
+418 verbose parsed url   pathname: '~1.8.4',
+418 verbose parsed url   path: '~1.8.4',
+418 verbose parsed url   href: '~1.8.4' }
+419 verbose addNamed [ 'nan', '~1.8.4' ]
+420 verbose addNamed [ null, '>=1.8.4-0 <1.9.0-0' ]
+421 silly lockFile 0a5ed386-nan-1-8-4 nan@~1.8.4
+422 verbose lock nan@~1.8.4 /Users/jaredgodfrey/.npm/0a5ed386-nan-1-8-4.lock
+423 verbose cache add name="bindings" spec="~1.1.1" args=["bindings","~1.1.1"]
+424 verbose parsed url { protocol: null,
+424 verbose parsed url   slashes: null,
+424 verbose parsed url   auth: null,
+424 verbose parsed url   host: null,
+424 verbose parsed url   port: null,
+424 verbose parsed url   hostname: null,
+424 verbose parsed url   hash: null,
+424 verbose parsed url   search: null,
+424 verbose parsed url   query: null,
+424 verbose parsed url   pathname: '~1.1.1',
+424 verbose parsed url   path: '~1.1.1',
+424 verbose parsed url   href: '~1.1.1' }
+425 verbose addNamed [ 'bindings', '~1.1.1' ]
+426 verbose addNamed [ null, '>=1.1.1-0 <1.2.0-0' ]
+427 silly lockFile cc1512d6-bindings-1-1-1 bindings@~1.1.1
+428 verbose lock bindings@~1.1.1 /Users/jaredgodfrey/.npm/cc1512d6-bindings-1-1-1.lock
+429 silly addNameRange { name: 'nan', range: '>=1.8.4-0 <1.9.0-0', hasData: false }
+430 silly addNameRange { name: 'bindings', range: '>=1.1.1-0 <1.2.0-0', hasData: false }
+431 verbose url raw nan
+432 verbose url resolving [ 'https://registry.npmjs.org/', './nan' ]
+433 verbose url resolved https://registry.npmjs.org/nan
+434 info trying registry request attempt 1 at 11:15:38
+435 verbose etag "CWMZR9BQ6YD6KL99MGG0CU5U5"
+436 http GET https://registry.npmjs.org/nan
+437 verbose url raw bindings
+438 verbose url resolving [ 'https://registry.npmjs.org/', './bindings' ]
+439 verbose url resolved https://registry.npmjs.org/bindings
+440 info trying registry request attempt 1 at 11:15:38
+441 verbose etag "BCS5XYG9ISNJFNKEL5FLOI5HX"
+442 http GET https://registry.npmjs.org/bindings
+443 silly lockFile 1b300f97-les-zerorpc-node-modules-msgpack tar:///Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/msgpack
+444 silly lockFile 1b300f97-les-zerorpc-node-modules-msgpack tar:///Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/msgpack
+445 silly lockFile a957e58b-ey-npm-msgpack-0-2-6-package-tgz tar:///Users/jaredgodfrey/.npm/msgpack/0.2.6/package.tgz
+446 silly lockFile a957e58b-ey-npm-msgpack-0-2-6-package-tgz tar:///Users/jaredgodfrey/.npm/msgpack/0.2.6/package.tgz
+447 info preinstall msgpack@0.2.6
+448 verbose readDependencies using package.json deps
+449 verbose readDependencies using package.json deps
+450 verbose cache add [ 'nan@^1.6.2', null ]
+451 verbose cache add name=undefined spec="nan@^1.6.2" args=["nan@^1.6.2",null]
+452 verbose parsed url { protocol: null,
+452 verbose parsed url   slashes: null,
+452 verbose parsed url   auth: null,
+452 verbose parsed url   host: null,
+452 verbose parsed url   port: null,
+452 verbose parsed url   hostname: null,
+452 verbose parsed url   hash: null,
+452 verbose parsed url   search: null,
+452 verbose parsed url   query: null,
+452 verbose parsed url   pathname: 'nan@^1.6.2',
+452 verbose parsed url   path: 'nan@^1.6.2',
+452 verbose parsed url   href: 'nan@^1.6.2' }
+453 verbose cache add name="nan" spec="^1.6.2" args=["nan","^1.6.2"]
+454 verbose parsed url { protocol: null,
+454 verbose parsed url   slashes: null,
+454 verbose parsed url   auth: null,
+454 verbose parsed url   host: null,
+454 verbose parsed url   port: null,
+454 verbose parsed url   hostname: null,
+454 verbose parsed url   hash: null,
+454 verbose parsed url   search: null,
+454 verbose parsed url   query: null,
+454 verbose parsed url   pathname: '^1.6.2',
+454 verbose parsed url   path: '^1.6.2',
+454 verbose parsed url   href: '^1.6.2' }
+455 verbose addNamed [ 'nan', '^1.6.2' ]
+456 verbose addNamed [ null, '>=1.6.2-0 <2.0.0-0' ]
+457 silly lockFile 533577ce-nan-1-6-2 nan@^1.6.2
+458 verbose lock nan@^1.6.2 /Users/jaredgodfrey/.npm/533577ce-nan-1-6-2.lock
+459 silly addNameRange { name: 'nan', range: '>=1.6.2-0 <2.0.0-0', hasData: false }
+460 verbose url raw nan
+461 verbose url resolving [ 'https://registry.npmjs.org/', './nan' ]
+462 verbose url resolved https://registry.npmjs.org/nan
+463 info trying registry request attempt 1 at 11:15:38
+464 verbose etag "CWMZR9BQ6YD6KL99MGG0CU5U5"
+465 http GET https://registry.npmjs.org/nan
+466 http 304 https://registry.npmjs.org/bindings
+467 silly registry.get cb [ 304,
+467 silly registry.get   { date: 'Sat, 27 Jun 2015 18:15:38 GMT',
+467 silly registry.get     via: '1.1 varnish',
+467 silly registry.get     'cache-control': 'max-age=60',
+467 silly registry.get     etag: '"BCS5XYG9ISNJFNKEL5FLOI5HX"',
+467 silly registry.get     age: '57',
+467 silly registry.get     connection: 'keep-alive',
+467 silly registry.get     'x-served-by': 'cache-lax1420-LAX',
+467 silly registry.get     'x-cache': 'HIT',
+467 silly registry.get     'x-cache-hits': '1',
+467 silly registry.get     'x-timer': 'S1435428938.821789,VS0,VE0',
+467 silly registry.get     vary: 'Accept' } ]
+468 verbose etag bindings from cache
+469 silly addNameRange number 2 { name: 'bindings', range: '>=1.1.1-0 <1.2.0-0', hasData: true }
+470 silly addNameRange versions [ 'bindings',
+470 silly addNameRange   [ '0.0.1',
+470 silly addNameRange     '0.1.0',
+470 silly addNameRange     '0.1.1',
+470 silly addNameRange     '0.2.0',
+470 silly addNameRange     '0.2.1',
+470 silly addNameRange     '0.2.2',
+470 silly addNameRange     '0.2.3',
+470 silly addNameRange     '0.2.4',
+470 silly addNameRange     '0.3.0',
+470 silly addNameRange     '0.4.0',
+470 silly addNameRange     '1.0.0',
+470 silly addNameRange     '1.1.0',
+470 silly addNameRange     '1.1.1',
+470 silly addNameRange     '1.2.0',
+470 silly addNameRange     '1.2.1' ] ]
+471 verbose addNamed [ 'bindings', '1.1.1' ]
+472 verbose addNamed [ '1.1.1', '1.1.1' ]
+473 silly lockFile 52dd60a7-bindings-1-1-1 bindings@1.1.1
+474 verbose lock bindings@1.1.1 /Users/jaredgodfrey/.npm/52dd60a7-bindings-1-1-1.lock
+475 silly lockFile 52dd60a7-bindings-1-1-1 bindings@1.1.1
+476 silly lockFile 52dd60a7-bindings-1-1-1 bindings@1.1.1
+477 silly lockFile cc1512d6-bindings-1-1-1 bindings@~1.1.1
+478 silly lockFile cc1512d6-bindings-1-1-1 bindings@~1.1.1
+479 http 304 https://registry.npmjs.org/nan
+480 silly registry.get cb [ 304,
+480 silly registry.get   { date: 'Sat, 27 Jun 2015 18:15:38 GMT',
+480 silly registry.get     via: '1.1 varnish',
+480 silly registry.get     'cache-control': 'max-age=60',
+480 silly registry.get     etag: '"CWMZR9BQ6YD6KL99MGG0CU5U5"',
+480 silly registry.get     age: '14',
+480 silly registry.get     connection: 'keep-alive',
+480 silly registry.get     'x-served-by': 'cache-lax1431-LAX',
+480 silly registry.get     'x-cache': 'HIT',
+480 silly registry.get     'x-cache-hits': '1',
+480 silly registry.get     'x-timer': 'S1435428938.842946,VS0,VE1',
+480 silly registry.get     vary: 'Accept' } ]
+481 verbose etag nan from cache
+482 silly addNameRange number 2 { name: 'nan', range: '>=1.8.4-0 <1.9.0-0', hasData: true }
+483 silly addNameRange versions [ 'nan',
+483 silly addNameRange   [ '0.3.0-wip',
+483 silly addNameRange     '0.3.0-wip2',
+483 silly addNameRange     '0.3.0',
+483 silly addNameRange     '0.3.1',
+483 silly addNameRange     '0.3.2',
+483 silly addNameRange     '0.4.0',
+483 silly addNameRange     '0.4.1',
+483 silly addNameRange     '0.4.2',
+483 silly addNameRange     '0.4.3',
+483 silly addNameRange     '0.4.4',
+483 silly addNameRange     '0.5.0',
+483 silly addNameRange     '0.5.1',
+483 silly addNameRange     '0.5.2',
+483 silly addNameRange     '0.6.0',
+483 silly addNameRange     '0.7.0',
+483 silly addNameRange     '0.7.1',
+483 silly addNameRange     '0.8.0',
+483 silly addNameRange     '1.0.0',
+483 silly addNameRange     '1.1.0',
+483 silly addNameRange     '1.1.1',
+483 silly addNameRange     '1.1.2',
+483 silly addNameRange     '1.2.0',
+483 silly addNameRange     '1.3.0',
+483 silly addNameRange     '1.4.0',
+483 silly addNameRange     '1.4.1',
+483 silly addNameRange     '1.5.0',
+483 silly addNameRange     '1.4.2',
+483 silly addNameRange     '1.4.3',
+483 silly addNameRange     '1.5.1',
+483 silly addNameRange     '1.5.2',
+483 silly addNameRange     '1.6.0',
+483 silly addNameRange     '1.5.3',
+483 silly addNameRange     '1.6.1',
+483 silly addNameRange     '1.6.2',
+483 silly addNameRange     '1.7.0',
+483 silly addNameRange     '1.8.0',
+483 silly addNameRange     '1.8.1',
+483 silly addNameRange     '1.8.2',
+483 silly addNameRange     '1.8.3',
+483 silly addNameRange     '1.8.4' ] ]
+484 verbose addNamed [ 'nan', '1.8.4' ]
+485 verbose addNamed [ '1.8.4', '1.8.4' ]
+486 silly lockFile 86d5700b-nan-1-8-4 nan@1.8.4
+487 verbose lock nan@1.8.4 /Users/jaredgodfrey/.npm/86d5700b-nan-1-8-4.lock
+488 silly lockFile 86d5700b-nan-1-8-4 nan@1.8.4
+489 silly lockFile 86d5700b-nan-1-8-4 nan@1.8.4
+490 silly lockFile 0a5ed386-nan-1-8-4 nan@~1.8.4
+491 silly lockFile 0a5ed386-nan-1-8-4 nan@~1.8.4
+492 silly resolved [ { name: 'bindings',
+492 silly resolved     description: 'Helper module for loading your native module\'s .node file',
+492 silly resolved     keywords: [ 'native', 'addon', 'bindings', 'gyp', 'waf', 'c', 'c++' ],
+492 silly resolved     version: '1.1.1',
+492 silly resolved     author:
+492 silly resolved      { name: 'Nathan Rajlich',
+492 silly resolved        email: 'nathan@tootallnate.net',
+492 silly resolved        url: 'http://tootallnate.net' },
+492 silly resolved     repository:
+492 silly resolved      { type: 'git',
+492 silly resolved        url: 'git://github.com/TooTallNate/node-bindings.git' },
+492 silly resolved     main: './bindings.js',
+492 silly resolved     bugs: { url: 'https://github.com/TooTallNate/node-bindings/issues' },
+492 silly resolved     _id: 'bindings@1.1.1',
+492 silly resolved     dist:
+492 silly resolved      { shasum: '951f7ae010302ffc50b265b124032017ed2bf6f3',
+492 silly resolved        tarball: 'http://registry.npmjs.org/bindings/-/bindings-1.1.1.tgz' },
+492 silly resolved     _from: 'bindings@~1.1.1',
+492 silly resolved     _npmVersion: '1.3.2',
+492 silly resolved     _npmUser: { name: 'tootallnate', email: 'nathan@tootallnate.net' },
+492 silly resolved     maintainers: [ [Object], [Object] ],
+492 silly resolved     directories: {},
+492 silly resolved     _shasum: '951f7ae010302ffc50b265b124032017ed2bf6f3',
+492 silly resolved     _resolved: 'https://registry.npmjs.org/bindings/-/bindings-1.1.1.tgz',
+492 silly resolved     readme: 'ERROR: No README data found!',
+492 silly resolved     homepage: 'https://github.com/TooTallNate/node-bindings' },
+492 silly resolved   { name: 'nan',
+492 silly resolved     version: '1.8.4',
+492 silly resolved     description: 'Native Abstractions for Node.js: C++ header for Node 0.8->0.12 compatibility',
+492 silly resolved     main: 'include_dirs.js',
+492 silly resolved     repository: { type: 'git', url: 'git://github.com/iojs/nan.git' },
+492 silly resolved     scripts:
+492 silly resolved      { test: 'tap --gc test/js/*-test.js',
+492 silly resolved        'rebuild-tests': 'pangyp rebuild --directory test' },
+492 silly resolved     contributors:
+492 silly resolved      [ [Object],
+492 silly resolved        [Object],
+492 silly resolved        [Object],
+492 silly resolved        [Object],
+492 silly resolved        [Object],
+492 silly resolved        [Object],
+492 silly resolved        [Object] ],
+492 silly resolved     devDependencies:
+492 silly resolved      { bindings: '~1.2.1',
+492 silly resolved        'node-gyp': '~1.0.2',
+492 silly resolved        pangyp: '~2.0.1',
+492 silly resolved        tap: '~0.7.1',
+492 silly resolved        xtend: '~4.0.0' },
+492 silly resolved     license: 'MIT',
+492 silly resolved     gitHead: 'ed3bbf4ced0cf7937b4e4164766797f71aa97f3d',
+492 silly resolved     bugs: { url: 'https://github.com/iojs/nan/issues' },
+492 silly resolved     homepage: 'https://github.com/iojs/nan#readme',
+492 silly resolved     _id: 'nan@1.8.4',
+492 silly resolved     _shasum: '3c76b5382eab33e44b758d2813ca9d92e9342f34',
+492 silly resolved     _from: 'nan@~1.8.4',
+492 silly resolved     _npmVersion: '2.8.3',
+492 silly resolved     _nodeVersion: '0.12.2',
+492 silly resolved     _npmUser: { name: 'kkoopa', email: 'bbyholm@abo.fi' },
+492 silly resolved     maintainers: [ [Object], [Object] ],
+492 silly resolved     dist:
+492 silly resolved      { shasum: '3c76b5382eab33e44b758d2813ca9d92e9342f34',
+492 silly resolved        tarball: 'http://registry.npmjs.org/nan/-/nan-1.8.4.tgz' },
+492 silly resolved     directories: {},
+492 silly resolved     _resolved: 'https://registry.npmjs.org/nan/-/nan-1.8.4.tgz',
+492 silly resolved     readme: 'ERROR: No README data found!' } ]
+493 info install bindings@1.1.1 into /Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/zmq
+494 info install nan@1.8.4 into /Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/zmq
+495 info installOne bindings@1.1.1
+496 info installOne nan@1.8.4
+497 info /Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/zmq/node_modules/bindings unbuild
+498 info /Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/zmq/node_modules/nan unbuild
+499 verbose tar unpack /Users/jaredgodfrey/.npm/bindings/1.1.1/package.tgz
+500 silly lockFile 49761bd4-odules-zmq-node-modules-bindings tar:///Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/zmq/node_modules/bindings
+501 verbose lock tar:///Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/zmq/node_modules/bindings /Users/jaredgodfrey/.npm/49761bd4-odules-zmq-node-modules-bindings.lock
+502 silly lockFile 964a0726-y-npm-bindings-1-1-1-package-tgz tar:///Users/jaredgodfrey/.npm/bindings/1.1.1/package.tgz
+503 verbose lock tar:///Users/jaredgodfrey/.npm/bindings/1.1.1/package.tgz /Users/jaredgodfrey/.npm/964a0726-y-npm-bindings-1-1-1-package-tgz.lock
+504 verbose tar unpack /Users/jaredgodfrey/.npm/nan/1.8.4/package.tgz
+505 silly lockFile 65f4d639-ode-modules-zmq-node-modules-nan tar:///Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/zmq/node_modules/nan
+506 verbose lock tar:///Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/zmq/node_modules/nan /Users/jaredgodfrey/.npm/65f4d639-ode-modules-zmq-node-modules-nan.lock
+507 silly lockFile ad97dc7a-odfrey-npm-nan-1-8-4-package-tgz tar:///Users/jaredgodfrey/.npm/nan/1.8.4/package.tgz
+508 verbose lock tar:///Users/jaredgodfrey/.npm/nan/1.8.4/package.tgz /Users/jaredgodfrey/.npm/ad97dc7a-odfrey-npm-nan-1-8-4-package-tgz.lock
+509 silly gunzTarPerm modes [ '755', '644' ]
+510 silly gunzTarPerm modes [ '755', '644' ]
+511 silly gunzTarPerm extractEntry package.json
+512 silly gunzTarPerm extractEntry package.json
+513 silly gunzTarPerm modified mode [ 'package.json', 436, 420 ]
+514 silly gunzTarPerm extractEntry README.md
+515 silly gunzTarPerm extractEntry bindings.js
+516 silly gunzTarPerm extractEntry README.md
+517 silly gunzTarPerm modified mode [ 'README.md', 436, 420 ]
+518 silly gunzTarPerm extractEntry include_dirs.js
+519 silly gunzTarPerm modified mode [ 'include_dirs.js', 436, 420 ]
+520 silly gunzTarPerm extractEntry LICENSE.md
+521 silly gunzTarPerm modified mode [ 'LICENSE.md', 436, 420 ]
+522 silly gunzTarPerm extractEntry .dntrc
+523 silly gunzTarPerm modified mode [ '.dntrc', 436, 420 ]
+524 silly lockFile 49761bd4-odules-zmq-node-modules-bindings tar:///Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/zmq/node_modules/bindings
+525 silly lockFile 49761bd4-odules-zmq-node-modules-bindings tar:///Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/zmq/node_modules/bindings
+526 silly lockFile 964a0726-y-npm-bindings-1-1-1-package-tgz tar:///Users/jaredgodfrey/.npm/bindings/1.1.1/package.tgz
+527 silly lockFile 964a0726-y-npm-bindings-1-1-1-package-tgz tar:///Users/jaredgodfrey/.npm/bindings/1.1.1/package.tgz
+528 info preinstall bindings@1.1.1
+529 verbose readDependencies using package.json deps
+530 verbose readDependencies using package.json deps
+531 silly resolved []
+532 verbose about to build /Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/zmq/node_modules/bindings
+533 info build /Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/zmq/node_modules/bindings
+534 verbose linkStuff [ false,
+534 verbose linkStuff   false,
+534 verbose linkStuff   false,
+534 verbose linkStuff   '/Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/zmq/node_modules' ]
+535 info linkStuff bindings@1.1.1
+536 verbose linkBins bindings@1.1.1
+537 verbose linkMans bindings@1.1.1
+538 verbose rebuildBundles bindings@1.1.1
+539 info install bindings@1.1.1
+540 info postinstall bindings@1.1.1
+541 silly gunzTarPerm extractEntry appveyor.yml
+542 silly gunzTarPerm modified mode [ 'appveyor.yml', 436, 420 ]
+543 silly gunzTarPerm extractEntry nan.h
+544 silly gunzTarPerm modified mode [ 'nan.h', 436, 420 ]
+545 silly gunzTarPerm extractEntry nan_implementation_12_inl.h
+546 silly gunzTarPerm modified mode [ 'nan_implementation_12_inl.h', 436, 420 ]
+547 silly gunzTarPerm extractEntry nan_implementation_pre_12_inl.h
+548 silly gunzTarPerm modified mode [ 'nan_implementation_pre_12_inl.h', 436, 420 ]
+549 silly gunzTarPerm extractEntry nan_new.h
+550 silly gunzTarPerm modified mode [ 'nan_new.h', 436, 420 ]
+551 silly gunzTarPerm extractEntry nan_string_bytes.h
+552 silly gunzTarPerm modified mode [ 'nan_string_bytes.h', 436, 420 ]
+553 silly gunzTarPerm extractEntry CHANGELOG.md
+554 silly gunzTarPerm modified mode [ 'CHANGELOG.md', 436, 420 ]
+555 http 304 https://registry.npmjs.org/nan
+556 silly registry.get cb [ 304,
+556 silly registry.get   { date: 'Sat, 27 Jun 2015 18:15:38 GMT',
+556 silly registry.get     via: '1.1 varnish',
+556 silly registry.get     'cache-control': 'max-age=60',
+556 silly registry.get     etag: '"CWMZR9BQ6YD6KL99MGG0CU5U5"',
+556 silly registry.get     age: '15',
+556 silly registry.get     connection: 'keep-alive',
+556 silly registry.get     'x-served-by': 'cache-lax1421-LAX',
+556 silly registry.get     'x-cache': 'HIT',
+556 silly registry.get     'x-cache-hits': '1',
+556 silly registry.get     'x-timer': 'S1435428938.887264,VS0,VE0',
+556 silly registry.get     vary: 'Accept' } ]
+557 verbose etag nan from cache
+558 silly addNameRange number 2 { name: 'nan', range: '>=1.6.2-0 <2.0.0-0', hasData: true }
+559 silly addNameRange versions [ 'nan',
+559 silly addNameRange   [ '0.3.0-wip',
+559 silly addNameRange     '0.3.0-wip2',
+559 silly addNameRange     '0.3.0',
+559 silly addNameRange     '0.3.1',
+559 silly addNameRange     '0.3.2',
+559 silly addNameRange     '0.4.0',
+559 silly addNameRange     '0.4.1',
+559 silly addNameRange     '0.4.2',
+559 silly addNameRange     '0.4.3',
+559 silly addNameRange     '0.4.4',
+559 silly addNameRange     '0.5.0',
+559 silly addNameRange     '0.5.1',
+559 silly addNameRange     '0.5.2',
+559 silly addNameRange     '0.6.0',
+559 silly addNameRange     '0.7.0',
+559 silly addNameRange     '0.7.1',
+559 silly addNameRange     '0.8.0',
+559 silly addNameRange     '1.0.0',
+559 silly addNameRange     '1.1.0',
+559 silly addNameRange     '1.1.1',
+559 silly addNameRange     '1.1.2',
+559 silly addNameRange     '1.2.0',
+559 silly addNameRange     '1.3.0',
+559 silly addNameRange     '1.4.0',
+559 silly addNameRange     '1.4.1',
+559 silly addNameRange     '1.5.0',
+559 silly addNameRange     '1.4.2',
+559 silly addNameRange     '1.4.3',
+559 silly addNameRange     '1.5.1',
+559 silly addNameRange     '1.5.2',
+559 silly addNameRange     '1.6.0',
+559 silly addNameRange     '1.5.3',
+559 silly addNameRange     '1.6.1',
+559 silly addNameRange     '1.6.2',
+559 silly addNameRange     '1.7.0',
+559 silly addNameRange     '1.8.0',
+559 silly addNameRange     '1.8.1',
+559 silly addNameRange     '1.8.2',
+559 silly addNameRange     '1.8.3',
+559 silly addNameRange     '1.8.4' ] ]
+560 verbose addNamed [ 'nan', '1.8.4' ]
+561 verbose addNamed [ '1.8.4', '1.8.4' ]
+562 silly lockFile 86d5700b-nan-1-8-4 nan@1.8.4
+563 verbose lock nan@1.8.4 /Users/jaredgodfrey/.npm/86d5700b-nan-1-8-4.lock
+564 silly lockFile 86d5700b-nan-1-8-4 nan@1.8.4
+565 silly lockFile 86d5700b-nan-1-8-4 nan@1.8.4
+566 silly lockFile 533577ce-nan-1-6-2 nan@^1.6.2
+567 silly lockFile 533577ce-nan-1-6-2 nan@^1.6.2
+568 silly resolved [ { name: 'nan',
+568 silly resolved     version: '1.8.4',
+568 silly resolved     description: 'Native Abstractions for Node.js: C++ header for Node 0.8->0.12 compatibility',
+568 silly resolved     main: 'include_dirs.js',
+568 silly resolved     repository: { type: 'git', url: 'git://github.com/iojs/nan.git' },
+568 silly resolved     scripts:
+568 silly resolved      { test: 'tap --gc test/js/*-test.js',
+568 silly resolved        'rebuild-tests': 'pangyp rebuild --directory test' },
+568 silly resolved     contributors:
+568 silly resolved      [ [Object],
+568 silly resolved        [Object],
+568 silly resolved        [Object],
+568 silly resolved        [Object],
+568 silly resolved        [Object],
+568 silly resolved        [Object],
+568 silly resolved        [Object] ],
+568 silly resolved     devDependencies:
+568 silly resolved      { bindings: '~1.2.1',
+568 silly resolved        'node-gyp': '~1.0.2',
+568 silly resolved        pangyp: '~2.0.1',
+568 silly resolved        tap: '~0.7.1',
+568 silly resolved        xtend: '~4.0.0' },
+568 silly resolved     license: 'MIT',
+568 silly resolved     gitHead: 'ed3bbf4ced0cf7937b4e4164766797f71aa97f3d',
+568 silly resolved     bugs: { url: 'https://github.com/iojs/nan/issues' },
+568 silly resolved     homepage: 'https://github.com/iojs/nan#readme',
+568 silly resolved     _id: 'nan@1.8.4',
+568 silly resolved     _shasum: '3c76b5382eab33e44b758d2813ca9d92e9342f34',
+568 silly resolved     _from: 'nan@^1.6.2',
+568 silly resolved     _npmVersion: '2.8.3',
+568 silly resolved     _nodeVersion: '0.12.2',
+568 silly resolved     _npmUser: { name: 'kkoopa', email: 'bbyholm@abo.fi' },
+568 silly resolved     maintainers: [ [Object], [Object] ],
+568 silly resolved     dist:
+568 silly resolved      { shasum: '3c76b5382eab33e44b758d2813ca9d92e9342f34',
+568 silly resolved        tarball: 'http://registry.npmjs.org/nan/-/nan-1.8.4.tgz' },
+568 silly resolved     directories: {},
+568 silly resolved     _resolved: 'https://registry.npmjs.org/nan/-/nan-1.8.4.tgz',
+568 silly resolved     readme: 'ERROR: No README data found!' } ]
+569 info install nan@1.8.4 into /Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/msgpack
+570 info installOne nan@1.8.4
+571 info /Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/msgpack/node_modules/nan unbuild
+572 verbose tar unpack /Users/jaredgodfrey/.npm/nan/1.8.4/package.tgz
+573 silly lockFile 682c195b-modules-msgpack-node-modules-nan tar:///Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/msgpack/node_modules/nan
+574 verbose lock tar:///Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/msgpack/node_modules/nan /Users/jaredgodfrey/.npm/682c195b-modules-msgpack-node-modules-nan.lock
+575 silly lockFile ad97dc7a-odfrey-npm-nan-1-8-4-package-tgz tar:///Users/jaredgodfrey/.npm/nan/1.8.4/package.tgz
+576 verbose lock tar:///Users/jaredgodfrey/.npm/nan/1.8.4/package.tgz /Users/jaredgodfrey/.npm/ad97dc7a-odfrey-npm-nan-1-8-4-package-tgz.lock
+577 silly lockFile 65f4d639-ode-modules-zmq-node-modules-nan tar:///Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/zmq/node_modules/nan
+578 silly lockFile 65f4d639-ode-modules-zmq-node-modules-nan tar:///Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/zmq/node_modules/nan
+579 silly lockFile ad97dc7a-odfrey-npm-nan-1-8-4-package-tgz tar:///Users/jaredgodfrey/.npm/nan/1.8.4/package.tgz
+580 silly lockFile ad97dc7a-odfrey-npm-nan-1-8-4-package-tgz tar:///Users/jaredgodfrey/.npm/nan/1.8.4/package.tgz
+581 info preinstall nan@1.8.4
+582 verbose readDependencies using package.json deps
+583 verbose readDependencies using package.json deps
+584 silly resolved []
+585 verbose about to build /Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/zmq/node_modules/nan
+586 info build /Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/zmq/node_modules/nan
+587 verbose linkStuff [ false,
+587 verbose linkStuff   false,
+587 verbose linkStuff   false,
+587 verbose linkStuff   '/Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/zmq/node_modules' ]
+588 info linkStuff nan@1.8.4
+589 verbose linkBins nan@1.8.4
+590 verbose linkMans nan@1.8.4
+591 verbose rebuildBundles nan@1.8.4
+592 info install nan@1.8.4
+593 info postinstall nan@1.8.4
+594 verbose about to build /Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/zmq
+595 info build /Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/zmq
+596 verbose linkStuff [ false,
+596 verbose linkStuff   false,
+596 verbose linkStuff   false,
+596 verbose linkStuff   '/Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules' ]
+597 info linkStuff zmq@2.11.1
+598 verbose linkBins zmq@2.11.1
+599 verbose linkMans zmq@2.11.1
+600 verbose rebuildBundles zmq@2.11.1
+601 verbose rebuildBundles [ 'bindings', 'nan' ]
+602 info install zmq@2.11.1
+603 verbose unsafe-perm in lifecycle false
+604 silly gunzTarPerm modes [ '755', '644' ]
+605 silly gunzTarPerm extractEntry package.json
+606 silly gunzTarPerm modified mode [ 'package.json', 436, 420 ]
+607 silly gunzTarPerm extractEntry README.md
+608 silly gunzTarPerm modified mode [ 'README.md', 436, 420 ]
+609 silly gunzTarPerm extractEntry include_dirs.js
+610 silly gunzTarPerm modified mode [ 'include_dirs.js', 436, 420 ]
+611 silly gunzTarPerm extractEntry LICENSE.md
+612 silly gunzTarPerm modified mode [ 'LICENSE.md', 436, 420 ]
+613 silly gunzTarPerm extractEntry .dntrc
+614 silly gunzTarPerm modified mode [ '.dntrc', 436, 420 ]
+615 silly gunzTarPerm extractEntry appveyor.yml
+616 silly gunzTarPerm modified mode [ 'appveyor.yml', 436, 420 ]
+617 silly gunzTarPerm extractEntry nan.h
+618 silly gunzTarPerm modified mode [ 'nan.h', 436, 420 ]
+619 silly gunzTarPerm extractEntry nan_implementation_12_inl.h
+620 silly gunzTarPerm modified mode [ 'nan_implementation_12_inl.h', 436, 420 ]
+621 silly gunzTarPerm extractEntry nan_implementation_pre_12_inl.h
+622 silly gunzTarPerm modified mode [ 'nan_implementation_pre_12_inl.h', 436, 420 ]
+623 silly gunzTarPerm extractEntry nan_new.h
+624 silly gunzTarPerm modified mode [ 'nan_new.h', 436, 420 ]
+625 silly gunzTarPerm extractEntry nan_string_bytes.h
+626 silly gunzTarPerm modified mode [ 'nan_string_bytes.h', 436, 420 ]
+627 silly gunzTarPerm extractEntry CHANGELOG.md
+628 silly gunzTarPerm modified mode [ 'CHANGELOG.md', 436, 420 ]
+629 silly lockFile 682c195b-modules-msgpack-node-modules-nan tar:///Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/msgpack/node_modules/nan
+630 silly lockFile 682c195b-modules-msgpack-node-modules-nan tar:///Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/msgpack/node_modules/nan
+631 silly lockFile ad97dc7a-odfrey-npm-nan-1-8-4-package-tgz tar:///Users/jaredgodfrey/.npm/nan/1.8.4/package.tgz
+632 silly lockFile ad97dc7a-odfrey-npm-nan-1-8-4-package-tgz tar:///Users/jaredgodfrey/.npm/nan/1.8.4/package.tgz
+633 info preinstall nan@1.8.4
+634 verbose readDependencies using package.json deps
+635 verbose readDependencies using package.json deps
+636 silly resolved []
+637 verbose about to build /Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/msgpack/node_modules/nan
+638 info build /Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/msgpack/node_modules/nan
+639 verbose linkStuff [ false,
+639 verbose linkStuff   false,
+639 verbose linkStuff   false,
+639 verbose linkStuff   '/Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/msgpack/node_modules' ]
+640 info linkStuff nan@1.8.4
+641 verbose linkBins nan@1.8.4
+642 verbose linkMans nan@1.8.4
+643 verbose rebuildBundles nan@1.8.4
+644 info install nan@1.8.4
+645 info postinstall nan@1.8.4
+646 verbose about to build /Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/msgpack
+647 info build /Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/msgpack
+648 verbose linkStuff [ false,
+648 verbose linkStuff   false,
+648 verbose linkStuff   false,
+648 verbose linkStuff   '/Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules' ]
+649 info linkStuff msgpack@0.2.6
+650 verbose linkBins msgpack@0.2.6
+651 verbose link bins [ { json2msgpack: './bin/json2msgpack',
+651 verbose link bins     msgpack2json: './bin/msgpack2json' },
+651 verbose link bins   '/Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/.bin',
+651 verbose link bins   false ]
+652 verbose linkMans msgpack@0.2.6
+653 verbose rebuildBundles msgpack@0.2.6
+654 verbose rebuildBundles [ 'nan' ]
+655 info install msgpack@0.2.6
+656 info zmq@2.11.1 Failed to exec install script
+657 info /Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules/zmq unbuild
+658 info preuninstall zmq@2.11.1
+659 verbose unsafe-perm in lifecycle false
+660 info uninstall zmq@2.11.1
+661 verbose false,/Users/jaredgodfrey/Developer/chimera/node_modules,/Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc/node_modules unbuild zmq@2.11.1
+662 info postuninstall zmq@2.11.1
+663 verbose about to build /Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc
+664 info /Users/jaredgodfrey/Developer/chimera/node_modules/zerorpc unbuild
+665 info preuninstall zerorpc@0.9.5
+666 info uninstall zerorpc@0.9.5
+667 verbose true,/Users/jaredgodfrey/Developer/chimera/node_modules,/Users/jaredgodfrey/Developer/chimera/node_modules unbuild zerorpc@0.9.5
+668 info postuninstall zerorpc@0.9.5
+669 error zmq@2.11.1 install: `node-gyp rebuild`
+669 error Exit status 1
+670 error Failed at the zmq@2.11.1 install script.
+670 error This is most likely a problem with the zmq package,
+670 error not with npm itself.
+670 error Tell the author that this fails on your system:
+670 error     node-gyp rebuild
+670 error You can get their info via:
+670 error     npm owner ls zmq
+670 error There is likely additional logging output above.
+671 error System Darwin 14.1.0
+672 error command "node" "/usr/local/bin/npm" "install" "--save" "zerorpc"
+673 error cwd /Users/jaredgodfrey/Developer/chimera
+674 error node -v v0.10.29
+675 error npm -v 1.4.14
+676 error code ELIFECYCLE
+677 verbose exit [ 1, true ]
