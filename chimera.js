@@ -8,14 +8,14 @@ events = require('events');
 
 var e = new events.EventEmitter();
 var client = new zerorpc.Client();
-client.connect();
+client.connect('tcp://127.0.0.1:5050');
 
 //Preparing to derive data from POST
 wc.use(bodyParser.urlencoded({extended: true}));
 wc.use(bodyParser.json());
 
 var PORT = 8080;
-var ZMQ_PORT = 8080;
+var ZMQ_PORT = 5050;
 
 //The routes for out API
 var router = express.Router();
@@ -27,8 +27,15 @@ router.get('/', function(req, res){
 });
 
 router.get('/climb/:topic', function(req, res){
-  client.invoke("climber", { topic : req.params.topic }, function(err, res, more){
-    console.log(res);
+  client.invoke("climb", req.params.topic, function(err, res, more){
+    if(err){
+        console.error(res);
+    }
+    else{
+      if(!more){
+        console.log(res);
+      }
+    }
   });
 });
 
