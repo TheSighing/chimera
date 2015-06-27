@@ -9,5 +9,5 @@ class Climber(object):
         return BeautifulSoup(r.text)
 
 s = zerorpc.Server(Climber)
-s.bind("tcp://0.0.0.0:4242")
+s.bind("tcp://0.0.0.0:5050")
 s.run()
