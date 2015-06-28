@@ -1,6 +1,6 @@
 var zerorpc = require("zerorpc"),
 express = require('express'),
-wc = express(),
+chimera = express(),
 bodyParser = require('body-parser'),
 //TODO: replace with uri-request
 async = require('async'),
@@ -11,8 +11,8 @@ var client = new zerorpc.Client();
 client.connect('tcp://127.0.0.1:5050');
 
 //Preparing to derive data from POST
-wc.use(bodyParser.urlencoded({extended: true}));
-wc.use(bodyParser.json());
+chimera.use(bodyParser.urlencoded({extended: true}));
+chimera.use(bodyParser.json());
 
 var PORT = 8080;
 var ZMQ_PORT = 5050;
@@ -40,10 +40,10 @@ router.get('/climb/:topic', function(req, res){
 });
 
 //Prefixing all the routes in the api
-wc.use('/api', router);
+chimera.use('/api', router);
 
 //Starting Server
-wc.listen(PORT);
+chimera.listen(PORT);
 console.log('Base of the cliff is at port ', PORT);
 
-exports = module.exports = wc;
+exports = module.exports = chimera;
