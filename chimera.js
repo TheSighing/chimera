@@ -27,14 +27,15 @@ router.get('/', function(req, res){
 });
 
 router.get('/climb/:topic', function(req, res){
-  client.invoke("climb", req.params.topic, function(err, res, more){
+  client.invoke("climb", req.params.topic, function(err, resp, more){
     if(err){
-        console.error(res);
+      console.error(resp);
     }
     else{
-      if(!more){
-        console.log(res);
-      }
+      res.send(resp);
+    }
+    if (!more) {
+      console.log("Done.");
     }
   });
 });

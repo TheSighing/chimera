@@ -7,9 +7,10 @@ class Climber():
         url = 'http://en.wikipedia.org/?title=%s' % topic
         r = requests.get(url)
         soup = BeautifulSoup(r.text)
-        p = soup.find_all('p')[0].get_text()
+        paragraphs = soup.find_all('p')
 
-        return p
+        return [p.get_text() for p in paragraphs]    
+
 
 s = zerorpc.Server(Climber())
 s.bind("tcp://0.0.0.0:5050")
