@@ -27,6 +27,8 @@ class Climber():
 
         for s in sub_contexts:
             if(s in main_contexts):
+                c = s;
+            else:
                 bubble = Bubble(c, s)
                 wiki.append(bubble)
 
