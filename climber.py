@@ -16,19 +16,19 @@ class Climber():
         soup = BeautifulSoup(r.text)
 
         paragraphs = [ p.get_text() for p in soup.find_all('p') ]
-        contexts = soup.find_all('h2#mw-headline')
-        sub_contexts = soup.find_all('h3#mw-headline')
+        main_contexts = [ h2.get_text() for h2 in soup.find_all('h2') if(h2.get_text().lower() != 'contents') ]
+        contexts = [ c.get_text() for c in soup.find_all('span', { "class" : "mw-headline" }) ]
 
-        print(sub_contexts)
         print(contexts)
-
+        print("::::::::::::::::::::")
+        print(main_contexts)
 
         wiki = []
 
         for s in sub_contexts:
-            print(s.previous_sibling)
-            bubble = Bubble(c, s)
-            wiki.append(bubble)
+            if(s in main_contexts):
+                bubble = Bubble(c, s)
+                wiki.append(bubble)
 
         return wiki
 
