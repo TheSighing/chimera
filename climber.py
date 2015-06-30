@@ -8,13 +8,14 @@ class Climber():
         url = 'http://en.wikipedia.org/?title=%s' % topic
         r = requests.get(url)
         soup = BeautifulSoup(r.text)
-        paragraphs = [p.get_text() for p in soup.find_all('p')]
-        related = soup.find_all('a')
+
+        paragraphs = [ p.get_text() for p in soup.find_all('p') ]
+        links = [ a.get('href') for a in soup.select('div#mw-content-text a') ]
         images = soup.find_all('img')
-        wiki = []
-        wiki.append(paragraphs[0])
-        # wiki.append(related)
-        # wiki.append(images)
+        
+        wiki = {}
+        wiki['topic'] = paragraphs
+        wiki['related'] = links
 
         return wiki
 
