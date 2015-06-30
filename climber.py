@@ -19,6 +19,10 @@ class Climber():
         contexts = soup.find_all('h2#mw-headline')
         sub_contexts = soup.find_all('h3#mw-headline')
 
+        print(sub_contexts)
+        print(contexts)
+
+
         wiki = []
 
         for s in sub_contexts:
