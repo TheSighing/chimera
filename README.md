@@ -4,8 +4,12 @@ Uses Zmq, Python, Node.js to Pipe parsing of wiki page (Python) to Node.js (Rest
 
 #TODO:
 Need to make a way to install using npm, update the capabilities of the "climber" to gather mor einfor from wiki.
+
 Need to create gulp or grunt method to start both servers simeultaneosly seeing as they are dependedt on each other to function.
+
 May go to lower level controls on zeromq connection for more extensibility and incorporate socket.io for updates from a user interface on the client side.
+
+Need to make a node js program that runs both servers as child process' and actas as the entry point for bower/npm to make this a stand alone app.
 
 #Install 
 1. `git clone <repo>`
