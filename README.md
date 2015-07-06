@@ -1,4 +1,4 @@
-# Chimera
+# Chimera "Why Crawl when you can Climb?"
 Climb wiki pages with this web crawler turned RESTFUL-API.
 Uses Zmq, Python, Node.js to pipe the parsing of a wiki page into "bubbles" (Python) to Node.js (Restful API)
 
