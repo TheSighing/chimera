@@ -1,6 +1,6 @@
 # Chimera
 Climb wiki pages with this web crawler turned RESTFUL-API.
-Uses Zmq, Python, Node.js to Pipe parsing of wiki page (Python) to Node.js (Restful API)
+Uses Zmq, Python, Node.js to pipe the parsing of a wiki page into "bubbles" (Python) to Node.js (Restful API)
 
 #TODO:
 Need to make a way to install using npm, update the capabilities of the "climber" to gather mor einfor from wiki.
