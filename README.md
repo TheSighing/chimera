@@ -9,7 +9,7 @@ Need to create gulp or grunt method to start both servers simeultaneosly seeing 
 
 May go to lower level controls on zeromq connection for more extensibility and incorporate socket.io for updates from a user interface on the client side.
 
-Need to make a node js program that runs both servers as child process' and actas as the entry point for bower/npm to make this a stand alone app.
+Need to make a node js program that runs both servers as child process' and acts as the entry point for bower/npm to make this a stand alone API that can be added to any project needing it (npm).
 
 #Install 
 1. `git clone <repo>`
