@@ -1,4 +1,4 @@
-# Chimera "Why Crawl when you can Climb?"
+# Climber "Why Crawl when you can Climb?"
 Climb wiki pages with this web crawler turned RESTFUL-API.
 Uses Zmq, Python, Node.js to pipe the parsing of a wiki page into "bubbles" (Python) to Node.js (Restful API)
 
@@ -16,4 +16,4 @@ Need to make a node js program that runs both servers as child process' and acta
 2. `cd <repo>`
 3. `npm install`
 4. `Terminal1: python climber.py`
-5. `Terminal2: node chimera.js`
+5. `Terminal2: node climber.js`
