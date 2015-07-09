@@ -3,10 +3,9 @@ import requests
 import json
 from bs4 import BeautifulSoup
 
-class Bubble():
-    def __init__(self, context, sub_context, text):
+class Beta():
+    def __init__(self, context, text):
         self.context =  context
-        self.sub_context = sub_context
         self.text = text
 
 class Climber():
@@ -14,24 +13,20 @@ class Climber():
         url = 'http://en.wikipedia.org/?title=%s' % topic
         content = requests.get(url)
         soup = BeautifulSoup(content.text)
-        print(soup)
-
-        paragraphs = [ p.get_text() for p in soup.find_all('p') ]
-        main_contexts = [ h2.get_text() for h2 in soup.find_all('h2') if(h2.get_text().lower() != 'contents') ]
-        contexts = [ c.get_text() for c in soup.find_all('span', { "class" : "mw-headline" }) ]
 
         wiki = []
 
-        i = 0
-        for s in sub_contexts:
-            if(s in main_contexts):
-                c = s;
-            else:
-                bubble = Bubble(c, s, paragraphs[i])
-                wiki.append(bubble)
-            i += 1
+        #for section_title in soup.find_all('h2'):
+        #    print(section_title)
 
-        return wiki
+        for section_title in soup.find_all({'span' : }):
+            try:
+                print p
+                pass
+            except Exception as e:
+                continue
+
+        return "Array of Beta."
 
     def climb_images():
         images = soup.find_all('img')
@@ -42,7 +37,7 @@ class Climber():
     def climb_links():
         links = [ a.get('href') for a in soup.select('div#mw-content-text a') ]
 
-        return links
+        return "links"
 
 s = zerorpc.Server(Climber())
 s.bind("tcp://0.0.0.0:5050")
