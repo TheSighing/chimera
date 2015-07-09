@@ -19,9 +19,12 @@ class Climber():
         #for section_title in soup.find_all('h2'):
         #    print(section_title)
 
-        for section_title in soup.find_all({'span' : }):
+        #re.compile => a way to check for a specific string match
+
+        #for section_title in soup.find_all(['span', 'mw-headline']):
+        for section_title in soup.find_all(["h1", "h2", "p"]):
             try:
-                print p
+                print section_title
                 pass
             except Exception as e:
                 continue
