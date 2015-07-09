@@ -14,6 +14,7 @@ class Climber():
         url = 'http://en.wikipedia.org/?title=%s' % topic
         content = requests.get(url)
         soup = BeautifulSoup(content.text)
+        print(soup)
 
         paragraphs = [ p.get_text() for p in soup.find_all('p') ]
         main_contexts = [ h2.get_text() for h2 in soup.find_all('h2') if(h2.get_text().lower() != 'contents') ]
@@ -21,12 +22,14 @@ class Climber():
 
         wiki = []
 
+        i = 0
         for s in sub_contexts:
             if(s in main_contexts):
                 c = s;
             else:
-                bubble = Bubble(c, s)
+                bubble = Bubble(c, s, paragraphs[i])
                 wiki.append(bubble)
+            i += 1
 
         return wiki
 
