@@ -12,16 +12,12 @@ class Bubble():
 class Climber():
     def climb(self, topic):
         url = 'http://en.wikipedia.org/?title=%s' % topic
-        r = requests.get(url)
-        soup = BeautifulSoup(r.text)
+        content = requests.get(url)
+        soup = BeautifulSoup(content.text)
 
         paragraphs = [ p.get_text() for p in soup.find_all('p') ]
         main_contexts = [ h2.get_text() for h2 in soup.find_all('h2') if(h2.get_text().lower() != 'contents') ]
         contexts = [ c.get_text() for c in soup.find_all('span', { "class" : "mw-headline" }) ]
-
-        print(contexts)
-        print("::::::::::::::::::::")
-        print(main_contexts)
 
         wiki = []
 

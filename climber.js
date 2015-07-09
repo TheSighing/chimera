@@ -2,37 +2,33 @@ var zerorpc = require("zerorpc"),
 express = require('express'),
 climber = express(),
 bodyParser = require('body-parser'),
-//TODO: replace with uri-request
 async = require('async'),
 events = require('events');
 
+//Ports
+var PORT = 8080;
+var ZMQ_PORT = 5050;
+
 var e = new events.EventEmitter();
 var client = new zerorpc.Client();
-client.connect('tcp://127.0.0.1:5050');
+client.connect('tcp://127.0.0.1:', ZMQ_PORT);
 
 //Preparing to derive data from POST
 climber.use(bodyParser.urlencoded({extended: true}));
 climber.use(bodyParser.json());
 
-var PORT = 8080;
-var ZMQ_PORT = 5050;
-
 //The routes for out API
 var router = express.Router();
 
-router.get('/', function(req, res){
-    json = { help: "helpful message on how to use api."};
-    res.json(json);
-    console.log("logging the json ", json);
-});
-
+//Main route
 router.get('/climb/:topic', function(req, res){
-  client.invoke("climb", req.params.topic, function(err, resp, more){
+  console.log("Excelsior...");
+  client.invoke("climb", req.params.topic, function(err, content, more){
     if(err){
-      console.error(resp);
+      console.error(content);
     }
     else{
-      res.send(resp);
+      res.send(content);
     }
     if (!more) {
       console.log("Done.");
