@@ -1,7 +1,6 @@
 
 //TODO: Make this a library of functions with same functionality or
 //      wrap both servers in one main node app that launces both.
-
 var zerorpc = require("zerorpc"),
 express = require('express'),
 climber = express(),
@@ -26,14 +25,12 @@ var router = express.Router();
 // Main request for content.
 router.get('/climb/:topic', function(req, res){
   client.invoke("climb", req.params.topic, function(err, content, more){
-    if(err){
-      console.error(content);
+    if(!more){
+      console.log("Done.");
     }
     else{
+      console.log(content);
       res.send(content);
-    }
-    if (!more) {
-      console.log("Done.");
     }
   });
 });
