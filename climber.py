@@ -5,15 +5,15 @@ from bs4 import BeautifulSoup
 
 class Bolt():
     def __init__(self, text):
-        self.contexts =  []
+        self.contexts =  {}
         self.text = text
 
     def belay(self, context, level=None):
+        assert type(context) is StringType, "Not a string => no rope to belay."
         if(not level):
             self.contexts.push(context)
         else:
-            #handle case when level is bigger than size of array thus far
-            self.contexts[level] = context
+            self.contexts[str(level)] = context
 
     def __str__(self):
         return self.text
@@ -26,34 +26,27 @@ class Climber():
 
         wiki = []
 
-        #for section_title in soup.find_all('h2'):
-        #    print(section_title)
-
         #re.compile => a way to check for a specific string match
 
-        #for section_title in soup.find_all(['span', 'mw-headline']):
         #TODO: You are creating context, subcontext, text, links => Beta() object and loading into an Array
         #      building structure to the wiki itself (or any large text based information page) that can be accessed
         #      parsed and such.
         bolt = Bolt()
         for section_title in soup.find_all(["h1", "h2", "h3", "h4", "p"]):
             try:
-                #make class to have a case for each level of header
                 if(section_title.name  == "h1"):
-                    bolt.belay(section_title.get_text())
+                    bolt.belay(section_title.get_text(), 1)
                 elif(section_title.name  == "h2"):
-                    bolt.belay(section_title.get_text())
+                    bolt.belay(section_title.get_text(), 2)
                 elif(section_title.name  == "h3"):
-                    bolt.belay(section_title.get_text())
+                    bolt.belay(section_title.get_text(), 3)
                 elif(section_title.name  == "h4"):
-                    #track the context levels and make them retain the outer to inner context of the text
-                    bolt.belay(section_title.get_text())
+                    bolt.belay(section_title.get_text(), 4)
                 else:
-                    #add the text to the bolt
+                    # Add text to the bolt.
                     wiki.push(bolt)
                     bolt = Bolt()
                     continue
-
                 pass
             except Exception as e:
                 continue
