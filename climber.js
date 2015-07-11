@@ -1,6 +1,8 @@
 
-//TODO: Make this a library of functions with same functionality or
-//      wrap both servers in one main node app that launces both.
+//TODO: Make this a library of functions with same functionality
+//TODO: have this node js file open anc close the server to python script then communicate to it
+//      as its worker process throuugh zeromq and still work as an API that can be accessed via npm and have the alt be a restful API later
+//      this file should parse the results of pythons venture and then return it in a nice usable format 
 var zerorpc = require("zerorpc"),
 express = require('express'),
 climber = express(),
