@@ -13,6 +13,48 @@ Climber.prototype = {
     client.connect('tcp://127.0.0.1:' + this.port);
 
     client.invoke("climb", topic, function(err, content, more){
+      if(err){
+        callback(err, null);
+      }
+
+      if(!more){
+        client.close();
+        callback(null, content);
+      }
+      else{
+        content += content + " "
+      }
+    });
+  },
+  climb_images : function(callback){
+    var e = new events.EventEmitter();
+    var client = new zerorpc.Client();
+    client.connect('tcp://127.0.0.1:' + this.port);
+
+    client.invoke("climb_images", function(err, content, more){
+      if(err){
+        callback(err, null);
+      }
+
+      if(!more){
+        client.close();
+        callback(null, content);
+      }
+      else{
+        content += content + " "
+      }
+    });
+  },
+  climb_links : function(callback){
+    var e = new events.EventEmitter();
+    var client = new zerorpc.Client();
+    client.connect('tcp://127.0.0.1:' + this.port);
+
+    client.invoke("climb_links", function(err, content, more){
+      if(err){
+        callback(err, null);
+      }
+
       if(!more){
         client.close();
         callback(null, content);

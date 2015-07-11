@@ -33,9 +33,11 @@ class Bolt():
 class Climber(object):
     #@zerorpc.stream
     def climb(self, topic):
-        url = 'http://en.wikipedia.org/?title=%s' % topic
-        content = requests.get(url)
-        soup = BeautifulSoup(content.text)
+        self.topic = topic;
+
+        self.url = 'http://en.wikipedia.org/?title=%s' % self.topic
+        self.content = requests.get(self.url)
+        self.soup = BeautifulSoup(self.content.text)
 
         wiki_parsed = []
 
@@ -46,7 +48,7 @@ class Climber(object):
         #      parsed and such.
         # later should incorporate other checks to find titles and context
         h = ["", "", "", ""]
-        for section in soup.find_all(["h1", "h2", "h3", "h4", "p"]):
+        for section in self.soup.find_all(["h1", "h2", "h3", "h4", "p"]):
             #this doesnt quite work how i want it to need it to have parent contexts saved
             #so that only the changing level changes but the other context remain thre same for each new bolt added on
             # a new bolt is constituted by the fact that one of the context level has chaged
@@ -74,7 +76,6 @@ class Climber(object):
             except Exception as e:
                 continue
 
-        print "Returning package."
         return json.dumps(wiki_parsed, indent=4)
 
     #proven method to send object to the otherside
@@ -86,16 +87,17 @@ class Climber(object):
     #method ie a disambiguation page or otherwise
     #def flash() => grab directly a section of the overall page when supplied a set of context levels and/or
     # a bit of text that it can match
-    def climb_images():
-        #images = soup.find_all('img')
+    def climb_images(self):
+        images = self.soup.find_all('img')
+        print images
 
         return "images"
 
     #this should build based on a depth choice and and builds graph of links to help determine later searches
-    def climb_links():
-        #links = [ a.get('href') for a in soup.select('div#mw-content-text a') ]
+    def climb_links(self):
+        links = [ a.get('href') for a in self.soup.select('div#mw-content-text a') ]
 
-        return "links"
+        return json.dumps(links, indent=4)
 
 s = zerorpc.Server(Climber())
 s.bind("tcp://0.0.0.0:5050")
