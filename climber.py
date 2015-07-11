@@ -2,12 +2,13 @@ import zerorpc
 import requests
 import json
 import msgpack
+import gevent
 from bs4 import BeautifulSoup
 
+#maybe make this intto a class method and make it more versitle as to check all of the contexts
+#and form an array of it for vetter indexing
 def encode(obj):
-    if isinstance(obj, Bolt):
-        return { '__Bolt__' : True, 'as_str' : "as string" }
-    return obj
+    return { "Text" : obj.text, "Contexts" : obj.contexts }
 
 class Bolt():
     def __init__(self, text):
@@ -29,8 +30,8 @@ class Bolt():
 
         return temp
 
-class Climber():
-    @zerorpc.stream
+class Climber(object):
+    #@zerorpc.stream
     def climb(self, topic):
         url = 'http://en.wikipedia.org/?title=%s' % topic
         content = requests.get(url)
@@ -66,14 +67,15 @@ class Climber():
                     bolt.belay(h[1], 2)
                     bolt.belay(h[2], 3)
                     bolt.belay(h[3], 4)
-                    wiki_parsed.append({ "Text" : bolt.text, "Contexts" : bolt.contexts })
+                    wiki_parsed.append(encode(bolt))
                 else:
                     continue
                 pass
             except Exception as e:
                 continue
 
-        return json.dumps(wiki_parsed)
+        print "Returning package."
+        return json.dumps(wiki_parsed, indent=4)
 
     #proven method to send object to the otherside
     #wiki_parsed.append({ "Text" :  bolt.text , "Contexts: " : bolt.contexts })
