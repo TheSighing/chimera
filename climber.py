@@ -1,28 +1,25 @@
 import zerorpc
 import requests
 import json
+import msgpack
 from bs4 import BeautifulSoup
+
+def encode(obj):
+    if isinstance(obj, Bolt):
+        return { '__Bolt__' : True, 'as_str' : "as string" }
+    return obj
 
 class Bolt():
     def __init__(self, text):
         self.contexts =  {}
         self.text = text
-        self.height = 0
 
     def belay(self, context, level=None):
         if(not level):
             self.contexts = {}
             self.contexts["1"] = context
-            #self.height = 1
         else:
-            #try:
-                #location = self.contexts[str(level)]
-                #Check if location has an entry before incrementing total counter for amount of context levels
-                #self.height += 1
-                self.contexts[str(level)] = context
-            #except:
-                #self.contexts[str(level)] = context
-
+            self.contexts[str(level)] = context
 
     def __str__(self):
         temp = "Text: " + self.text
@@ -40,7 +37,7 @@ class Climber():
         soup = BeautifulSoup(content.text)
 
         wiki_parsed = []
-        
+
         #re.compile => a way to check for a specific string match
 
         #TODO: You are creating context, subcontext, text, links => Beta() object and loading into an Array
@@ -55,13 +52,13 @@ class Climber():
             # proboably should make this become hadled by the class Bolt or something
             try:
                 if(section.name  == "h1"):
-                    h[1] = section.get_text()
+                    h[0] = section.get_text()
                 elif(section.name  == "h2"):
-                    h[2] = section.get_text()
+                    h[1] = section.get_text()
                 elif(section.name  == "h3"):
-                    h[3] = section.get_text()
+                    h[2] = section.get_text()
                 elif(section.name  == "h4"):
-                    h[4] = section.get_text()
+                    h[3] = section.get_text()
                 elif(section.name == "p"):
                     # Add text to the bolt.
                     bolt = Bolt(section.get_text())
@@ -69,20 +66,24 @@ class Climber():
                     bolt.belay(h[1], 2)
                     bolt.belay(h[2], 3)
                     bolt.belay(h[3], 4)
-                    print bolt
+                    wiki_parsed.append({ "Text" : bolt.text, "Contexts" : bolt.contexts })
                 else:
                     continue
                 pass
             except Exception as e:
                 continue
 
-        wiki_parsed.append(1)
-        return wiki_parsed
+        return json.dumps(wiki_parsed)
 
     #proven method to send object to the otherside
     #wiki_parsed.append({ "Text" :  bolt.text , "Contexts: " : bolt.contexts })
 
     #def see_also() => makes a whole set of related thhings to the topic chosen
+    #def chossy() => parse disambiguation pages can be called when the page reached durign climb or
+    #any given method in the class and it hits a "chossy page" one that cannot be parsed in this custiomary
+    #method ie a disambiguation page or otherwise
+    #def flash() => grab directly a section of the overall page when supplied a set of context levels and/or
+    # a bit of text that it can match
     def climb_images():
         #images = soup.find_all('img')
 

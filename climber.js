@@ -2,7 +2,7 @@
 //TODO: Make this a library of functions with same functionality
 //TODO: have this node js file open anc close the server to python script then communicate to it
 //      as its worker process throuugh zeromq and still work as an API that can be accessed via npm and have the alt be a restful API later
-//      this file should parse the results of pythons venture and then return it in a nice usable format 
+//      this file should parse the results of pythons venture and then return it in a nice usable format
 var zerorpc = require("zerorpc"),
 express = require('express'),
 climber = express(),
@@ -25,14 +25,15 @@ climber.use(bodyParser.json());
 var router = express.Router();
 
 // Main request for content.
+var message = "";
 router.get('/climb/:topic', function(req, res){
   client.invoke("climb", req.params.topic, function(err, content, more){
     if(!more){
-      console.log("Done.");
+      res.send(message);
     }
     else{
       console.log(content);
-      res.send(content);
+      message += content + " "
     }
   });
 });
