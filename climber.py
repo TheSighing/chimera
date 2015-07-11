@@ -40,15 +40,8 @@ class Climber():
         soup = BeautifulSoup(content.text)
 
         wiki_parsed = []
+        
         #re.compile => a way to check for a specific string match
-        b = Bolt("test")
-        b.belay("context1", 1)
-        b.belay("context2", 2)
-        b.belay("context3", 3)
-        b.belay("context4", 4)
-        b.belay("context2alt", 2)
-        b.belay("context4alt", 4)
-        print b
 
         #TODO: You are creating context, subcontext, text, links => Beta() object and loading into an Array
         #      building structure to the wiki itself (or any large text based information page) that can be accessed
@@ -72,11 +65,11 @@ class Climber():
                 elif(section.name == "p"):
                     # Add text to the bolt.
                     bolt = Bolt(section.get_text())
-                    bolt.belay(h[1], 1)
-                    bolt.belay(h[2], 2)
-                    bolt.belay(h[3], 3)
+                    bolt.belay(h[0], 1)
+                    bolt.belay(h[1], 2)
+                    bolt.belay(h[2], 3)
+                    bolt.belay(h[3], 4)
                     print bolt
-                    bolt.belay(h[4], 4)
                 else:
                     continue
                 pass
