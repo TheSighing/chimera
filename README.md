@@ -1,5 +1,5 @@
 # Climber "Why Crawl when you can Climb?"
-Climb wiki pages with this web crawler turned API.
+Climb wiki pages with this web crawler turned API or use it as Restful-API.
 Uses Zmq, Python, Node.js to pipe the parsing of a wiki page into "Bolts" (Python) to Node.js (API)
 
 Gathers context and text and stores these in relation to each other with level identifiers.
@@ -19,3 +19,8 @@ Need to make a node js program that runs both servers as child process' and acts
 3. `npm install`
 4. `Terminal1: python climber.py`
 5. `Terminal2: node climber.js`
+
+#OR
+
+Web crawler as a service as a service
+
