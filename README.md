@@ -22,5 +22,5 @@ Need to make a node js program that runs both servers as child process' and acts
 
 #OR
 
-Web crawler as a service as a service
+Web Crawler as a service.
 
