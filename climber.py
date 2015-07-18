@@ -15,28 +15,32 @@ from bs4 import BeautifulSoup
 # def flash() => grab directly a section of the overall page when supplied a set of context levels and/or
 # a bit of text that it can match
 # climb links should build based on a depth choice and and builds graph of links to help determine later searches
-# add comments to this 
+# add comments to this
+# bolts should also allow for optional images.
+# climb should have options (object) passed in to allow it to include images in route or to include graph of links with given
+# level of depth
 
 #TODO: Notes
 # proven method to send object to the otherside
 # wiki_parsed.append({ "Text" :  bolt.text , "Contexts: " : bolt.contexts })
 # re.compile => a way to check for a specific string match
 
-
-def encode(obj):
-    return { "Text" : obj.text, "Contexts" : obj.contexts }
-
 class Bolt():
     def __init__(self, text):
         self.contexts =  {}
         self.text = text
 
+    # Add context to bolt.
     def belay(self, context, level=None):
         if(not level):
             self.contexts = {}
             self.contexts["1"] = context
         else:
             self.contexts[str(level)] = context
+
+    # Encodes the bolt for safe transfer through zerorpc pipeline.
+    def encode(self):
+        return { "Text" : self.text, "Contexts" : self.contexts }
 
     def __str__(self):
         temp = "Text: " + self.text
@@ -47,8 +51,9 @@ class Bolt():
         return temp
 
 class Climber(object):
+    # Constructs route of entire wiki page based on text.
     #@zerorpc.stream
-    def climb(self, topic):
+    def climb(self, topic, options=None):
         self.topic = topic;
 
         self.url = 'http://en.wikipedia.org/?title=%s' % self.topic
@@ -56,7 +61,6 @@ class Climber(object):
         self.soup = BeautifulSoup(self.content.text)
 
         wiki_parsed = []
-
 
         #TODO:
         # You are creating context, subcontext, text, links => Beta() object and loading into an Array
@@ -86,7 +90,7 @@ class Climber(object):
                     bolt.belay(h[1], 2)
                     bolt.belay(h[2], 3)
                     bolt.belay(h[3], 4)
-                    wiki_parsed.append(encode(bolt))
+                    wiki_parsed.append(bolt.encode())
                 else:
                     continue
                 pass
@@ -95,13 +99,14 @@ class Climber(object):
 
         return json.dumps(wiki_parsed, indent=4)
 
-
+    # Extracts images and their context attached/explanation.
     def climb_images(self):
         images = self.soup.find_all('img')
         print images
 
         return "images"
-
+        
+    # Builds map of links with given search depth option as parameter.
     def climb_links(self):
         links = [ a.get('href') for a in self.soup.select('div#mw-content-text a') ]
 
