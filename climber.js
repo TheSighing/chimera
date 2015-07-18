@@ -1,10 +1,20 @@
 var zerorpc = require("zerorpc"),
 async = require('async'),
-events = require('events');
+events = require('events')
+exec = require('child_process').exec;
 
 //TODO: List
-// start python server from this file as a child process???
 // or some other way to have the python zerorpc server available
+
+// Start python server from this file as a child process to query against.
+exec('nodemon --exec \"python -v\" ./climber.py', function(err, stdout, stderr){
+  //Handle errors??
+  //Start communication and such???
+  if(err){
+    callback(err);
+    return;
+  }
+});
 
 function Climber(port){
   this.port = port;

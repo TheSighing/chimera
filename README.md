@@ -32,6 +32,8 @@ add comments to this and organize code
 
 Also improve documentation and explain the API usage
 
+Build some test harnesses for API
+
 Web Crawler as Restful Service
 #Install
 1. `git clone <repo>`
