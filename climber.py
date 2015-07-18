@@ -5,8 +5,24 @@ import msgpack
 import gevent
 from bs4 import BeautifulSoup
 
-#maybe make this intto a class method and make it more versitle as to check all of the contexts
-#and form an array of it for vetter indexing
+#TODO: List
+# Parse and clean the text to remove the reference numbers
+# get images from wiki and apply context to them
+# def see_also() => makes a whole set of related thhings to the topic chosen
+# def chossy() => parse disambiguation pages can be called when the page reached durign climb or
+# any given method in the class and it hits a "chossy page" one that cannot be parsed in this custiomary
+# method ie a disambiguation page or otherwise
+# def flash() => grab directly a section of the overall page when supplied a set of context levels and/or
+# a bit of text that it can match
+# climb links should build based on a depth choice and and builds graph of links to help determine later searches
+# add comments to this 
+
+#TODO: Notes
+# proven method to send object to the otherside
+# wiki_parsed.append({ "Text" :  bolt.text , "Contexts: " : bolt.contexts })
+# re.compile => a way to check for a specific string match
+
+
 def encode(obj):
     return { "Text" : obj.text, "Contexts" : obj.contexts }
 
@@ -41,18 +57,19 @@ class Climber(object):
 
         wiki_parsed = []
 
-        #re.compile => a way to check for a specific string match
 
-        #TODO: You are creating context, subcontext, text, links => Beta() object and loading into an Array
-        #      building structure to the wiki itself (or any large text based information page) that can be accessed
-        #      parsed and such.
+        #TODO:
+        # You are creating context, subcontext, text, links => Beta() object and loading into an Array
+        # building structure to the wiki itself (or any large text based information page) that can be accessed
+        # parsed and such.
         # later should incorporate other checks to find titles and context
+        # this doesnt quite work how i want it to need it to have parent contexts saved
+        # so that only the changing level changes but the other context remain thre same for each new bolt added on
+        # a new bolt is constituted by the fact that one of the context level has chaged
+        # proboably should make this become hadled by the class Bolt or something
+        # Should also work with any amount of headers (headers define amounts of context)
         h = ["", "", "", ""]
         for section in self.soup.find_all(["h1", "h2", "h3", "h4", "p"]):
-            #this doesnt quite work how i want it to need it to have parent contexts saved
-            #so that only the changing level changes but the other context remain thre same for each new bolt added on
-            # a new bolt is constituted by the fact that one of the context level has chaged
-            # proboably should make this become hadled by the class Bolt or something
             try:
                 if(section.name  == "h1"):
                     h[0] = section.get_text()
@@ -78,22 +95,13 @@ class Climber(object):
 
         return json.dumps(wiki_parsed, indent=4)
 
-    #proven method to send object to the otherside
-    #wiki_parsed.append({ "Text" :  bolt.text , "Contexts: " : bolt.contexts })
 
-    #def see_also() => makes a whole set of related thhings to the topic chosen
-    #def chossy() => parse disambiguation pages can be called when the page reached durign climb or
-    #any given method in the class and it hits a "chossy page" one that cannot be parsed in this custiomary
-    #method ie a disambiguation page or otherwise
-    #def flash() => grab directly a section of the overall page when supplied a set of context levels and/or
-    # a bit of text that it can match
     def climb_images(self):
         images = self.soup.find_all('img')
         print images
 
         return "images"
 
-    #this should build based on a depth choice and and builds graph of links to help determine later searches
     def climb_links(self):
         links = [ a.get('href') for a in self.soup.select('div#mw-content-text a') ]
 
