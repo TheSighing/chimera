@@ -2,6 +2,10 @@ var zerorpc = require("zerorpc"),
 async = require('async'),
 events = require('events');
 
+//TODO: List
+// start python server from this file as a child process???
+// or some other way to have the python zerorpc server available
+
 function Climber(port){
   this.port = port;
 }
