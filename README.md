@@ -53,6 +53,7 @@ Web Crawler as a service API.
 
 #USAGE:
 
+```javascript
 var c = require('./climber');
 climber = new c(5050);
 
@@ -67,4 +68,5 @@ climber.climb_images(function(err, data){
 climber.climb_links(function(err, data){
   console.log(data);
 });
+```
 
