@@ -48,3 +48,23 @@ Web Crawler as a service API.
 1. `git clone <repo>`
 2. `cd <repo>`
 3. `npm install`
+4. `Follow usage and have fun.`
+
+
+#USAGE:
+
+var c = require('./climber');
+climber = new c(5050);
+
+climber.climb('wolf', function(err, data){
+  console.log(data);
+});
+
+climber.climb_images(function(err, data){
+  console.log(data);
+});
+
+climber.climb_links(function(err, data){
+  console.log(data);
+});
+
