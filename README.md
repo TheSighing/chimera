@@ -42,13 +42,9 @@ Web Crawler as Restful Service
 4. `Terminal1: python climber.py`
 5. `Terminal2: node climber.js`
 
-#USAGE:
+#USAGE AS Web Crawler Restful-API:
 
 `localhost:<port>/climb/<topic>`
-
-#OR
-
-Web Crawler as a service API.
 
 #Install
 1. `git clone <repo>`
@@ -57,7 +53,7 @@ Web Crawler as a service API.
 4. `Follow usage and have fun.`
 
 
-#USAGE:
+#USAGE AS Web Crawler service API:
 
 ```javascript
 var c = require('./climber');
