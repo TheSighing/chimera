@@ -34,6 +34,26 @@ router.get('/climb/:topic', function(req, res){
       content += content + " "
     }
   });
+  
+  client.invoke("climb_images", function(err, content, more){
+    if(!more){
+      res.send(content);
+      console.log(content);
+    }
+    else{
+      content += content + " "
+    }
+  });
+  
+  client.invoke("climb_links", function(err, content, more){
+    if(!more){
+      res.send(content);
+      console.log(content);
+    }
+    else{
+      content += content + " "
+    }
+  });
 });
 
 //Prefixing all the routes in the api
