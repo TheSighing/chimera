@@ -6,14 +6,17 @@ exec = require('child_process').exec;
 //TODO: List
 // or some other way to have the python zerorpc server available
 
+console.log("Starting...");
+
 // Start python server from this file as a child process to query against.
 exec('nodemon --exec \"python -v\" ./climber.py', function(err, stdout, stderr){
   //Handle errors??
   //Start communication and such???
   if(err){
-    callback(err);
-    return;
+    return callback(err);
   }
+
+  console.log("Initializing route...");
 });
 
 function Climber(port){
@@ -28,12 +31,12 @@ Climber.prototype = {
 
     client.invoke("climb", topic, function(err, content, more){
       if(err){
-        callback(err, null);
+        return callback(err, null);
       }
 
       if(!more){
         client.close();
-        callback(null, content);
+        return callback(null, content);
       }
       else{
         content += content + " "
@@ -52,7 +55,7 @@ Climber.prototype = {
 
       if(!more){
         client.close();
-        callback(null, content);
+        return callback(null, content);
       }
       else{
         content += content + " "
@@ -66,12 +69,12 @@ Climber.prototype = {
 
     client.invoke("climb_links", function(err, content, more){
       if(err){
-        callback(err, null);
+        return callback(err, null);
       }
 
       if(!more){
         client.close();
-        callback(null, content);
+        return callback(null, content);
       }
       else{
         content += content + " "

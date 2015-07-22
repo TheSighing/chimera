@@ -1,8 +1,6 @@
 import zerorpc
 import requests
 import json
-import msgpack
-import gevent
 from bs4 import BeautifulSoup
 
 #TODO: List
@@ -63,7 +61,7 @@ class Climber(object):
         wiki_parsed = []
 
         #TODO:
-        # You are creating context, subcontext, text, links => Beta() object and loading into an Array
+        # You are creating context, subcontext, text, links => Bolt() object and loading into an Array
         # building structure to the wiki itself (or any large text based information page) that can be accessed
         # parsed and such.
         # later should incorporate other checks to find titles and context
@@ -105,7 +103,7 @@ class Climber(object):
         print images
 
         return "images"
-        
+
     # Builds map of links with given search depth option as parameter.
     def climb_links(self):
         links = [ a.get('href') for a in self.soup.select('div#mw-content-text a') ]
