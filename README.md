@@ -16,6 +16,8 @@ Need to make a node js program that runs both servers as child process' and acts
 
 Parse and clean the text to remove the reference numbers
 
+Classify some of the normally occuring delinations for sections on wiki page
+
 get images from wiki and apply context to them
 
 def see_also() => makes a whole set of related thhings to the topic chosen
