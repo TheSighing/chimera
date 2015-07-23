@@ -3,6 +3,20 @@ async = require('async'),
 events = require('events')
 exec = require('child_process').exec;
 
+
+/*
+Rewrite to be the connection to client.js and to be node js syntax for this below
+from core import Client
+
+if __name__ == '__main__':
+    c = Client()
+    c.connect('tcp://localhost:1234')
+
+    for line in sys.stdin:
+        tweet_str = line.strip()
+        print c('process', tweet_str)*/
+
+
 //TODO: List
 // SWITCH THE ZERORPC OUT FOR JUST BASE ZMQ
 
