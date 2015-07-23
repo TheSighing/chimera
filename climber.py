@@ -125,6 +125,6 @@ class Climber(object):
 
         return json.dumps(links, indent=4)
 
-s = zerorpc.Server(Climber())
-s.bind("tcp://0.0.0.0:5050")
-s.run()
+#s = zerorpc.Server(Climber())
+#s.bind("tcp://0.0.0.0:5050")
+#s.run()
