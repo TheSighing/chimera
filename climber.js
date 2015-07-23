@@ -4,7 +4,7 @@ events = require('events')
 exec = require('child_process').exec;
 
 //TODO: List
-// or some other way to have the python zerorpc server available
+// SWITCH THE ZERORPC OUT FOR JUST BASE ZMQ
 
 console.log("Starting...");
 
@@ -30,6 +30,7 @@ Climber.prototype = {
     client.connect('tcp://127.0.0.1:' + this.port);
 
     client.invoke("climb", topic, function(err, content, more){
+      console.log("climb climb climb");
       if(err){
         return callback(err, null);
       }
@@ -40,6 +41,7 @@ Climber.prototype = {
         return callback(null, content);
       }
       else{
+        //console.log(content);
         content += content + " "
       }
     });
