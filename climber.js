@@ -36,6 +36,7 @@ Climber.prototype = {
 
       if(!more){
         client.close();
+        console.log("Returning data climb...");
         return callback(null, content);
       }
       else{
@@ -55,6 +56,7 @@ Climber.prototype = {
 
       if(!more){
         client.close();
+        console.log("Returning data climb images...");
         return callback(null, content);
       }
       else{
@@ -74,6 +76,7 @@ Climber.prototype = {
 
       if(!more){
         client.close();
+        console.log("Returning data climb links...");
         return callback(null, content);
       }
       else{
