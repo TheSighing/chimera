@@ -1,9 +1,48 @@
 import time
 import zmq
 
+#import zerorpc
+import requests
+import json
+from bs4 import BeautifulSoup
+from server import Server
 context = zmq.Context()
 socket = context.socket(zmq.REP)
 socket.bind("tcp://*:5555")
+
+#class DemoRPC(object):
+
+   # def process(self, tweet_str):
+       # tweet = json.loads(tweet_str)
+       # return tweet['user']['id']
+
+   # def foo(self):
+       # return 'world'
+
+#if __name__ == '__main__':
+   # s = Server(DemoRPC())
+   # s.bind('tcp://*:1234')
+   # s.run()
+
+#TODO: List
+# Parse and clean the text to remove the reference numbers
+# get images from wiki and apply context to them
+# def see_also() => makes a whole set of related thhings to the topic chosen
+# def chossy() => parse disambiguation pages can be called when the page reached durign climb or
+# any given method in the class and it hits a "chossy page" one that cannot be parsed in this custiomary
+# method ie a disambiguation page or otherwise
+# def flash() => grab directly a section of the overall page when supplied a set of context levels and/or
+# a bit of text that it can match
+# climb links should build based on a depth choice and and builds graph of links to help determine later searches
+# add comments to this
+# bolts should also allow for optional images.
+# climb should have options (object) passed in to allow it to include images in route or to include graph of links with given
+# level of depth
+
+#TODO: Notes
+# proven method to send object to the otherside
+# wiki_parsed.append({ "Text" :  bolt.text , "Contexts: " : bolt.contexts })
+# re.compile => a way to check for a specific string match
 
 class Bolt():
     def __init__(self, text):
@@ -92,6 +131,7 @@ class Climber():
 
         return json.dumps(links, indent=4)
 
+<<<<<<< HEAD
 while True:
     #  Wait for next request from client
     topic = socket.recv()
@@ -230,3 +270,6 @@ while True:
 # s = zerorpc.Server(Climber())
 # s.bind("tcp://0.0.0.0:5050")
 # s.run()
+#s = zerorpc.Server(Climber())
+#s.bind("tcp://0.0.0.0:5050")
+#s.run()
