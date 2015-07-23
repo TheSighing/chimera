@@ -1,7 +1,22 @@
-import zerorpc
+#import zerorpc
 import requests
 import json
 from bs4 import BeautifulSoup
+from server import Server
+
+#class DemoRPC(object):
+
+   # def process(self, tweet_str):
+       # tweet = json.loads(tweet_str)
+       # return tweet['user']['id']
+
+   # def foo(self):
+       # return 'world'
+
+#if __name__ == '__main__':
+   # s = Server(DemoRPC())
+   # s.bind('tcp://*:1234')
+   # s.run()
 
 #TODO: List
 # Parse and clean the text to remove the reference numbers
