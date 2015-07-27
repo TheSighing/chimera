@@ -1,9 +1,11 @@
+var zmq = require('zmq');
 
+//Create the js version of this setup so it can connect to the python server
 
-Create the js version of this setup so it can connect to the python server
-
-class Client(object):
-
+function Client(){
+    this.ctx = zmq.Context();
+}
+/*
     def __init__(self):
         self.ctx = zmq.Context()
         self.socket = self.ctx.socket(zmq.REQ)
@@ -22,3 +24,4 @@ class Client(object):
 
     def connect(self, *args):
         self.socket.connect(*args)
+        */
