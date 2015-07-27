@@ -1,41 +1,37 @@
 var zmq = require('zmq');
 
+
+//Rewrite to be the connection to client.js and to be node js syntax for this below
+var client = require('Client');
+
+c = client()
+c.connect('tcp://localhost:1234')
+
+//for line in sys.stdin:
+    //tweet_str = line.strip()
+   //print c('process', tweet_str)*/
+
 /*
-Rewrite to be the connection to client.js and to be node js syntax for this below
-from core import Client
+var x = 0;
+requester.on("message", function(reply) {
+  console.log("Received reply", x, ": [", reply.toString(), ']');
+  x += 1;
+  if (x === 10) {
+    requester.close();
+    process.exit(0);
+  }
+});
 
-if __name__ == '__main__':
-    c = Client()
-    c.connect('tcp://localhost:1234')
+requester.connect("tcp://localhost:5555");
 
-    for line in sys.stdin:
-        tweet_str = line.strip()
-        print c('process', tweet_str)*/
+for (var i = 0; i < 10; i++) {
+  console.log("Sending request", i, '…');
+  requester.send("Hello");
+}
 
-
-//TODO: List
-// SWITCH THE ZERORPC OUT FOR JUST BASE ZMQ
-
-//var x = 0;
-//requester.on("message", function(reply) {
-//  console.log("Received reply", x, ": [", reply.toString(), ']');
-//  x += 1;
-//  if (x === 10) {
-//    requester.close();
-//    process.exit(0);
-//  }
-//});
-//
-//requester.connect("tcp://localhost:5555");
-//
-//for (var i = 0; i < 10; i++) {
-//  console.log("Sending request", i, '…');
-//  requester.send("Hello");
-//}
-//
-//process.on('SIGINT', function() {
-//  requester.close();
-//});
+process.on('SIGINT', function() {
+  requester.close();
+});
 
 
 
