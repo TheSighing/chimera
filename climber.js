@@ -1,6 +1,3 @@
-var zmq = require('zmq');
-
-
 //Rewrite to be the connection to client.js and to be node js syntax for this below
 var client = require('Client');
 
