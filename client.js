@@ -1,4 +1,4 @@
-/*
+
 
 Create the js version of this setup so it can connect to the python server
 
@@ -21,4 +21,4 @@ class Client(object):
         return msgpack.unpackb(self.socket.recv())
 
     def connect(self, *args):
-        self.socket.connect(*args)*/
+        self.socket.connect(*args)
