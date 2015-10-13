@@ -1,7 +1,7 @@
 var c = require('../climber');
 climber = new c(5050);
 
-console.log("climbing in general");
+console.log("Climbing in general.");
 
 climber.climb('wolf', function(err, data){
   if(err){
@@ -10,6 +10,8 @@ climber.climb('wolf', function(err, data){
 
   console.log(data);
 });
+
+console.log("\n<:::::::::::::::::::::::::::::::>\n\n");
 
 // console.log("climbing images");
 //

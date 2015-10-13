@@ -9,15 +9,15 @@ exec = require('child_process').exec;
 console.log("Starting...");
 
 // Start python server from this file as a child process to query against.
-exec('nodemon --exec \"python -v\" ./climber.py', function(err, stdout, stderr){
-  //Handle errors??
-  //Start communication and such???
-  if(err){
-    return callback(err);
-  }
-
-  console.log("Initializing route...");
-});
+//exec('nodemon --exec \"python -v\" ./climber.py', function(err, stdout, stderr){
+//  //Handle errors??
+//  //Start communication and such???
+//  if(err){
+//    return callback(err);
+//  }
+//
+//  console.log("Initializing route...");
+//});
 
 function Climber(port){
   this.port = port;
@@ -40,10 +40,11 @@ Climber.prototype = {
         return callback(null, content);
       }
       else{
-        content += content + " "
+        content += content + " ";
       }
     });
   },
+
   climb_images : function(callback){
     var e = new events.EventEmitter();
     var client = new zerorpc.Client();
@@ -60,10 +61,11 @@ Climber.prototype = {
         return callback(null, content);
       }
       else{
-        content += content + " "
+        content += content + " ";
       }
     });
   },
+
   climb_links : function(callback){
     var e = new events.EventEmitter();
     var client = new zerorpc.Client();
@@ -80,7 +82,7 @@ Climber.prototype = {
         return callback(null, content);
       }
       else{
-        content += content + " "
+        content += content + " ";
       }
     });
   }

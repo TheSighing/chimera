@@ -1,5 +1,6 @@
 import zerorpc
 import requests
+import re
 import json
 from bs4 import BeautifulSoup
 
@@ -70,6 +71,12 @@ class Climber(object):
         # a new bolt is constituted by the fact that one of the context level has chaged
         # proboably should make this become hadled by the class Bolt or something
         # Should also work with any amount of headers (headers define amounts of context)
+        check = self.soup.find_all(id="disambigbox")
+
+        if(len(check)):
+            print len(check)
+            print "heyooooo\n"
+
         h = ["", "", "", ""]
         for section in self.soup.find_all(["h1", "h2", "h3", "h4", "p"]):
             try:
@@ -83,6 +90,7 @@ class Climber(object):
                     h[3] = section.get_text()
                 elif(section.name == "p"):
                     # Add text to the bolt.
+                    print section.get_text();
                     bolt = Bolt(section.get_text())
                     bolt.belay(h[0], 1)
                     bolt.belay(h[1], 2)
