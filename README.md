@@ -5,38 +5,30 @@ Uses Zmq, Python, Node.js to pipe the parsing of a wiki page into "Bolts" (Pytho
 Gathers context and text and stores these in relation to each other with level identifiers.
 
 #TODO:
-TIME TO SWITCH TO THE LOWER LEVEL ZMQ and make a messaging protocol that returns a JSON stream of the data this will be more efficient and faster and less BUGGY
+maintain context levels by removing lower level contexts if a higher context is found in the page.
 
 Need to make a way to install using npm, update the capabilities of the "climber" to gather more info from wiki.
 
-Need to create gulp or grunt method to start both servers simultaneously seeing as they are dependent on each other to function.
+Classify some of the normally occuring deliniations for sections on wiki page.
 
-May go to lower level controls on zeromq connection for more extensibility and incorporate socket.io for updates from a user interface on the client side.
+Get images from wiki and apply context to them.
 
-Need to make a node js program that runs both servers as child process' and acts as the entry point for bower/npm to make this a stand alone API that can be added to any project needing it (npm).
-
-Parse and clean the text to remove the reference numbers
-
-Classify some of the normally occuring delinations for sections on wiki page
-
-get images from wiki and apply context to them
-
-def see_also() => makes a whole set of related thhings to the topic chosen
+def see_also() => makes a whole set of related thhings to the topic chosen.
 
 def chossy() => parse disambiguation pages can be called when the page reached durign climb or
 any given method in the class and it hits a "chossy page" one that cannot be parsed in this custiomary
-method ie a disambiguation page or otherwise
+method ie a disambiguation page or otherwise.
 
-def flash() => grab directly a section of the overall page when supplied a set of context levels and/or
-a bit of text that it can match
+def flash() => directly grab a section of the overall page when supplied a set of context levels and/or
+a bit of text that it can match.
 
-climb links should build based on a depth choice and and builds graph of links to help determine later searches
+Climb links should build based on a depth choice and and builds graph of links to help determine later searches.
 
-add comments to this and organize code
+Add comments to this and organize code (avoid spagetti).
 
-Also improve documentation and explain the API usage
+Also improve documentation and explain the API usage.
 
-Build some test harnesses for API
+Build some test harnesses for API.
 
 Web Crawler as Restful Service
 #Install
