@@ -5,15 +5,17 @@ Uses Zmq, Python, Node.js to pipe the parsing of a wiki page into "Bolts" (Pytho
 Gathers context and text and stores these in relation to each other with level identifiers.
 
 #TODO:
-Maintain context levels by removing lower level contexts if a higher context is found in the page.
+***Maintain context levels by removing lower level contexts if a higher context is found in the page.
 
-Add option to allow for summary of returned data and context for images.
+***Replace complex words with definitions you find in the underlying link.
+
+***Add option to allow for summary of returned data.
 
 Need to make a way to install using npm, update the capabilities of the "climber" to gather more info from wiki.
 
-Classify some of the normally occuring deliniations for sections on wiki page.
+Classify some of the normally occuring deliniations for sections on wiki page and other indicators from wiki pages.
 
-Get images from wiki and apply context to them.
+***Get images from wiki and apply context to them.
 
 def see_also() => makes a whole set of related thhings to the topic chosen.
 
