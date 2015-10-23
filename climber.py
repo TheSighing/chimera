@@ -78,20 +78,22 @@ class Climber(object):
             h = ["", "", "", ""]
             for section in self.soup.find_all(["h1", "h2", "h3", "h4", "p"]):
                 try:
+                    #fix this so it matches the h# set up and loops to decide on depth or just inputs the number found as the hash for the entry
                     if(section.name  == "h1"):
                         h[0] = section.get_text()
                     elif(section.name  == "h2"):
                         h[1] = section.get_text()
+                        h[2] = ""
+                        h[3] = ""
                     elif(section.name  == "h3"):
                         h[2] = section.get_text()
+                        h[3] = ""
                     elif(section.name  == "h4"):
                         h[3] = section.get_text()
                     elif(section.name == "p"):
                         # Add text to the bolt.
-                        # print section.get_text();
                         string = section.get_text()
                         string = re.sub(r"\[\d+\]", "", string)
-                        print(string + "\n:::\n")
                         bolt = Bolt(string)
                         bolt.belay(h[0], 1)
                         bolt.belay(h[1], 2)
@@ -105,6 +107,7 @@ class Climber(object):
                     continue
         else:
             print "This is a Disambiguation Page...\n\n"
+            #chossy()
 
         return json.dumps(wiki_parsed, indent=4)
 
