@@ -5,7 +5,6 @@ Uses Zmq, Python, Node.js to pipe the parsing of a wiki page into "Bolts" (Pytho
 Gathers context and text and stores these in relation to each other with level identifiers.
 
 #TODO:
-***Maintain context levels by removing lower level contexts if a higher context is found in the page.
 
 ***Replace complex words with definitions you find in the underlying link.
 
