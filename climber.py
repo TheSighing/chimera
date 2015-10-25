@@ -23,6 +23,8 @@ from bs4 import BeautifulSoup
 # proven method to send object to the otherside
 # wiki_parsed.append({ "Text" :  bolt.text , "Contexts: " : bolt.contexts })
 # re.compile => a way to check for a specific string match
+def chossy():
+        print "This is a Disambiguation Page...\n\n"
 
 class Bolt():
     def __init__(self, text):
@@ -106,8 +108,7 @@ class Climber(object):
                 except Exception as e:
                     continue
         else:
-            print "This is a Disambiguation Page...\n\n"
-            #chossy()
+            chossy()
 
         return json.dumps(wiki_parsed, indent=4)
 

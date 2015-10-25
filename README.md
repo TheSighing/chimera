@@ -17,7 +17,7 @@ Need to make a way to install using npm, update the capabilities of the "climber
 def see_also() => makes a whole set of related thhings to the topic chosen.
 
 ***def chossy() => parse disambiguation pages can be called when the page reached during climb or
-any given method in the class and it hits a "chossy page" one that cannot be parsed in this custiomary
+any given method in the class and it hits a "chossy page" one that cannot be parsed in this customary
 method ie a disambiguation page or otherwise.
 
 ?? def flash() => directly grab a section of the overall page when supplied a set of context levels and/or
