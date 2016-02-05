@@ -2,6 +2,8 @@
 Climb wiki pages with this web crawler turned API or use it as Restful-API.
 Uses Zmq, Python, Node.js to pipe the parsing of a wiki page into "Bolts" (Python) to Node.js (API)
 
+Why crawl when you can climb?
+
 Gathers context and text and stores these in relation to each other with level identifiers.
 
 #TODO:

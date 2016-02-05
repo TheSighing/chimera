@@ -2,7 +2,7 @@
   "name": "climber",
   "version": "0.0.0",
   "description": "Climbing mount wiki.",
-  "main": "climber.js",
+  "main": "index.js",
   "dependencies": {
     "cheerio": "^0.19.0",
     "express": "^4.13.4",
