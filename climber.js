@@ -4,14 +4,15 @@ async = require('async'),
 events = require('events'),
 exec = require('child_process').exec;
 
-exec('nodemon --exec \"python -v\" ./climber.py', function(err, stdout, stderr){
-    //Handle errors??
-    //Start communication and such???
-    //ensure this closes when done using it nad other debugging
-    if(err){
-        return callback(err);
-    }
-});
+//exec('nodemon --exec \"python -v\" ./climber.py', function(err, stdout, stderr){
+//exec('\"python -v\" ./climber.py', function(err, stdout, stderr){
+//    //Handle errors??
+//    //Start communication and such???
+//    //ensure this closes when done using it nad other debugging
+//    if(err){
+//        return callback(err);
+//    }
+//});
 
 function Climber(port){
     this.port = port;
@@ -21,6 +22,15 @@ Climber.prototype = {
     climb : function(topic, callback){
         var e = new events.EventEmitter();
         // Start python server from this file as a child process to query against.
+        exec('\"python -v\" ./climber.py', function(err, stdout, stderr){
+            //Handle errors??
+            //Start communication and such???
+            //ensure this closes when done using it nad other debugging
+            if(err){
+                return callback(err);
+            }
+        });
+
         var client = new zerorpc.Client();
         client.connect('tcp://127.0.0.1:' + this.port);
 
