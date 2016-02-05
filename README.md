@@ -35,27 +35,13 @@ Build some test harnesses for API.
 
 Web Crawler as Restful Service
 #Install
-1. `git clone <repo>`
-2. `cd <repo>`
-3. `npm install`
-4. `Terminal1: python climber.py`
-5. `Terminal2: node climber.js`
 
-#USAGE AS Web Crawler Restful-API:
+npm install zerorpc
+npm install climber
 
-`localhost:<port>/climb/<topic>`
-
-#Install
-1. `git clone <repo>`
-2. `cd <repo>`
-3. `npm install`
-4. `Follow usage and have fun.`
-
-
-#USAGE AS Web Crawler service API:
 
 ```javascript
-var c = require('./climber');
+var c = require('climber');
 climber = new c(5050);
 
 climber.climb('wolf', function(err, data){
