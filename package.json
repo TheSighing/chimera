@@ -1,6 +1,6 @@
 {
   "name": "climber",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Climbing mount wiki.",
   "main": "index.js",
   "dependencies": {
@@ -9,8 +9,7 @@
     "request": "^2.58.0",
     "zmq": "^2.12.0"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "scripts": {
     "test": "node test/test.js"
   },
