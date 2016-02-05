@@ -1,0 +1,12 @@
+{
+  "name": "ClimberApp",
+  "version": "0.1.0",
+  "description": "A flashcard generator based on wiki pages.",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.2.0",
+    "bootstrap": "~3.3.6",
+    "angular": "~1.4.9",
+    "angular-route": "~1.4.9"
+  }
+}
