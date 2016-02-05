@@ -42,7 +42,7 @@ $ npm install zerorpc
 $ npm install climber
 ```
 
-
+#Basic Usage
 ```javascript
 var c = require('climber');
 climber = new c(5050);
