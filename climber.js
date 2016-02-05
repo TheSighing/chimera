@@ -1,8 +1,9 @@
 //TODO: List
 var zerorpc = require("zerorpc"),
 async = require('async'),
-events = require('events'),
-exec = require('child_process').exec;
+events = require('events');
+
+var child_process = require('child_process');
 
 //exec('nodemon --exec \"python -v\" ./climber.py', function(err, stdout, stderr){
 //exec('\"python -v\" ./climber.py', function(err, stdout, stderr){
@@ -22,13 +23,15 @@ Climber.prototype = {
     climb : function(topic, callback){
         var e = new events.EventEmitter();
         // Start python server from this file as a child process to query against.
-        exec('\"python -v\" ./climber.py', function(err, stdout, stderr){
+        child_process.exec('python ./climber.py', function(err, stdout, stderr){
             //Handle errors??
             //Start communication and such???
             //ensure this closes when done using it nad other debugging
-            if(err){
-                return callback(err);
+            if (err) {
+                console.log("child processes failed with error code: " +
+                            err.code);
             }
+            console.log(stdout);
         });
 
         var client = new zerorpc.Client();
