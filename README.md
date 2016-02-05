@@ -36,8 +36,11 @@ Build some test harnesses for API.
 Web Crawler as Restful Service
 #Install
 
-npm install zerorpc
-npm install climber
+```javascript
+$ npm install zerorpc
+
+$ npm install climber
+```
 
 
 ```javascript
