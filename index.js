@@ -1,8 +1,8 @@
 //TODO: List
 var zerorpc = require("zerorpc"),
 async = require('async'),
-events = require('events');
-//exec = require('child_process').exec;
+events = require('events'),
+exec = require('child_process').exec;
 
 // Start python server from this file as a child process to query against.
 exec('nodemon --exec \"python -v\" ./climber.py', function(err, stdout, stderr){
