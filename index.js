@@ -5,13 +5,14 @@ events = require('events');
 //exec = require('child_process').exec;
 
 // Start python server from this file as a child process to query against.
-//exec('nodemon --exec \"python -v\" ./climber.py', function(err, stdout, stderr){
-//  //Handle errors??
-//  //Start communication and such???
-//  if(err){
-//    return callback(err);
-//  }
-//});
+exec('nodemon --exec \"python -v\" ./climber.py', function(err, stdout, stderr){
+  //Handle errors??
+  //Start communication and such???
+  //ensure this closes when done using it nad other debugging
+  if(err){
+    return callback(err);
+  }
+});
 
 function Climber(port){
   this.port = port;
