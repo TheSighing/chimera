@@ -21,27 +21,32 @@ Climber.prototype = {
     climb : function(topic, callback){
         var e = new events.EventEmitter();
         // Start python server from this file as a child process to query against.
-        var python = require('child_process').spawn(
-                 'python',
-                 ["./climber.py"]
-        );
-
-        var client = new zerorpc.Client();
-        client.connect('tcp://127.0.0.1:' + this.port);
-
-        client.invoke("climb", topic, function(err, content, more){
+            console.log("your terring me apart lisa.");
+        var child_process = require('child_process');
+        child_process.execFile('python', ["./climber.py"], function(err, stdout, stderr){
             if(err){
-                return callback(err, null);
+                throw err;
             }
 
-            if(!more){
-                client.close();
-                return callback(null, content);
-            }
-            else{
-                content += content + " ";
-            }
+            console.log("Shut up.");
+            var client = new zerorpc.Client();
+            client.connect('tcp://127.0.0.1:' + this.port);
+
+            client.invoke("climb", topic, function(err, content, more){
+                if(err){
+                    return callback(err, null);
+                }
+
+                if(!more){
+                    client.close();
+                    return callback(null, content);
+                }
+                else{
+                    content += content + " ";
+                }
+            });
         });
+
     },
 
     climb_images : function(callback){
