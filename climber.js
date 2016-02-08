@@ -24,7 +24,7 @@ Climber.prototype = {
         // Start python server from this file as a child process to query against.
         console.log("your tearing me apart lisa.");
         var PythonShell = require('python-shell');
-        PythonShell.run('climber.py', function(err){
+        PythonShell.run('./climber.py', function(err){
             if(err){
                 throw err;
             }
