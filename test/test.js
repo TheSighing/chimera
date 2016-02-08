@@ -7,4 +7,5 @@ climber.climb('wolf', function(err, data){
   }
 
   console.log(data);
+  //climber.close();
 });

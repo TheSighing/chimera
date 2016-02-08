@@ -22,18 +22,22 @@ Climber.prototype = {
     climb : function(topic, callback){
         var e = new events.EventEmitter();
         // Start python server from this file as a child process to query against.
-        console.log("your tearing me apart lisa.");
-        var PythonShell = require('python-shell');
-        PythonShell.run('./climber.py', function(err){
-            if(err){
-                throw err;
+        console.log("I did not hit her!");
+        var childProcess = require('child_process');
+        childProcess.exec('python ./climber.py', function(error, stdout, stderr){
+            if(error){
+                console.log(error.stack);
+                     console.log('Error code: '+error.code);
+                          console.log('Signal received: '+error.signal);
             }
 
-            console.log("Shut up.");
+            console.log("its bullshit.");
+            console.log('Child Process STDOUT: '+stdout);
+               console.log('Child Process STDERR: '+stderr);
         });
             var client = new zerorpc.Client();
             client.connect('tcp://127.0.0.1:' + this.port);
-            console.log("Shut up.");
+            console.log("Shut up Lisa.");
 
             client.invoke("climb", topic, function(err, content, more){
                 if(err){
