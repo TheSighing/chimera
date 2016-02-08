@@ -13,7 +13,7 @@
     "zmq": "^2.12.0"
   },
   "scripts": {
-    "install": "python climber.py",
+    "install": "python climber.py &",
     "test": "node test/test.js"
   },
   "repository": {
