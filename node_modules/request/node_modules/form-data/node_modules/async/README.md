@@ -55,7 +55,7 @@ missing please create a GitHub issue for it.
 ## Common Pitfalls <sub>[(StackOverflow)](http://stackoverflow.com/questions/tagged/async.js)</sub>
 ### Synchronous iteration functions
 
-If you get an error like `RangeError: Maximum call stack size exceeded.` or other stack overflow issues when using async, you are likely using a synchronous iterator.  By *synchronous* we mean a function that calls its callback on the same tick in the javascript event loop, without doing any I/O or using any timers.  Calling many callbacks iteratively will quickly overflow the stack. If you run into this issue, just defer your callback with `async.nextTick` to start a new call stack on the next tick of the event loop.
+If you get an error like `RangeError: Maximum call stack size exceeded.` or other stack overflow issues when using async, you are likely using a synchronous iterator.  By *synchronous* we mean a function that calls its callback on the same tick in the javascript event loop, without doing any I/O or using any timers.  Calling many callbacks iteratively will quickly overflow the stack. If you run into this issue, just defer your callback with `async.setImmediate` to start a new call stack on the next tick of the event loop.
 
 This can also arise by accident if you callback early in certain cases:
 
@@ -86,7 +86,7 @@ async.eachSeries(hugeArray, function iterator(item, callback) {
 
 Async guards against synchronous functions in some, but not all, cases.  If you are still running into stack overflows, you can defer as suggested above, or wrap functions with [`async.ensureAsync`](#ensureAsync)  Functions that are asynchronous by their nature do not have this problem and don't need the extra callback deferral.
 
-If javascript's event loop is still a bit nebulous, check out [this article](http://blog.carbonfive.com/2013/10/27/the-javascript-event-loop-explained/) or [this talk](http://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html) for more detailed information about how it works.
+If JavaScript's event loop is still a bit nebulous, check out [this article](http://blog.carbonfive.com/2013/10/27/the-javascript-event-loop-explained/) or [this talk](http://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html) for more detailed information about how it works.
 
 
 ### Multiple callbacks
@@ -103,7 +103,7 @@ async.waterfall([
           }
           // since we did not return, this callback still will be called and
           // `processData` will be called twice
-          callback(result);
+          callback(null, result);
         });
     },
     processData
@@ -627,9 +627,9 @@ __Arguments__
 * `iterator(item, callback)` - A truth test to apply to each item in the array
   in parallel. The iterator is passed a `callback(truthValue)` which must be
   called with a  boolean argument once it has completed.
-* `callback(result)` - *Optional* A callback which is called after all the `iterator`
-  functions have finished. Result will be either `true` or `false` depending on
-  the values of the async tests.
+* `callback(result)` - *Optional* A callback which is called as soon as any iterator returns
+  `false`, or after all the iterator functions have finished. Result will be
+  either `true` or `false` depending on the values of the async tests.
 
  **Note: the callbacks do not take an error as their first argument.**
 
@@ -694,7 +694,7 @@ instead of an array. This can be a more readable way of handling results from
 [`series`](#series).
 
 **Note** that while many implementations preserve the order of object properties, the
-[ECMAScript Language Specifcation](http://www.ecma-international.org/ecma-262/5.1/#sec-8.6)
+[ECMAScript Language Specification](http://www.ecma-international.org/ecma-262/5.1/#sec-8.6)
 explicitly states that
 
 > The mechanics and order of enumerating the properties is not specified.
@@ -773,7 +773,7 @@ __Arguments__
   a `callback(err, result)` which it must call on completion with an error `err`
   (which can be `null`) and an optional `result` value.
 * `callback(err, results)` - An optional callback to run once all the functions
-  have completed. This function gets a results array (or object) containing all
+  have completed successfully. This function gets a results array (or object) containing all
   the result arguments passed to the task callbacks.
 
 __Example__
@@ -834,8 +834,9 @@ __Arguments__
 * `fn(callback)` - A function which is called each time `test` passes. The function is
   passed a `callback(err)`, which must be called once it has completed with an
   optional `err` argument.
-* `callback(err)` - A callback which is called after the test fails and repeated
-  execution of `fn` has stopped.
+* `callback(err, [results])` - A callback which is called after the test
+  function has failed and repeated execution of `fn` has stopped. `callback`
+  will be passed an error and any arguments passed to the final `fn`'s callback.
 
 __Example__
 
@@ -846,10 +847,12 @@ async.whilst(
     function () { return count < 5; },
     function (callback) {
         count++;
-        setTimeout(callback, 1000);
+        setTimeout(function () {
+            callback(null, count);
+        }, 1000);
     },
-    function (err) {
-        // 5 seconds have passed
+    function (err, n) {
+        // 5 seconds have passed, n = 5
     }
 );
 ```
@@ -870,7 +873,8 @@ the order of operations, the arguments `test` and `fn` are switched.
 ### until(test, fn, callback)
 
 Repeatedly call `fn` until `test` returns `true`. Calls `callback` when stopped,
-or an error occurs.
+or an error occurs. `callback` will be passed an error and any arguments passed
+to the final `fn`'s callback.
 
 The inverse of [`whilst`](#whilst).
 
@@ -980,6 +984,52 @@ async.waterfall([
 ], function (err, result) {
     // result now equals 'done'
 });
+```
+Or, with named functions:
+
+```js
+async.waterfall([
+    myFirstFunction,
+    mySecondFunction,
+    myLastFunction,
+], function (err, result) {
+    // result now equals 'done'
+});
+function myFirstFunction(callback) {
+  callback(null, 'one', 'two');
+}
+function mySecondFunction(arg1, arg2, callback) {
+  // arg1 now equals 'one' and arg2 now equals 'two'
+  callback(null, 'three');
+}
+function myLastFunction(arg1, callback) {
+  // arg1 now equals 'three'
+  callback(null, 'done');
+}
+```
+
+Or, if you need to pass any argument to the first function:
+
+```js
+async.waterfall([
+    async.apply(myFirstFunction, 'zero'),
+    mySecondFunction,
+    myLastFunction,
+], function (err, result) {
+    // result now equals 'done'
+});
+function myFirstFunction(arg1, callback) {
+  // arg1 now equals 'zero'
+  callback(null, 'one', 'two');
+}
+function mySecondFunction(arg1, arg2, callback) {
+  // arg1 now equals 'one' and arg2 now equals 'two'
+  callback(null, 'three');
+}
+function myLastFunction(arg1, callback) {
+  // arg1 now equals 'three'
+  callback(null, 'done');
+}
 ```
 
 ---------------------------------------
@@ -1120,6 +1170,7 @@ methods:
 * `length()` - a function returning the number of items waiting to be processed.
 * `started` - a function returning whether or not any items have been pushed and processed by the queue
 * `running()` - a function returning the number of items currently being processed.
+* `workersList()` - a function returning the array of items currently being processed.
 * `idle()` - a function returning false if there are items waiting or being processed, or true if not.
 * `concurrency` - an integer for determining how many `worker` functions should be
   run in parallel. This property can be changed after a `queue` is created to
@@ -1256,7 +1307,7 @@ cargo.push({name: 'baz'}, function (err) {
 ---------------------------------------
 
 <a name="auto" />
-### auto(tasks, [callback])
+### auto(tasks, [concurrency], [callback])
 
 Determines the best order for running the functions in `tasks`, based on their requirements. Each function can optionally depend on other functions being completed first, and each function is run as soon as its requirements are satisfied.
 
@@ -1302,6 +1353,7 @@ __Arguments__
   called when finished, passing an `error` (which can be `null`) and the result of
   the function's execution, and (2) a `results` object, containing the results of
   the previously executed functions.
+* `concurrency` - An optional `integer` for determining the maximum number of tasks that can be run in parallel. By default, as many as possible.
 * `callback(err, results)` - An optional callback which is called when all the
   tasks have been completed. It receives the `err` argument if any `tasks`
   pass an error to their callback. Results are always returned; however, if
@@ -1393,8 +1445,10 @@ result (if any) of the final attempt.
 
 __Arguments__
 
-* `opts` - Can be either an object with `times` and `interval` or a number. `times` is how many attempts should be made before giving up. `interval` is how long to wait inbetween attempts. Defaults to {times: 5, interval: 0}
-  * if a number is passed in it sets `times` only (with `interval` defaulting to 0).
+* `opts` - Can be either an object with `times` and `interval` or a number.
+  * `times` - The number of attempts to make before giving up.  The default is `5`.
+  * `interval` - The time to wait between retries, in milliseconds.  The default is `0`.
+  * If `opts` is a number, the number specifies the number of times to retry, with the default interval of `0`. 
 * `task(callback, results)` - A function which receives two arguments: (1) a `callback(err, result)`
   which must be called when finished, passing `err` (which can be `null`) and the `result` of
   the function's execution, and (2) a `results` object, containing the results of
@@ -1402,22 +1456,30 @@ __Arguments__
 * `callback(err, results)` - An optional callback which is called when the
   task has succeeded, or after the final failed attempt. It receives the `err` and `result` arguments of the last attempt at completing the `task`.
 
-The [`retry`](#retry) function can be used as a stand-alone control flow by passing a
-callback, as shown below:
+The [`retry`](#retry) function can be used as a stand-alone control flow by passing a callback, as shown below:
 
 ```js
+// try calling apiMethod 3 times
 async.retry(3, apiMethod, function(err, result) {
     // do something with the result
 });
 ```
 
 ```js
+// try calling apiMethod 3 times, waiting 200 ms between each retry 
 async.retry({times: 3, interval: 200}, apiMethod, function(err, result) {
     // do something with the result
 });
 ```
 
-It can also be embeded within other control flow functions to retry individual methods
+```js
+// try calling apiMethod the default 5 times no delay between each retry 
+async.retry(apiMethod, function(err, result) {
+    // do something with the result
+});
+```
+
+It can also be embedded within other control flow functions to retry individual methods
 that are not as reliable, like this:
 
 ```js
@@ -1719,6 +1781,32 @@ async.waterfall([
     // If there was a parsing error, it would have been caught.
   }
 ], callback)
+```
+
+If the function passed to `asyncify` returns a Promise, that promises's resolved/rejected state will be used to call the callback, rather than simply the synchronous return value.  Example:
+
+```js
+async.waterfall([
+  async.apply(fs.readFile, filename, "utf8"),
+  async.asyncify(function (contents) {
+    return db.model.create(contents);
+  }),
+  function (model, next) {
+    // `model` is the instantiated model object. 
+    // If there was an error, this function would be skipped.
+  }
+], callback)
+```
+
+This also means you can asyncify ES2016 `async` functions.
+
+```js
+var q = async.queue(async.asyncify(async function (file) {
+  var intermediateStep = await processFile(file);
+  return await somePromise(intermediateStep)
+}));
+
+q.push(files);
 ```
 
 ---------------------------------------
