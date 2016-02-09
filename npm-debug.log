@@ -1,0 +1,21 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'version',
+1 verbose cli   '1.0.17' ]
+2 info using npm@2.11.2
+3 info using node@v0.12.6
+4 verbose stack Error: Version not changed
+4 verbose stack     at /usr/local/lib/node_modules/npm/lib/version.js:49:49
+4 verbose stack     at evalmachine.<anonymous>:334:14
+4 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:102:5
+4 verbose stack     at FSReqWrap.oncomplete (evalmachine.<anonymous>:95:15)
+5 verbose cwd /Users/jaredgodfrey/Developer/climber
+6 error Darwin 14.5.0
+7 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "version" "1.0.17"
+8 error node v0.12.6
+9 error npm  v2.11.2
+10 error Version not changed
+11 error If you need help, you may report this error at:
+11 error     <https://github.com/npm/npm/issues>
+12 verbose exit [ 1, true ]
