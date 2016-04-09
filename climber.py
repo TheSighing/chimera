@@ -39,6 +39,10 @@ from bs4 import BeautifulSoup
 #TODO: Replace complex words with definitions you find in the underlying link or using dictionary.
 #TODO: Build some test harnesses for API and Restful-API.
 
+def check_text(text):
+    if(text != "Contents" and text != ""):
+        return text
+
 def chossy():
         print "This is a Disambiguation Page...\n\n"
 
@@ -88,22 +92,22 @@ class Climber(object):
                 try:
                     if(section.name  == "h1"):
                         text = section.get_text()
-                        if(text != "Contents" and text != ""):
+                        if(check_text(text)):
                             h[0] = text
                     elif(section.name  == "h2"):
                         text = section.get_text()
-                        if(text != "Contents" and text != ""):
+                        if(check_text(text)):
                             h[1] = text
                             h[2] = ""
                             h[3] = ""
                     elif(section.name  == "h3"):
                         text = section.get_text()
-                        if(text != "Contents" and text != ""):
+                        if(check_text(text)):
                             h[2] = text
                             h[3] = ""
                     elif(section.name  == "h4"):
                         text = section.get_text()
-                        if(text != "Contents" and text != ""):
+                        if(check_text(text)):
                             h[3] = text
                     elif(section.name == "p"):
                         # Add text to the bolt.
