@@ -138,7 +138,7 @@ class Climber(object):
     def climb_links(self):
         links = [ a.get('href') for a in self.soup.select('div#mw-content-text a') ]
 
-        return json.dumps(links, indent=4)
+        return "links"
 
 s = zerorpc.Server(Climber())
 s.bind("tcp://0.0.0.0:5050")
