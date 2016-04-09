@@ -15,7 +15,8 @@
   },
   "scripts": {
     "install": "./init_server.sh",
-    "test": "node test/test.js"
+    "test": "node test/test.js",
+    "testm": "node test/test_as_module.js"
   },
   "repository": {
     "type": "git",
