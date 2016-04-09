@@ -16,7 +16,9 @@ $ node wiki-climber.js
 $ npm install zerorpc
 
 $ npm install climber
+
 ```
+# Note installing climber starts the python services script in a background.
 
 #Basic Usage
 ```javascript
