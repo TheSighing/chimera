@@ -3,7 +3,6 @@ wc = express(),
 bodyParser = require('body-parser'),
 //TODO: replace with uri-request
 request = require('request'),
-//TODO: replace with the usage of zero mq to communicate to python and use beautiful soup
 cheerio = require('cheerio'),
 async = require('async'),
 events = require('events');

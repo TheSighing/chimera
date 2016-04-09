@@ -1,4 +1,3 @@
-//TODO: List
 var zerorpc = require("zerorpc"),
 async = require('async'),
 events = require('events');

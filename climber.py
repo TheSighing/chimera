@@ -4,55 +4,41 @@ import re
 import json
 from bs4 import BeautifulSoup
 
-#TODO: List
-# Parse and clean the text to remove the reference numbers
-# get images from wiki and apply context to them
-# def see_also() => makes a whole set of related thhings to the topic chosen
-# def chossy() => parse disambiguation pages can be called
-# when the page reached durign climb or
-# any given method in the class and it hits a "chossy page"
-# one that cannot be parsed in this custiomary
-# method ie a disambiguation page or otherwise
-# def flash() => grab directly a section of the overall page when supplied
-#a set of context levels and/or
-# a bit of text that it can match
-# climb links should build based on a depth choice and and builds graph of links
-# to help determine later searches
-# add comments to this
-# bolts should also allow for optional images.
-# climb should have options (object) passed in to allow it to include images
-# in route or to include graph of links with given
-# level of depth
-
+#TODO: get images from wiki and apply context to them
+#TODO: def see_also() => makes a whole set of related thhings to the topic chosen
 #TODO:
-# You are creating context, subcontext, text, links => Bolt() object
-# and loading into an Array
-# building structure to the wiki itself
-# (or any large text based information page) that can be accessed
-# parsed and such.
-# later should incorporate other checks to find titles and context
-# this doesnt quite work how i want it to need it to have parent contexts saved
-# so that only the changing level changes but the other context remain the
-# same for each new bolt added on
-# a new bolt is constituted by the fact that one of the context level has chaged
-# proboably should make this become hadled by the class Bolt or something
-# Should also work with any amount of headers
-#(headers define amounts of context)
-# create overall function that sanatizes the strings for printing them and for
-# putting them through the summarizer removing the (dirt from the wiki page
-# stuff like the square bracket number stuff) this should be the case for the
-# normal and the beginnign stages of this project but later may provive a
-# detailed mapping of the web of wiki pages such that better summaries can be
-# made from other pages and included int eh returned product for the main page
-# being queried.
-#fix the h1 - ?? checks so they are extensible rt=ather than hard coded this so it matches the h# set up and loops to
-#decide on depth or just inputs the number found
-#as the hash for the entry
+#   def chossy() => parse disambiguation pages can be called
+#   when the page reached durign climb or
+#   any given method in the class and it hits a "chossy page"
+#   one that cannot be parsed in this custiomary
+#   method ie a disambiguation page or otherwise
+#TODO:
+#   def flash() => grab directly a section of the overall page when supplied
+#   a set of context levels and/or a bit of text that it can match
+#   climb links should build based on a depth choice and and builds graph of links
+#   to help determine later searches
+#TODO: add comments to this
+#TODO: bolts should also allow for optional images.
+#TODO:
+#   climb should have options (object) passed in to allow it to include images
+#   in route or to include graph of links with given
+#   level of depth
+#TODO:
+#   You are creating context and subcontexts, text, links => Bolt() object
+#   and loading into an Array building structure to the wiki itself
+#   (or any large text based information page) that can be accessed
+#   parsed as such. Later should incorporate other checks to find titles and context
+#TODO:
+#   Should also work with any amount of headers
+#   fix the h1 - ?? checks so they are extensible rather than hard coded
+#   this so it matches the h# set up and loops to
+#   decide on depth or just inputs the number found
+#   as the hash for the entry (headers define amounts of context)
+#TODO:create overall function that sanatizes the strings for printing them and for
+#TODO: Putting text through a summarizer
+#TODO: Replace complex words with definitions you find in the underlying link or using dictionary.
+#TODO: Build some test harnesses for API and Restful-API.
 
-#TODO: Notes
-# proven method to send object to the otherside
-# wiki_parsed.append({ "Text" :  bolt.text , "Contexts: " : bolt.contexts })
-# re.compile => a way to check for a specific string match
 def chossy():
         print "This is a Disambiguation Page...\n\n"
 
