@@ -5,10 +5,11 @@ Uses Zmq, Python, Node.js to pipe the parsing of a wiki page into "Bolts" (Pytho
 Gathers context and text and stores these in relation to each other with level identifiers.
 
 Web Crawler as Restful-API Service (Coming SOON as easy to use option and extension to package but for now)
-#Clone repo and run wiki-climber.js === Profit
 
-
-Web Crawler as API Service
+# Clone repo and use Web Crawler as API Service
+```javascript
+$ node wiki-climber.js
+```
 #Install
 
 ```javascript
