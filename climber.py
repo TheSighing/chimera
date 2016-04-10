@@ -70,8 +70,9 @@ class Bolt():
 class Climber(object):
     # Constructs route of entire wiki page based on text.
     #@zerorpc.stream
-    def climb(self, topic, options=None):
+    def climb(self, topic):
         self.topic = topic;
+        self.options = options;
 
         self.url = 'http://en.wikipedia.org/?title=%s' % self.topic
         self.content = requests.get(self.url)

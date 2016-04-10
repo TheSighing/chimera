@@ -7,10 +7,12 @@ function Climber(port){
 }
 
 Climber.prototype = {
-    climb : function(topic, callback){
+    climb : function(topic, options, callback){
         var e = new events.EventEmitter();
         var client = new zerorpc.Client();
         client.connect('tcp://127.0.0.1:' + this.port);
+
+        options = typeof options !== 'undefined' ? options : null;
 
         client.invoke("climb", topic, function(err, content, more){
             if(err){
@@ -68,6 +70,6 @@ Climber.prototype = {
             }
         });
     }
-}
+};
 
 exports = module.exports = Climber;
