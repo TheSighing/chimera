@@ -1,5 +1,5 @@
 var c = require('../climber');
-climber = new c(5050);
+climber = new c(5050, {"depth" : 1});
 
 climber.climb('wolf', function(err, data){
   if(err){

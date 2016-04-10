@@ -2,19 +2,18 @@ var zerorpc = require("zerorpc"),
 async = require('async'),
 events = require('events');
 
-function Climber(port){
+function Climber(port, options){
     this.port = port;
+    this.options = typeof options !== 'undefined' ? options : null;
 }
 
 Climber.prototype = {
-    climb : function(topic, options, callback){
+    climb : function(topic, callback){
         var e = new events.EventEmitter();
         var client = new zerorpc.Client();
         client.connect('tcp://127.0.0.1:' + this.port);
 
-        options = typeof options !== 'undefined' ? options : null;
-
-        client.invoke("climb", topic, function(err, content, more){
+        client.invoke("climb", topic, this.options, function(err, content, more){
             if(err){
                 return callback(err, null);
             }

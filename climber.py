@@ -70,7 +70,7 @@ class Bolt():
 class Climber(object):
     # Constructs route of entire wiki page based on text.
     #@zerorpc.stream
-    def climb(self, topic):
+    def climb(self, topic, options):
         self.topic = topic;
         self.options = options;
 
@@ -79,6 +79,9 @@ class Climber(object):
         self.soup = BeautifulSoup(self.content.text)
 
         wiki_parsed = []
+
+        if(not self.options):
+            return json.dumps(wiki_parsed, indent=4)
 
         check = self.soup.find_all(id="disambigbox")
 
