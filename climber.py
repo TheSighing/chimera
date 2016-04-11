@@ -4,7 +4,7 @@ import re
 import json
 from bs4 import BeautifulSoup
 
-#TODO: get images from wiki and apply context to them
+#TODO: def climb_images() => gathers images from wiki and applies context to them
 #TODO: def see_also() => makes a whole set of related thhings to the topic chosen
 #TODO:
 #   def chossy() => parse disambiguation pages can be called
