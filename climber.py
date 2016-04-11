@@ -37,6 +37,7 @@ from bs4 import BeautifulSoup
 #TODO: create overall function that sanitizes the strings for printing them "pretty"
 #TODO: Replace complex words with definitions you find in the underlying link or using dictionary.
 #TODO: Build some test harnesses for API and Restful-API.
+#TODO: Return related topics and souroundign topics using wikis dropdowns, as part of climb or as separate API function.
 
 def chossy():
         print "This is a Disambiguation Page...\n\n"
