@@ -1,6 +1,6 @@
 {
   "name": "climber",
-  "version": "1.0.20",
+  "version": "1.1.0",
   "description": "Climbing mount wiki, one section at a time.",
   "main": "climber.js",
   "dependencies": {
