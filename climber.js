@@ -11,7 +11,7 @@ function Climber(port, options){
 
 Climber.prototype = {
     climb : function(topic, callback){
-        var climberpy = child_process.execSync('./init_server.sh');
+        var climberpy = child_process.execSync('./init_server.sh || node_modules/climber/.init_server.sh');
         var e = new events.EventEmitter();
         var client = new zerorpc.Client();
         client.connect('tcp://127.0.0.1:' + this.port);
