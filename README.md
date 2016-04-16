@@ -12,7 +12,7 @@ $ npm install zerorpc
 $ npm install climber
 
 ```
-# Note installing climber starts the python services script in a background.
+# Note installing climber starts the python services script in the background.
 
 #Basic Usage
 ```javascript
