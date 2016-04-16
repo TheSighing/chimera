@@ -1,15 +1,9 @@
 # Climber "Why Crawl when you can Climb?"
 Climb wiki pages with this web crawler turned API or use it as Restful-API.
-Uses Zmq, Python, Node.js to pipe the parsing of a wiki page into "Bolts" (Python) to Node.js (API)
+Uses Zmq to pipe the parsing of a wiki page from Python into chunks of data fed back to Node.js to be utilized as an API.
 
 Gathers context and text and stores these in relation to each other with level identifiers.
 
-Web Crawler as Restful-API Service (Coming SOON as easy to use option and extension to package but for now)
-
-# Clone repo and use Web Crawler as API Service
-```javascript
-$ node wiki-climber.js
-```
 #Install
 
 ```javascript
@@ -18,7 +12,7 @@ $ npm install zerorpc
 $ npm install climber
 
 ```
-# Note installing climber starts the python services script in a background.
+# Note installing climber starts the python services script in the background.
 
 #Basic Usage
 ```javascript

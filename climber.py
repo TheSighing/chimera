@@ -4,7 +4,7 @@ import re
 import json
 from bs4 import BeautifulSoup
 
-#TODO: get images from wiki and apply context to them
+#TODO: def climb_images() => gathers images from wiki and applies context to them
 #TODO: def see_also() => makes a whole set of related thhings to the topic chosen
 #TODO:
 #   def chossy() => parse disambiguation pages can be called
@@ -27,17 +27,17 @@ from bs4 import BeautifulSoup
 #   You are creating context and subcontexts, text, links => Bolt() object
 #   and loading into an Array building structure to the wiki itself
 #   (or any large text based information page) that can be accessed
-#   parsed as such. Later should incorporate other checks to find titles and context
+#   parsed as such. Later should incorporate other checks to find titles and context that are more universal.
 #TODO:
 #   Should also work with any amount of headers
 #   fix the h1 - ?? checks so they are extensible rather than hard coded
 #   this so it matches the h# set up and loops to
 #   decide on depth or just inputs the number found
 #   as the hash for the entry (headers define amounts of context)
-#TODO:create overall function that sanatizes the strings for printing them and for
-#TODO: Putting text through a summarizer
+#TODO: create overall function that sanitizes the strings for printing them "pretty"
 #TODO: Replace complex words with definitions you find in the underlying link or using dictionary.
 #TODO: Build some test harnesses for API and Restful-API.
+#TODO: Return related topics and souroundign topics using wikis dropdowns, as part of climb or as separate API function.
 
 def chossy():
         print "This is a Disambiguation Page...\n\n"
