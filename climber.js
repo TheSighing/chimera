@@ -20,10 +20,10 @@ Climber.prototype = {
 
             if(!more){
                 client.close();
-                return callback(null, content);
+                return callback(null, JSON.parse(content));
             }
             else{
-                content += content + " ";
+                content += content;
             }
         });
     },

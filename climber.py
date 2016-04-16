@@ -57,7 +57,7 @@ class Bolt():
 
     # Encodes the bolt for safe transfer through zerorpc pipeline.
     def encode(self):
-        return { "Text" : self.text, "Contexts" : self.contexts }
+        return {"text": self.text, "contexts": self.contexts}
 
     def __str__(self):
         temp = "Text: " + self.text
@@ -80,8 +80,8 @@ class Climber(object):
 
         wiki_parsed = []
 
-        if(not self.options):
-            return json.dumps(wiki_parsed, indent=4)
+        #if(not self.options):
+        #    return json.dumps(wiki_parsed)
 
         check = self.soup.find_all(id="disambigbox")
 
@@ -129,7 +129,7 @@ class Climber(object):
         else:
             chossy()
 
-        return json.dumps(wiki_parsed, indent=4)
+        return json.dumps(wiki_parsed)
 
     # Extracts images and their context attached/explanation.
     def climb_images(self):
@@ -140,7 +140,7 @@ class Climber(object):
 
     # Builds map of links with given search depth option as parameter.
     def climb_links(self):
-        links = [ a.get('href') for a in self.soup.select('div#mw-content-text a') ]
+        links = [a.get('href') for a in self.soup.select('div#mw-content-text a')]
 
         return "links"
 
