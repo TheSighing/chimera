@@ -1,3 +1,5 @@
+var child_process = require('child_process');
+
 var zerorpc = require("zerorpc"),
 async = require('async'),
 events = require('events');
@@ -9,6 +11,7 @@ function Climber(port, options){
 
 Climber.prototype = {
     climb : function(topic, callback){
+        var climberpy = child_process.execSync('./init_server.sh');
         var e = new events.EventEmitter();
         var client = new zerorpc.Client();
         client.connect('tcp://127.0.0.1:' + this.port);
@@ -20,6 +23,7 @@ Climber.prototype = {
 
             if(!more){
                 client.close();
+
                 return callback(null, JSON.parse(content));
             }
             else{
