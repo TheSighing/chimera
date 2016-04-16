@@ -1,6 +1,6 @@
 {
   "name": "climber",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Climbing mount wiki, one section at a time.",
   "main": "climber.js",
   "dependencies": {
@@ -14,7 +14,7 @@
     "zmq": "^2.12.0"
   },
   "scripts": {
-    "postinstall" : "cp init_server.sh ../..",
+    "postinstall": "cp init_server.sh ../..",
     "test": "node test/test.js",
     "testm": "node test/test_as_module.js"
   },
