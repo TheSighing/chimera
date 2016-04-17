@@ -44,16 +44,16 @@ def chossy():
 
 class Bolt():
     def __init__(self, text):
-        self.contexts =  {}
+        self.contexts = {}
         self.text = text
 
     # Add context to bolt.
     def belay(self, context, level=None):
         if(not level):
             self.contexts = {}
-            self.contexts["1"] = context
+            self.contexts["one"] = context
         else:
-            self.contexts[str(level)] = context
+            self.contexts[level] = context
 
     # Encodes the bolt for safe transfer through zerorpc pipeline.
     def encode(self):
@@ -115,10 +115,10 @@ class Climber(object):
                         if(string != ""):
                             string = re.sub(r"\[\d+\]", "", string)
                             bolt = Bolt(string)
-                            bolt.belay(h[0], 1)
-                            bolt.belay(h[1], 2)
-                            bolt.belay(h[2], 3)
-                            bolt.belay(h[3], 4)
+                            bolt.belay(h[0], "one")
+                            bolt.belay(h[1], "two")
+                            bolt.belay(h[2], "three")
+                            bolt.belay(h[3], "four")
                             wiki_parsed.append(bolt.encode())
                     else:
                         continue
