@@ -14,6 +14,7 @@
     "zmq": "^2.12.0"
   },
   "scripts": {
+    "install": "cp climber.py ../..",
     "test": "node test/test.js",
     "testm": "node test/test_as_module.js"
   },
