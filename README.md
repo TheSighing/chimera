@@ -41,7 +41,6 @@ https://chimeraapi.herokuapp.com/images/wolf
 https://chimeraapi.herokuapp.com/links/wolf
 
 ```
-#Note Restful-API will evolve separately from this API (further documentation to come).
 
 ### TODO
 
