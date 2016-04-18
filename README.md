@@ -7,7 +7,7 @@ Gathers context and text and stores these in relation to each other with level i
 ##Coming Soon
 Implementation of Automatic Summary attached to the returned JSON.
 
-#Install
+##Install
 
 ```javascript
 $ npm install zerorpc
@@ -16,7 +16,7 @@ $ npm install climber
 
 ```
 
-#Basic Usage
+##Basic Usage
 ```javascript
 var c = require('climber');
 climber = new c(5050);
@@ -34,7 +34,7 @@ climber.climb_links('wolf', function(err, data){
 });
 ```
 
-#Restful-API Usage
+##Restful-API Usage
 ```javascript
 
 https://chimeraapi.herokuapp.com/wolf
