@@ -1,6 +1,6 @@
 # Climber "Why Crawl when you can Climb?"
 Climb wiki pages with this web crawler turned API or use it as Restful-API.
-Uses Zmq to pipe the parsing of a wiki page from Python into chunks of data fed back to Node.js to be utilized as an API.
+Uses ZMQ to pipe the parsing of a wiki page from Python into chunks of data fed back to Node.js to be utilized as an API in your application or communicate to the Restful-API implementation at https://chimeraapi.herokuapp.com/.
 
 Gathers context and text and stores these in relation to each other with level identifiers.
 
@@ -12,7 +12,6 @@ $ npm install zerorpc
 $ npm install climber
 
 ```
-# Note installing climber starts the python services script in the background.
 
 #Basic Usage
 ```javascript
@@ -23,11 +22,22 @@ climber.climb('wolf', function(err, data){
   console.log(data);
 });
 
-climber.climb_images(function(err, data){
+climber.climb_images('wolf', function(err, data){
   console.log(data);
 });
 
-climber.climb_links(function(err, data){
+climber.climb_links('wolf', function(err, data){
   console.log(data);
 });
+```
+
+#Restful-API Usage
+```javascript
+
+https://chimeraapi.herokuapp.com/wolf
+
+https://chimeraapi.herokuapp.com/images/wolf
+
+https://chimeraapi.herokuapp.com/links/wolf
+
 ```
