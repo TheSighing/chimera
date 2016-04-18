@@ -16,7 +16,7 @@ $ npm install climber
 
 ```
 
-##Basic Usage
+##Basic API Usage
 ```javascript
 var c = require('climber');
 climber = new c(5050);
