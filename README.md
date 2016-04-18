@@ -41,3 +41,12 @@ https://chimeraapi.herokuapp.com/images/wolf
 https://chimeraapi.herokuapp.com/links/wolf
 
 ```
+
+### TODO
+
+- [ ] Implement climb of images and links on both RESTFUL API and API
+- [ ] Implement options to include link and images result in standard climb
+- [ ] Clean up code
+- [x] Standard climb
+- [ ] Report errors properly and helpfully on both RESTFUL API and API
+- [ ] Improve documentation
