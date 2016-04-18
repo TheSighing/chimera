@@ -1,8 +1,11 @@
-# Climber "Why Crawl when you can Climb?"
-Climb wiki pages with this web crawler turned API or use it as Restful-API.
+### Climber "Why Crawl when you can Climb?"
+Climb wiki pages with this web crawler turned API or use it as Restful-API, information returned as JSON.
 Uses ZMQ to pipe the parsing of a wiki page from Python into chunks of data fed back to Node.js to be utilized as an API in your application or communicate to an evolving Restful-API implementation at https://chimeraapi.herokuapp.com/.
 
 Gathers context and text and stores these in relation to each other with level identifiers.
+
+##Coming Soon
+Implementation of Automatic Summary attached to the returned JSON.
 
 #Install
 
