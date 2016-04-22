@@ -50,11 +50,12 @@ https://chimeraapi.herokuapp.com/links/wolf
 
 ### TODO
 
-- [x] Implement climb of images and links on both RESTFUL-API and API
-- [ ] Implement options to include link and images result in standard climb
-- [ ] Clean up code
+- [x] Implement climb of images and links on both RESTFUL-API and API.
+- [ ] Implement options to include link and images result in standard climb.
+- [ ] Clean up code.
 - [ ] Improve result set accuracy to ensure handling of various types of wiki pages and to handle disambiguation pages by returning useful information for the developer using the API as to how to construct a follow up query to the API.
-- [x] Standard climb
-- [ ] Report errors properly and helpfully on both RESTFUL-API and API
-- [ ] Improve documentation
-- [ ] Implement Naive Summary and add to resulting JSON returned for given page sections
+- [x] Standard climb.
+- [ ] Report errors properly and helpfully on both RESTFUL-API and API.
+- [ ] Improve documentation.
+- [ ] Implement Naive Summary and add to resulting JSON returned for given page sections.
+- [ ] Add examples of JSON returned.
