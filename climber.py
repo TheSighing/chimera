@@ -136,7 +136,7 @@ class Climber(object):
         images = self.soup.find_all('img')
         print images
 
-        return "images"
+        return images
 
     # Builds map of links with given search depth option as parameter.
     def climb_links(self):

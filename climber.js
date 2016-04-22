@@ -12,7 +12,6 @@ function Climber(port, options){
 Climber.prototype = {
     climb : function(topic, callback){
         var climberpy = spawn('python', ['climber.py']);
-        var e = new events.EventEmitter();
         var client = new zerorpc.Client();
         client.connect('tcp://127.0.0.1:' + this.port);
 
@@ -33,7 +32,7 @@ Climber.prototype = {
     },
 
     climb_images : function(callback){
-        var e = new events.EventEmitter();
+        // var climberpy = spawn('python', ['climber.py']);
         var client = new zerorpc.Client();
         client.connect('tcp://127.0.0.1:' + this.port);
 
@@ -44,6 +43,7 @@ Climber.prototype = {
 
             if(!more){
                 client.close();
+                // climberpy.kill('SIGHUP');
                 console.log("Returning data climb images...");
                 return callback(null, content);
             }
@@ -54,7 +54,7 @@ Climber.prototype = {
     },
 
     climb_links : function(callback){
-        var e = new events.EventEmitter();
+        var climberpy = spawn('python', ['climber.py']);
         var client = new zerorpc.Client();
         client.connect('tcp://127.0.0.1:' + this.port);
 
