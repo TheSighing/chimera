@@ -1,17 +1,25 @@
+'use strict'
+
 var spawn = require('child_process').spawn;
 
 var zerorpc = require("zerorpc"),
 async = require('async'),
 events = require('events');
+var climberpy = null;
 
 function Climber(port, options){
     this.port = port;
     this.options = typeof options !== 'undefined' ? options : null;
 }
 
+// TODO: Make this check if python script climber.py is runnign before initiating another spawn of it.
 Climber.prototype = {
     climb : function(topic, callback){
-        var climberpy = spawn('python', ['climber.py']);
+        this.topic = typeof topic !== 'undefined' ? topic : null;
+        if(this.topic == null){
+            climberpy = spawn('python', ['climber.py']);
+        }
+
         var client = new zerorpc.Client();
         client.connect('tcp://127.0.0.1:' + this.port);
 
@@ -22,7 +30,6 @@ Climber.prototype = {
 
             if(!more){
                 client.close();
-                climberpy.kill('SIGHUP');
                 return callback(null, JSON.parse(content));
             }
             else{
@@ -31,12 +38,16 @@ Climber.prototype = {
         });
     },
 
-    climb_images : function(callback){
-        // var climberpy = spawn('python', ['climber.py']);
+    climb_images : function(topic, callback){
+        this.topic = typeof topic !== 'undefined' ? topic : null;
+        if(this.topic == null){
+            climberpy = spawn('python', ['climber.py']);
+        }
+
         var client = new zerorpc.Client();
         client.connect('tcp://127.0.0.1:' + this.port);
 
-        client.invoke("climb_images", function(err, content, more){
+        client.invoke("climb_images", topic, this.options, function(err, content, more){
             if(err){
                 callback(err, null);
             }
@@ -52,12 +63,16 @@ Climber.prototype = {
         });
     },
 
-    climb_links : function(callback){
-        var climberpy = spawn('python', ['climber.py']);
+    climb_links : function(topic, callback){
+        this.topic = typeof topic !== 'undefined' ? topic : null;
+        if(this.topic == null){
+            climberpy = spawn('python', ['climber.py']);
+        }
+
         var client = new zerorpc.Client();
         client.connect('tcp://127.0.0.1:' + this.port);
 
-        client.invoke("climb_links", function(err, content, more){
+        client.invoke("climb_links", topic, this.options, function(err, content, more){
             if(err){
                 return callback(err, null);
             }
@@ -71,6 +86,10 @@ Climber.prototype = {
                 content += content + " ";
             }
         });
+    },
+
+    close : function(){
+        climberpy.kill('SIGHUP');
     }
 };
 
