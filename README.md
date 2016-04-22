@@ -25,11 +25,11 @@ climber.climb('wolf', function(err, data){
   console.log(data);
 });
 
-climber.climb_images('wolf', function(err, data){
+climber.climb_images(function(err, data){
   console.log(data);
 });
 
-climber.climb_links('wolf', function(err, data){
+climber.climb_links(function(err, data){
   console.log(data);
 });
 ```
