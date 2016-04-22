@@ -48,7 +48,7 @@ https://chimeraapi.herokuapp.com/links/wolf
 
 ```
 
-### TODO
+### TODO / Improvements
 
 - [x] Implement climb of images and links on both RESTFUL-API and API.
 - [ ] Implement options to include link and images result in standard climb.
