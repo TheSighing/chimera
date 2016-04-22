@@ -44,7 +44,6 @@ Climber.prototype = {
             if(!more){
                 client.close();
                 // climberpy.kill('SIGHUP');
-                console.log("Returning data climb images...");
                 return callback(null, content);
             }
             else{

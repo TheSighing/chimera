@@ -90,22 +90,22 @@ class Climber(object):
             h = ["", "", "", ""]
             for section in self.soup.find_all(["h1", "h2", "h3", "h4", "p"]):
                 try:
-                    if(section.name  == "h1"):
+                    if(section.name == "h1"):
                         text = section.get_text()
                         if(text != "Contents" and text != ""):
                             h[0] = text
-                    elif(section.name  == "h2"):
+                    elif(section.name == "h2"):
                         text = section.get_text()
                         if(text != "Contents" and text != ""):
                             h[1] = text
                             h[2] = ""
                             h[3] = ""
-                    elif(section.name  == "h3"):
+                    elif(section.name == "h3"):
                         text = section.get_text()
                         if(text != "Contents" and text != ""):
                             h[2] = text
                             h[3] = ""
-                    elif(section.name  == "h4"):
+                    elif(section.name == "h4"):
                         text = section.get_text()
                         if(text != "Contents" and text != ""):
                             h[3] = text
@@ -133,10 +133,17 @@ class Climber(object):
 
     # Extracts images and their context attached/explanation.
     def climb_images(self):
-        images = self.soup.find_all('img')
-        print images
+        check = self.soup.find_all(id="disambigbox")
+        images = []
 
-        return images
+        if(not len(check)):
+            for image in self.soup.findAll("img"):
+                print image["src"]
+                images.append("https://" + image["src"])
+        else:
+            chossy()
+
+        return json.dumps(images)
 
     # Builds map of links with given search depth option as parameter.
     def climb_links(self):
