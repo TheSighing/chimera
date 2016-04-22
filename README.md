@@ -19,7 +19,7 @@ $ npm install climber
 ##Basic API Usage
 ```javascript
 var c = require('climber');
-climber = new c(5050);
+climber = new c(5050, {depth: 1});
 
 climber.climb('wolf', function(err, data){
   console.log(data);
