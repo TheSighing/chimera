@@ -10,11 +10,20 @@ climber.climb('wolf', function(err, data){
   //climber.close();
 });
 
-climber.climb_images(function(err, data){
-   if(err){
-       console.log(err);
+climber.climb(function(err, data){
+  if(err){
+      console.log(err);
   }
 
   console.log(data);
   //climber.close();
 });
+
+// climber.climb_images(function(err, data){
+//    if(err){
+//        console.log(err);
+//   }
+//
+//   console.log(data);
+//   //climber.close();
+// });

@@ -4,7 +4,6 @@ import re
 import json
 from bs4 import BeautifulSoup
 
-#TODO: def climb_images() => gathers images from wiki and applies context to them
 #TODO: def see_also() => makes a whole set of related thhings to the topic chosen
 #TODO:
 #   def chossy() => parse disambiguation pages can be called
@@ -71,112 +70,89 @@ class Bolt():
 
         return temp
 
+
 class Climber(object):
     # Constructs route of entire wiki page based on text.
-    #@zerorpc.stream
+
     def climb(self, topic, options):
-        self.topic = topic
-        self.options = options
-
-        self.url = 'http://en.wikipedia.org/?title=%s' % self.topic
-        self.content = requests.get(self.url)
-        self.soup = BeautifulSoup(self.content.text)
-
-        wiki_parsed = []
-
-        check = self.soup.find_all(id="disambigbox")
 
         if(topic is None):
+            print "Topic is null."
+            check = self.soup.find_all(id="disambigbox")
+
             if(not len(check)):
-                # TODO: Make a function out of this logic
-                h = ["", "", "", ""]
-                for section in self.soup.find_all(["h1", "h2", "h3", "h4", "p"]):
-                    try:
-                        if(section.name == "h1"):
-                            text = section.get_text()
-                            if(check_text(text)):
-                                h[0] = text
-                        elif(section.name == "h2"):
-                            text = section.get_text()
-                            if(check_text(text)):
-                                h[1] = text
-                                h[2] = ""
-                                h[3] = ""
-                        elif(section.name == "h3"):
-                            text = section.get_text()
-                            if(check_text(text)):
-                                h[2] = text
-                                h[3] = ""
-                        elif(section.name == "h4"):
-                            text = section.get_text()
-                            if(check_text(text)):
-                                h[3] = text
-                        elif(section.name == "p"):
-                            # Add text to the bolt.
-                            string = section.get_text()
-                            if(string != ""):
-                                string = re.sub(r"\[\d+\]", "", string)
-                                bolt = Bolt(string)
-                                bolt.belay(h[0], "one")
-                                bolt.belay(h[1], "two")
-                                bolt.belay(h[2], "three")
-                                bolt.belay(h[3], "four")
-                                wiki_parsed.append(bolt.encode())
-                        else:
-                            continue
-                        pass
-                    except Exception as e:
-                        print e
-                        continue
+                wiki_parsed = self.scaffold_basic()
+
+                return json.dumps(wiki_parsed)
             else:
                 chossy()
+
+                return []
         else:
-            if(not len(check)):
+            print "Topic is not null."
+            self.topic = topic
+            self.options = options
 
-                # TODO: Make a function out of this logic
-                h = ["", "", "", ""]
-                for section in self.soup.find_all(["h1", "h2", "h3", "h4", "p"]):
-                    try:
-                        if(section.name == "h1"):
-                            text = section.get_text()
-                            if(check_text(text)):
-                                h[0] = text
-                        elif(section.name == "h2"):
-                            text = section.get_text()
-                            if(check_text(text)):
-                                h[1] = text
-                                h[2] = ""
-                                h[3] = ""
-                        elif(section.name == "h3"):
-                            text = section.get_text()
-                            if(check_text(text)):
-                                h[2] = text
-                                h[3] = ""
-                        elif(section.name == "h4"):
-                            text = section.get_text()
-                            if(check_text(text)):
-                                h[3] = text
-                        elif(section.name == "p"):
-                            # Add text to the bolt.
-                            string = section.get_text()
-                            if(string != ""):
-                                string = re.sub(r"\[\d+\]", "", string)
-                                bolt = Bolt(string)
-                                bolt.belay(h[0], "one")
-                                bolt.belay(h[1], "two")
-                                bolt.belay(h[2], "three")
-                                bolt.belay(h[3], "four")
-                                wiki_parsed.append(bolt.encode())
-                        else:
-                            continue
-                        pass
-                    except Exception as e:
-                        print e
-                        continue
+            self.url = 'http://en.wikipedia.org/?title=%s' % self.topic
+            self.content = requests.get(self.url)
+            self.soup = BeautifulSoup(self.content.text)
+
+            check = self.soup.find_all(id="disambigbox")
+
+            if(not len(check)):
+                wiki_parsed = self.scaffold_basic()
+
+                return json.dumps(wiki_parsed)
             else:
                 chossy()
 
-        return json.dumps(wiki_parsed)
+                return []
+
+    def scaffold_basic(self):
+
+        selected = []
+        h = ["", "", "", ""]
+
+        for section in self.soup.find_all(["h1", "h2", "h3", "h4", "p"]):
+            try:
+                if(section.name == "h1"):
+                    text = section.get_text()
+                    if(check_text(text)):
+                        h[0] = text
+                elif(section.name == "h2"):
+                    text = section.get_text()
+                    if(check_text(text)):
+                        h[1] = text
+                        h[2] = ""
+                        h[3] = ""
+                elif(section.name == "h3"):
+                    text = section.get_text()
+                    if(check_text(text)):
+                        h[2] = text
+                        h[3] = ""
+                elif(section.name == "h4"):
+                    text = section.get_text()
+                    if(check_text(text)):
+                        h[3] = text
+                elif(section.name == "p"):
+                    # Add text to the bolt.
+                    string = section.get_text()
+                    if(string != ""):
+                        string = re.sub(r"\[\d+\]", "", string)
+                        bolt = Bolt(string)
+                        bolt.belay(h[0], "one")
+                        bolt.belay(h[1], "two")
+                        bolt.belay(h[2], "three")
+                        bolt.belay(h[3], "four")
+                        selected.append(bolt.encode())
+                else:
+                    continue
+                pass
+            except Exception as e:
+                print e
+                continue
+
+        return selected
 
     # Extracts images and their context attached/explanation.
     def climb_images(self, topic, options):

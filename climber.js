@@ -10,15 +10,13 @@ var climberpy = null;
 function Climber(port, options){
     this.port = port;
     this.options = typeof options !== 'undefined' ? options : null;
+
+    climberpy = spawn('python', ['climber.py']);
 }
 
 // TODO: Make this check if python script climber.py is runnign before initiating another spawn of it.
 Climber.prototype = {
     climb : function(topic, callback){
-        this.topic = typeof topic !== 'undefined' ? topic : null;
-        if(this.topic == null){
-            climberpy = spawn('python', ['climber.py']);
-        }
 
         var client = new zerorpc.Client();
         client.connect('tcp://127.0.0.1:' + this.port);
@@ -38,11 +36,27 @@ Climber.prototype = {
         });
     },
 
+    climb : function(callback){
+
+        var client = new zerorpc.Client();
+        client.connect('tcp://127.0.0.1:' + this.port);
+
+        client.invoke("climb", null, this.options, function(err, content, more){
+            if(err){
+                return callback(err, null);
+            }
+
+            if(!more){
+                client.close();
+                return callback(null, JSON.parse(content));
+            }
+            else{
+                content += content;
+            }
+        });
+    },
+
     climb_images : function(topic, callback){
-        this.topic = typeof topic !== 'undefined' ? topic : null;
-        if(this.topic == null){
-            climberpy = spawn('python', ['climber.py']);
-        }
 
         var client = new zerorpc.Client();
         client.connect('tcp://127.0.0.1:' + this.port);
@@ -58,16 +72,33 @@ Climber.prototype = {
                 return callback(null, content);
             }
             else{
-                content += content + " ";
+                content += content;
+            }
+        });
+    },
+
+    climb_images : function(callback){
+
+        var client = new zerorpc.Client();
+        client.connect('tcp://127.0.0.1:' + this.port);
+
+        client.invoke("climb_images", null, this.options, function(err, content, more){
+            if(err){
+                callback(err, null);
+            }
+
+            if(!more){
+                client.close();
+                // climberpy.kill('SIGHUP');
+                return callback(null, content);
+            }
+            else{
+                content += content;
             }
         });
     },
 
     climb_links : function(topic, callback){
-        this.topic = typeof topic !== 'undefined' ? topic : null;
-        if(this.topic == null){
-            climberpy = spawn('python', ['climber.py']);
-        }
 
         var client = new zerorpc.Client();
         client.connect('tcp://127.0.0.1:' + this.port);
@@ -83,7 +114,28 @@ Climber.prototype = {
                 return callback(null, content);
             }
             else{
-                content += content + " ";
+                content += content;
+            }
+        });
+    },
+
+    climb_links : function(callback){
+
+        var client = new zerorpc.Client();
+        client.connect('tcp://127.0.0.1:' + this.port);
+
+        client.invoke("climb_links", null, this.options, function(err, content, more){
+            if(err){
+                return callback(err, null);
+            }
+
+            if(!more){
+                client.close();
+                console.log("Returning data climb links...");
+                return callback(null, content);
+            }
+            else{
+                content += content;
             }
         });
     },
