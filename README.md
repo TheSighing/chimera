@@ -34,7 +34,7 @@ climber.climb_images({}, function(err, data){
   console.log(data);
 });
 
-//OR search a separate topic
+// OR search a separate topic
 climber.climb_images({topic: 'wolf'}, function(err, data){
   console.log(data);
 });
