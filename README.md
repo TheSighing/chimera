@@ -66,4 +66,5 @@ https://chimeraapi.herokuapp.com/links/wolf
 - [ ] Improve documentation.
 - [ ] Implement Naive Summary and add to resulting JSON returned for given page sections.
 - [ ] Add examples of JSON returned.
-- [ ] Create Mocha test Harness for basic functionality to be maintained and for testing
+- [ ] Create Mocha test Harness for basic functionality to be maintained and for testing.
+- [ ] Make this check if python script climber.py is runnign before initiating another spawn of it. `pgrep -f climber.py`
