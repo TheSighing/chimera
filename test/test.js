@@ -1,20 +1,30 @@
 var c = require('../climber');
 climber = new c(5050, {"depth" : 1});
 
-climber.climb('wolf', function(err, data){
+climber.climb({topic: 'wolf'}, function(err, data){
   if(err){
       console.log(err);
   }
 
   console.log(data);
-  //climber.close();
 });
 
-climber.climb_images(function(err, data){
-   if(err){
-       console.log(err);
+
+climber.climb({}, function(err, data){
+  if(err){
+      console.log(err);
   }
 
   console.log(data);
-  //climber.close();
+  climber.close();
 });
+
+
+// climber.climb_images(function(err, data){
+//    if(err){
+//        console.log(err);
+//   }
+//
+//   console.log(data);
+//   //climber.close();
+// });

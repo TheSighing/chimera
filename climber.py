@@ -4,7 +4,6 @@ import re
 import json
 from bs4 import BeautifulSoup
 
-#TODO: def climb_images() => gathers images from wiki and applies context to them
 #TODO: def see_also() => makes a whole set of related thhings to the topic chosen
 #TODO:
 #   def chossy() => parse disambiguation pages can be called
@@ -71,86 +70,123 @@ class Bolt():
 
         return temp
 
+
 class Climber(object):
     # Constructs route of entire wiki page based on text.
-    #@zerorpc.stream
+
     def climb(self, topic, options):
-        self.topic = topic;
-        self.options = options;
 
-        self.url = 'http://en.wikipedia.org/?title=%s' % self.topic
-        self.content = requests.get(self.url)
-        self.soup = BeautifulSoup(self.content.text)
+        if(topic is None):
+            check = self.soup.find_all(id="disambigbox")
 
-        wiki_parsed = []
+            if(not len(check)):
+                wiki_parsed = self.scaffold_basic()
 
-        #if(not self.options):
-        #    return json.dumps(wiki_parsed)
+                return json.dumps(wiki_parsed)
+            else:
+                chossy()
 
-        check = self.soup.find_all(id="disambigbox")
-
-        if(not len(check)):
-
-            h = ["", "", "", ""]
-            for section in self.soup.find_all(["h1", "h2", "h3", "h4", "p"]):
-                try:
-                    if(section.name == "h1"):
-                        text = section.get_text()
-                        if(check_text(text)):
-                            h[0] = text
-                    elif(section.name == "h2"):
-                        text = section.get_text()
-                        if(check_text(text)):
-                            h[1] = text
-                            h[2] = ""
-                            h[3] = ""
-                    elif(section.name == "h3"):
-                        text = section.get_text()
-                        if(check_text(text)):
-                            h[2] = text
-                            h[3] = ""
-                    elif(section.name == "h4"):
-                        text = section.get_text()
-                        if(check_text(text)):
-                            h[3] = text
-                    elif(section.name == "p"):
-                        # Add text to the bolt.
-                        string = section.get_text()
-                        if(string != ""):
-                            string = re.sub(r"\[\d+\]", "", string)
-                            bolt = Bolt(string)
-                            bolt.belay(h[0], "one")
-                            bolt.belay(h[1], "two")
-                            bolt.belay(h[2], "three")
-                            bolt.belay(h[3], "four")
-                            wiki_parsed.append(bolt.encode())
-                    else:
-                        continue
-                    pass
-                except Exception as e:
-                    print e
-                    continue
+                return []
         else:
-            chossy()
+            self.topic = topic
+            self.options = options
 
-        return json.dumps(wiki_parsed)
+            self.url = 'http://en.wikipedia.org/?title=%s' % self.topic
+            self.content = requests.get(self.url)
+            self.soup = BeautifulSoup(self.content.text)
+
+            check = self.soup.find_all(id="disambigbox")
+
+            if(not len(check)):
+                wiki_parsed = self.scaffold_basic()
+
+                return json.dumps(wiki_parsed)
+            else:
+                chossy()
+
+                return []
+
+    def scaffold_basic(self):
+
+        selected = []
+        h = ["", "", "", ""]
+
+        for section in self.soup.find_all(["h1", "h2", "h3", "h4", "p"]):
+            try:
+                if(section.name == "h1"):
+                    text = section.get_text()
+                    if(check_text(text)):
+                        h[0] = text
+                elif(section.name == "h2"):
+                    text = section.get_text()
+                    if(check_text(text)):
+                        h[1] = text
+                        h[2] = ""
+                        h[3] = ""
+                elif(section.name == "h3"):
+                    text = section.get_text()
+                    if(check_text(text)):
+                        h[2] = text
+                        h[3] = ""
+                elif(section.name == "h4"):
+                    text = section.get_text()
+                    if(check_text(text)):
+                        h[3] = text
+                elif(section.name == "p"):
+                    # Add text to the bolt.
+                    string = section.get_text()
+                    if(string != ""):
+                        string = re.sub(r"\[\d+\]", "", string)
+                        bolt = Bolt(string)
+                        bolt.belay(h[0], "one")
+                        bolt.belay(h[1], "two")
+                        bolt.belay(h[2], "three")
+                        bolt.belay(h[3], "four")
+                        selected.append(bolt.encode())
+                else:
+                    continue
+                pass
+            except Exception as e:
+                print e
+                continue
+
+        return selected
 
     # Extracts images and their context attached/explanation.
-    def climb_images(self):
-        check = self.soup.find_all(id="disambigbox")
+    def climb_images(self, topic, options):
         images = []
 
-        if(not len(check)):
-            for image in self.soup.findAll("img"):
-                print image["src"]
-                images.append("https://" + image["src"])
+        # TODO: Make a function out of this logic
+        if(topic is None):
+            check = self.soup.find_all(id="disambigbox")
+
+            if(not len(check)):
+                for image in self.soup.findAll("img"):
+                    images.append("https://" + image["src"])
+            else:
+                chossy()
         else:
-            chossy()
+            # TODO: Make a function out of this logic
+            self.topic = topic
+            self.options = options
+
+            self.url = 'http://en.wikipedia.org/?title=%s' % self.topic
+            self.content = requests.get(self.url)
+            self.soup = BeautifulSoup(self.content.text)
+
+            check = self.soup.find_all(id="disambigbox")
+
+            # TODO: Make a function out of this logic
+            if(not len(check)):
+                for image in self.soup.findAll("img"):
+                    images.append("https://" + image["src"])
+            else:
+                chossy()
 
         return json.dumps(images)
 
     # Builds map of links with given search depth option as parameter.
-    def climb_links(self):
+    def climb_links(self, topic, options):
         links = [a.get('href') for a in self.soup.select('div#mw-content-text a')]
 
         return "links"
