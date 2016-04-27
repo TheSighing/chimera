@@ -5,13 +5,12 @@ var spawn = require('child_process').spawn;
 var zerorpc = require("zerorpc"),
 async = require('async'),
 events = require('events');
-var climberpy = null;
 
 function Climber(port, options){
     this.port = port;
     this.options = typeof options !== 'undefined' ? options : null;
 
-    climberpy = spawn('python', ['climber.py']);
+    this.climberpy = spawn('python', ['climber.py']);
 }
 
 // TODO: Make this check if python script climber.py is runnign before initiating another spawn of it.
@@ -94,7 +93,7 @@ Climber.prototype = {
     },
 
     close : function(){
-        climberpy.kill('SIGHUP');
+        this.climberpy.kill('SIGHUP');
     }
 };
 

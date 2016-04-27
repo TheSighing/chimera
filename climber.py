@@ -77,7 +77,6 @@ class Climber(object):
     def climb(self, topic, options):
 
         if(topic is None):
-            print "Topic is null."
             check = self.soup.find_all(id="disambigbox")
 
             if(not len(check)):
@@ -89,7 +88,6 @@ class Climber(object):
 
                 return []
         else:
-            print "Topic is not null."
             self.topic = topic
             self.options = options
 
