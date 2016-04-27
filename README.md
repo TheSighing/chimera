@@ -19,12 +19,15 @@ $ npm install climber
 ##Basic API Usage
 ```javascript
 var c = require('climber');
-climber = new c(5050);
+//select depth option for how far the scraper is willing to go from the orgin page to gather more information in subsequent links for definitions and sub links on wikipedia. (Summary will be applied to these as well.)
+climber = new c(5050, {depth: 1});
 
+// topic: wolf
 climber.climb('wolf', function(err, data){
   console.log(data);
 });
 
+// Not the shared topic
 climber.climb_images(function(err, data){
   console.log(data);
 });
@@ -45,13 +48,14 @@ https://chimeraapi.herokuapp.com/links/wolf
 
 ```
 
-### TODO
+### TODO / Improvements
 
-- [ ] Implement climb of images and links on both RESTFUL-API and API
-- [ ] Implement options to include link and images result in standard climb
-- [ ] Clean up code
+- [x] Implement climb of images and links on both RESTFUL-API and API.
+- [ ] Implement options to include link and images result in standard climb.
+- [ ] Clean up code.
 - [ ] Improve result set accuracy to ensure handling of various types of wiki pages and to handle disambiguation pages by returning useful information for the developer using the API as to how to construct a follow up query to the API.
-- [x] Standard climb
-- [ ] Report errors properly and helpfully on both RESTFUL-API and API
-- [ ] Improve documentation
-- [ ] Implement Naive Summary and add to resulting JSON returned for given page sections
+- [x] Standard climb.
+- [ ] Report errors properly and helpfully on both RESTFUL-API and API.
+- [ ] Improve documentation.
+- [ ] Implement Naive Summary and add to resulting JSON returned for given page sections.
+- [ ] Add examples of JSON returned.
