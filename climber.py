@@ -4,51 +4,60 @@ import re
 import json
 from bs4 import BeautifulSoup
 
-#TODO: def see_also() => makes a whole set of related thhings to the topic chosen
-#TODO:
+# TODO: def see_also() => makes a whole set of related thhings to the topic
+# chosen
+# TODO:
 #   def chossy() => parse disambiguation pages can be called
 #   when the page reached durign climb or
 #   any given method in the class and it hits a "chossy page"
 #   one that cannot be parsed in this custiomary
 #   method ie a disambiguation page or otherwise
-#TODO:
+# TODO:
 #   def flash() => grab directly a section of the overall page when supplied
 #   a set of context levels and/or a bit of text that it can match
-#   climb links should build based on a depth choice and and builds graph of links
-#   to help determine later searches
-#TODO: add comments to this
-#TODO: bolts should also allow for optional images.
-#TODO:
+#   climb links should build based on a depth choice and and builds graph of
+#   links to help determine later searches
+# TODO: add comments to this
+# TODO: bolts should also allow for optional images.
+# TODO:
 #   climb should have options (object) passed in to allow it to include images
 #   in route or to include graph of links with given
 #   level of depth
-#TODO:
+# TODO:
 #   You are creating context and subcontexts, text, links => Bolt() object
 #   and loading into an Array building structure to the wiki itself
 #   (or any large text based information page) that can be accessed
-#   parsed as such. Later should incorporate other checks to find titles and context that are more universal.
-#TODO:
+#   parsed as such. Later should incorporate other checks to find titles and
+#   context that are more universal.
+# TODO:
 #   Should also work with any amount of headers
 #   fix the h1 - ?? checks so they are extensible rather than hard coded
 #   this so it matches the h# set up and loops to
 #   decide on depth or just inputs the number found
 #   as the hash for the entry (headers define amounts of context)
-#TODO: create overall function that sanitizes the strings for printing them "pretty"
-#TODO: Replace complex words with definitions you find in the underlying link or using dictionary.
-#TODO: Build some test harnesses for API and Restful-API.
-#TODO: Return related topics and souroundign topics using wikis dropdowns, as part of climb or as separate API function.
+# TODO: create overall function that sanitizes the strings for printing them
+#       "pretty"
+# TODO: Replace complex words with definitions you find in the underlying link
+#       or using dictionary.
+# TODO: Build some test harnesses for API and Restful-API.
+# TODO: Return related topics and souroundign topics using wikis dropdowns,
+#       as part of climb or as separate API function.
+
 
 def check_text(text):
     if(text != "Contents" and text != ""):
         return text
 
+
 def chossy():
-        print "This is a Disambiguation Page...\n\n"
+    return {"error": "This is a Disambiguation Page...\n\n"}
+
 
 class Bolt():
     def __init__(self, text):
         self.contexts = {}
         self.text = text
+        self.images = None
 
     # Add context to bolt.
     def belay(self, context, level=None):
@@ -75,18 +84,19 @@ class Climber(object):
     # Constructs route of entire wiki page based on text.
 
     def climb(self, topic, options):
+        images_list = None
+        depth = None
+        summary = None
+
+        # TODO: Make a function out of this logic
+        if("images" in options.keys()):
+            images_list = self.climb_images(topic, options)
 
         if(topic is None):
             check = self.soup.find_all(id="disambigbox")
 
-            if(not len(check)):
-                wiki_parsed = self.scaffold_basic()
-
-                return json.dumps(wiki_parsed)
-            else:
-                chossy()
-
-                return []
+            return self.get_scaffold("basic", check, images_list,
+                                     summary, depth)
         else:
             self.topic = topic
             self.options = options
@@ -97,16 +107,31 @@ class Climber(object):
 
             check = self.soup.find_all(id="disambigbox")
 
-            if(not len(check)):
-                wiki_parsed = self.scaffold_basic()
+            return self.get_scaffold("basic", check, images_list,
+                                     summary, depth)
 
-                return json.dumps(wiki_parsed)
+    def get_scaffold(self, type_flag, check, images_list=None,
+                     summary=None, depth=0):
+        # TODO: WIll cause a toggle based on passed type in which case the
+        # include summary scaffold will be used but no matter what the depth
+        # will be passed to scaffold defaulting to 0
+        if(not len(check)):
+            if type_flag == "images":
+                images = []
+                for image in self.soup.findAll("img"):
+                    images.append("https://" + image["src"])
+
+                return images
             else:
-                chossy()
+                wiki_parsed = self.scaffold_basic(summary, depth)
 
-                return []
+                return json.dumps({"images": images_list, "data": wiki_parsed})
+        else:
+            # TODO: WIll return all the other options to search from
+            #       disambiguation page
+            return chossy()
 
-    def scaffold_basic(self):
+    def scaffold_basic(self, summary, depth):
 
         selected = []
         h = ["", "", "", ""]
@@ -160,13 +185,9 @@ class Climber(object):
         if(topic is None):
             check = self.soup.find_all(id="disambigbox")
 
-            if(not len(check)):
-                for image in self.soup.findAll("img"):
-                    images.append("https://" + image["src"])
-            else:
-                chossy()
+            images = self.get_scaffold("images", check)
+
         else:
-            # TODO: Make a function out of this logic
             self.topic = topic
             self.options = options
 
@@ -176,20 +197,19 @@ class Climber(object):
 
             check = self.soup.find_all(id="disambigbox")
 
-            # TODO: Make a function out of this logic
-            if(not len(check)):
-                for image in self.soup.findAll("img"):
-                    images.append("https://" + image["src"])
-            else:
-                chossy()
+            images = self.get_scaffold("images", check)
 
         return json.dumps(images)
 
     # Builds map of links with given search depth option as parameter.
     def climb_links(self, topic, options):
-        links = [a.get('href') for a in self.soup.select('div#mw-content-text a')]
+        if(not len(check)):
+            link_query = 'div#mw-content-text a'
+            links = [a.get('href') for a in self.soup.select(link_query)]
 
-        return "links"
+            return json.dumps(links)
+        else:
+            return chossy()
 
 s = zerorpc.Server(Climber())
 s.bind("tcp://0.0.0.0:5050")
