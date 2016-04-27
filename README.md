@@ -66,3 +66,4 @@ https://chimeraapi.herokuapp.com/links/wolf
 - [ ] Improve documentation.
 - [ ] Implement Naive Summary and add to resulting JSON returned for given page sections.
 - [ ] Add examples of JSON returned.
+- [ ] Create Mocha test Harness for basic functionality to be maintained and for testing
