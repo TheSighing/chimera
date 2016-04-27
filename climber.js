@@ -13,7 +13,7 @@ function Climber(port, options){
     this.climberpy = spawn('python', ['climber.py']);
 }
 
-// TODO: Make this check if python script climber.py is runnign before initiating another spawn of it.
+// TODO: Make this check if python script climber.py is runnign before initiating another spawn of it. `pgrep -f climber.py`
 Climber.prototype = {
     climb : function(options, callback){
         var topic = null;
