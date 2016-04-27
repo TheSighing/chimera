@@ -57,7 +57,6 @@ Climber.prototype = {
 
             if(!more){
                 client.close();
-                // climberpy.kill('SIGHUP');
                 return callback(null, content);
             }
             else{
