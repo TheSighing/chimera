@@ -5,12 +5,11 @@ var spawn = require('child_process').spawn;
 var zerorpc = require("zerorpc"),
 async = require('async'),
 events = require('events');
+var climberpy;
 
 function Climber(port, options){
     this.port = port;
     this.options = typeof options !== 'undefined' ? options : null;
-
-    this.climberpy = spawn('python', ['climber.py']);
 }
 
 // TODO: Make this check if python script climber.py is runnign before initiating another spawn of it.
@@ -19,6 +18,7 @@ Climber.prototype = {
         var topic = null;
         var client = new zerorpc.Client();
         client.connect('tcp://127.0.0.1:' + this.port);
+        climberpy = spawn('python', ['climber.py']);
 
         if("topic" in options){
             topic = options.topic;
@@ -32,6 +32,7 @@ Climber.prototype = {
 
             if(!more){
                 client.close();
+                climber.close();
                 return callback(null, JSON.parse(content));
             }
             else{
@@ -44,6 +45,7 @@ Climber.prototype = {
 
         var client = new zerorpc.Client();
         client.connect('tcp://127.0.0.1:' + this.port);
+        climberpy = spawn('python', ['climber.py']);
 
         if("topic" in options){
             topic = options.topic;
@@ -57,7 +59,7 @@ Climber.prototype = {
 
             if(!more){
                 client.close();
-                // climberpy.kill('SIGHUP');
+                climber.close();
                 return callback(null, content);
             }
             else{
@@ -70,6 +72,7 @@ Climber.prototype = {
 
         var client = new zerorpc.Client();
         client.connect('tcp://127.0.0.1:' + this.port);
+        climberpy = spawn('python', ['climber.py']);
 
         if("topic" in options){
             topic = options.topic;
@@ -83,7 +86,7 @@ Climber.prototype = {
 
             if(!more){
                 client.close();
-                console.log("Returning data climb links...");
+                climber.close();
                 return callback(null, content);
             }
             else{
@@ -93,7 +96,7 @@ Climber.prototype = {
     },
 
     close : function(){
-        this.climberpy.kill('SIGHUP');
+        climberpy.kill('SIGHUP');
     }
 };
 

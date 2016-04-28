@@ -95,7 +95,7 @@ class Climber(object):
         if(topic is None):
             check = self.soup.find_all(id="disambigbox")
 
-            return self.get_scaffold("basic", check, images_list,
+            return self.get_scaffold(check, None, images_list,
                                      summary, depth)
         else:
             self.topic = topic
@@ -107,10 +107,10 @@ class Climber(object):
 
             check = self.soup.find_all(id="disambigbox")
 
-            return self.get_scaffold("basic", check, images_list,
+            return self.get_scaffold(check, None, images_list,
                                      summary, depth)
 
-    def get_scaffold(self, type_flag, check, images_list=None,
+    def get_scaffold(self, check, type_flag, images_list=None,
                      summary=None, depth=0):
         # TODO: WIll cause a toggle based on passed type in which case the
         # include summary scaffold will be used but no matter what the depth
@@ -125,7 +125,11 @@ class Climber(object):
             else:
                 wiki_parsed = self.scaffold_basic(summary, depth)
 
-                return json.dumps({"images": images_list, "data": wiki_parsed})
+                if(images_list is None):
+                    return json.dumps({"data": wiki_parsed})
+                else:
+                    return json.dumps({"images": images_list,
+                                       "data": wiki_parsed})
         else:
             # TODO: WIll return all the other options to search from
             #       disambiguation page
@@ -185,7 +189,7 @@ class Climber(object):
         if(topic is None):
             check = self.soup.find_all(id="disambigbox")
 
-            images = self.get_scaffold("images", check)
+            images = self.get_scaffold(check, "images")
 
         else:
             self.topic = topic
