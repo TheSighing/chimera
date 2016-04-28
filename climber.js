@@ -12,7 +12,7 @@ function Climber(port, options){
     this.options = typeof options !== 'undefined' ? options : null;
 }
 
-// TODO: Make this check if python script climber.py is runnign before initiating another spawn of it.
+// TODO: Make this check if python script climber.py is runnign before initiating another spawn of it. `pgrep -f climber.py`
 Climber.prototype = {
     climb : function(options, callback){
         var topic = null;
@@ -59,7 +59,10 @@ Climber.prototype = {
 
             if(!more){
                 client.close();
+<<<<<<< HEAD
                 climber.close();
+=======
+>>>>>>> 6ca3aa9fd55776ae95410c86cf9a8a803abc92e7
                 return callback(null, content);
             }
             else{
