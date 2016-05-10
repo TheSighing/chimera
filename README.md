@@ -21,10 +21,12 @@ $ npm install climber
 ##Basic API Usage
 ```javascript
 var c = require('climber');
-//select depth option for how far the scraper is willing to go from the orgin page to gather more information in subsequent links for definitions and sub links on wikipedia. (Summary will be applied to these as well.)
+
 climber = new c(5050);
 
 //Topic must be declared for the first call made to climber the rest of the arguments are optional.
+//select depth option for how far the scraper is willing to go from the orgin page to gather more information in subsequent links for definitions and sub links on wikipedia. (Summary will be applied to these as well.)
+
 
 // topic: wolf, search depth set to 1, summary set to naive and returning a summary as part of the resulting JSON, images set to be included in returned json  
 climber.climb({topic: 'wolf'(, depth: 1, summary: "naive", images: true)}, function(err, data){
