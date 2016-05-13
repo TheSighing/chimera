@@ -59,10 +59,7 @@ Climber.prototype = {
 
             if(!more){
                 client.close();
-<<<<<<< HEAD
                 climber.close();
-=======
->>>>>>> 6ca3aa9fd55776ae95410c86cf9a8a803abc92e7
                 return callback(null, content);
             }
             else{
