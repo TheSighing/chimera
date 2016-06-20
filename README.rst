@@ -2,12 +2,6 @@
 climber
 =============================
 
-.. image:: https://badge.fury.io/py/climber.png
-    :target: https://badge.fury.io/py/climber
-
-.. image:: https://travis-ci.org/TheSighing/climber.png?branch=master
-    :target: https://travis-ci.org/TheSighing/climber
-
 Crawls wiki pages and creates summaries.
 
 Documentation
