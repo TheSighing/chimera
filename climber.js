@@ -2,10 +2,14 @@
 
 var spawn = require('child_process').spawn;
 
+var events = require('events')
+var eventEmitter = new events.EventEmitter();
+
 var zerorpc = require("zerorpc"),
 async = require('async'),
 events = require('events');
 var climberpy;
+var children = [];
 
 function Climber(port, options){
     this.port = port;
@@ -15,14 +19,22 @@ function Climber(port, options){
 // TODO: Make this check if python script climber.py is runnign before initiating another spawn of it. `pgrep -f climber.py`
 Climber.prototype = {
     climb : function(options, callback){
+        climberpy = spawn('python', ['climber.py']);
+        console.log("spawned a process");
+
+        children.push(climberpy.pid);
+
         var topic = null;
         var client = new zerorpc.Client();
         client.connect('tcp://127.0.0.1:' + this.port);
-        climberpy = spawn('python', ['climber.py']);
 
         if("topic" in options){
+            console.log(options.topic);
             topic = options.topic;
             delete options.topic;
+        }
+        else{
+            console.log("No topic set.");
         }
 
         client.invoke("climb", topic, options, function(err, content, more){
@@ -32,7 +44,6 @@ Climber.prototype = {
 
             if(!more){
                 client.close();
-                climber.close();
                 return callback(null, JSON.parse(content));
             }
             else{
@@ -59,7 +70,6 @@ Climber.prototype = {
 
             if(!more){
                 client.close();
-                climber.close();
                 return callback(null, content);
             }
             else{
@@ -86,7 +96,6 @@ Climber.prototype = {
 
             if(!more){
                 client.close();
-                climber.close();
                 return callback(null, content);
             }
             else{
@@ -96,7 +105,12 @@ Climber.prototype = {
     },
 
     close : function(){
-        climberpy.kill('SIGHUP');
+        console.log("Closing time.");
+
+        children.forEach(function(child){
+            console.log(child);
+            child.kill();
+        })
     }
 };
 

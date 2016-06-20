@@ -93,6 +93,7 @@ class Climber(object):
             images_list = self.climb_images(topic, options)
 
         if(topic is None):
+            print "whats up!"
             check = self.soup.find_all(id="disambigbox")
 
             return self.get_scaffold(check, None, images_list,

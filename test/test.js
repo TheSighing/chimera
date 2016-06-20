@@ -6,7 +6,9 @@ climber.climb({topic: 'wolf'}, function(err, data){
       console.log(err);
   }
 
-  console.log(data);
+  console.log("))))))))))))))))))))))))");
+  // console.log(data);
+  console.log("))))))))))))))))))))))))");
 });
 
 
@@ -15,7 +17,9 @@ climber.climb({}, function(err, data){
       console.log(err);
   }
 
-  console.log(data);
+  console.log("))))))))))))))))))))))))");
+  //console.log(data);
+  console.log("))))))))))))))))))))))))");
   climber.close();
 });
 
