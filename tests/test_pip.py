@@ -1,0 +1,3 @@
+import climber
+
+print "Hello"
