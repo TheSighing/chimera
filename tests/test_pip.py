@@ -1,6 +1,8 @@
 from climber import Climber
 
-print "hello"
-
 c = Climber()
 
+results = c.climb("wolf", {})
+
+print "Results for search of wolf."
+print results

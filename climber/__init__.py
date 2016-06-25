@@ -94,7 +94,6 @@ class Climber(object):
             images_list = self.climb_images(topic, options)
 
         if(topic is None):
-            print "whats up!"
             check = self.soup.find_all(id="disambigbox")
 
             return self.get_scaffold(check, None, images_list,
@@ -105,7 +104,7 @@ class Climber(object):
 
             self.url = 'http://en.wikipedia.org/?title=%s' % self.topic
             self.content = requests.get(self.url)
-            self.soup = BeautifulSoup(self.content.text)
+            self.soup = BeautifulSoup(self.content.text, "html.parser")
 
             check = self.soup.find_all(id="disambigbox")
 
@@ -199,7 +198,7 @@ class Climber(object):
 
             self.url = 'http://en.wikipedia.org/?title=%s' % self.topic
             self.content = requests.get(self.url)
-            self.soup = BeautifulSoup(self.content.text)
+            self.soup = BeautifulSoup(self.content.text, "html.parser")
 
             check = self.soup.find_all(id="disambigbox")
 
