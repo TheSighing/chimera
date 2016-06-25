@@ -68,7 +68,7 @@ class Bolt():
         else:
             self.contexts[level] = context
 
-    # Encodes the bolt for safe transfer through zerorpc pipeline.
+    # Encodes bolt for json formatting.
     def encode(self):
         return {"text": self.text, "contexts": self.contexts}
 
@@ -81,56 +81,67 @@ class Bolt():
         return temp
 
 
-class Climber(object):
-    # Constructs route of entire wiki page based on text.
+class Climber():
+    # Constructs route of entire wiki page based on topic chosen.
 
-    def climb(self, topic, options):
-        images_list = None
-        depth = None
-        summary = None
+    def climb(self, topic, options=None):
+        self.images_list = None
+        self.depth = None
+        self.summary = None
 
         # TODO: Make a function out of this logic
         if("images" in options.keys()):
-            images_list = self.climb_images(topic, options)
+            self.climb_images(topic, options)
+
+        if(topic is None):
+            return None
+        else:
+            url = 'http://en.wikipedia.org/?title=%s' % topic
+            content = requests.get(url)
+            self.soup = BeautifulSoup(content.text, "html.parser")
+
+            check = self.soup.find_all(id="disambigbox")
+
+            return self.get_scaffold(check)
+
+
+    # Extracts images given a topic.
+    def climb_images(self, topic=None, options=None):
+        images = []
 
         if(topic is None):
             check = self.soup.find_all(id="disambigbox")
 
-            return self.get_scaffold(check, None, images_list,
-                                     summary, depth)
+            for image in self.soup.findAll("img"):
+                images.append("https://" + image["src"])
         else:
-            self.topic = topic
-            self.options = options
-
-            self.url = 'http://en.wikipedia.org/?title=%s' % self.topic
-            self.content = requests.get(self.url)
-            self.soup = BeautifulSoup(self.content.text, "html.parser")
+            url = 'http://en.wikipedia.org/?title=%s' % self.topic
+            content = requests.get(url)
+            self.soup = BeautifulSoup(content.text, "html.parser")
 
             check = self.soup.find_all(id="disambigbox")
 
-            return self.get_scaffold(check, None, images_list,
-                                     summary, depth)
+            if(check):
+                for image in self.soup.findAll("img"):
+                    images.append("https://" + image["src"])
+            else:
+                return chossy()
 
-    def get_scaffold(self, check, type_flag, images_list=None,
-                     summary=None, depth=0):
+        return json.dumps(images)
+
+
+    def get_scaffold(self, check):
         # TODO: WIll cause a toggle based on passed type in which case the
         # include summary scaffold will be used but no matter what the depth
         # will be passed to scaffold defaulting to 0
         if(not len(check)):
-            if type_flag == "images":
-                images = []
-                for image in self.soup.findAll("img"):
-                    images.append("https://" + image["src"])
+            wiki_parsed = self.scaffold_basic(self.summary, self.depth)
 
-                return images
+            if(self.images_list is None):
+                return json.dumps({"data": wiki_parsed})
             else:
-                wiki_parsed = self.scaffold_basic(summary, depth)
-
-                if(images_list is None):
-                    return json.dumps({"data": wiki_parsed})
-                else:
-                    return json.dumps({"images": images_list,
-                                       "data": wiki_parsed})
+                return json.dumps({"images": self.images_list,
+                                   "data": wiki_parsed})
         else:
             # TODO: WIll return all the other options to search from
             #       disambiguation page
@@ -181,30 +192,6 @@ class Climber(object):
                 continue
 
         return selected
-
-    # Extracts images and their context attached/explanation.
-    def climb_images(self, topic, options):
-        images = []
-
-        # TODO: Make a function out of this logic
-        if(topic is None):
-            check = self.soup.find_all(id="disambigbox")
-
-            images = self.get_scaffold(check, "images")
-
-        else:
-            self.topic = topic
-            self.options = options
-
-            self.url = 'http://en.wikipedia.org/?title=%s' % self.topic
-            self.content = requests.get(self.url)
-            self.soup = BeautifulSoup(self.content.text, "html.parser")
-
-            check = self.soup.find_all(id="disambigbox")
-
-            images = self.get_scaffold("images", check)
-
-        return json.dumps(images)
 
     # Builds map of links with given search depth option as parameter.
     # def climb_links(self, topic, options):
