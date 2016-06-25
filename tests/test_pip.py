@@ -1,6 +1,6 @@
 from climber import Climber
 
-c = Climber()
+c = Climber({"images" : 1})
 
 results = c.climb("wolf")
 
