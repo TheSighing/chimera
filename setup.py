@@ -44,7 +44,7 @@ history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 setup(
     name='climber',
     version=version,
-    description="""Climbe Mt. Wiki""",
+    description="""Climb Mt. Wiki...""",
     long_description=readme + '\n\n' + history,
     author='Jared Godfrey',
     author_email='jared.yusef@gmail.com',

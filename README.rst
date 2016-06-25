@@ -8,7 +8,7 @@ climber
 .. image:: https://travis-ci.org/TheSighing/climber.png?branch=master
     :target: https://travis-ci.org/TheSighing/climber
 
-Climbe Mt. Wiki
+Climb Mt. Wiki...
 
 Documentation
 -------------
