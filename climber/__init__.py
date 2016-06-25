@@ -83,16 +83,13 @@ class Bolt():
 
 class Climber():
     # Constructs route of entire wiki page based on topic chosen.
+    def __init__(self, options=None):
+        self.options = {} if not options else options
 
-    def climb(self, topic, options=None):
-        self.images_list = None
-        self.depth = None
-        self.summary = None
 
-        # TODO: Make a function out of this logic
-        if("images" in options.keys()):
-            self.climb_images(topic, options)
-
+    def climb(self, topic):
+        self.depth = self.options["depth"] if "depth" in self.options.keys() else None
+        self.summary = self.options["summary"] if "summary" in self.options.keys() else None
         if(topic is None):
             return None
         else:
@@ -106,7 +103,7 @@ class Climber():
 
 
     # Extracts images given a topic.
-    def climb_images(self, topic=None, options=None):
+    def climb_images(self, topic=None):
         images = []
 
         if(topic is None):
@@ -115,7 +112,7 @@ class Climber():
             for image in self.soup.findAll("img"):
                 images.append("https://" + image["src"])
         else:
-            url = 'http://en.wikipedia.org/?title=%s' % self.topic
+            url = 'http://en.wikipedia.org/?title=%s' % topic
             content = requests.get(url)
             self.soup = BeautifulSoup(content.text, "html.parser")
 
@@ -135,17 +132,22 @@ class Climber():
         # include summary scaffold will be used but no matter what the depth
         # will be passed to scaffold defaulting to 0
         if(not len(check)):
+            images_list = None
             wiki_parsed = self.scaffold_basic(self.summary, self.depth)
 
-            if(self.images_list is None):
+            if("images" in self.options.keys()):
+                images_list = self.climb_images()
+
+            if(images_list is None):
                 return json.dumps({"data": wiki_parsed})
             else:
-                return json.dumps({"images": self.images_list,
-                                   "data": wiki_parsed})
+                return json.dumps({"data": wiki_parsed,
+                                   "images": images_list})
         else:
             # TODO: WIll return all the other options to search from
             #       disambiguation page
             return chossy()
+
 
     def scaffold_basic(self, summary, depth):
 
