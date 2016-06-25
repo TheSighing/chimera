@@ -1,3 +1,0 @@
-import climber
-
-print "Hello"
