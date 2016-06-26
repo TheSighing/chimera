@@ -30,9 +30,8 @@ Features
 --------
 
 * TODO
-  * Complete summary logic.
-  [ x ] Guide for the API.
-  [ x ] 
+* Complete summary logic.
+* Guide for the API.
 
 Running Tests
 --------------
