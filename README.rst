@@ -30,7 +30,7 @@ Features
 --------
 
 * TODO
-  [ x ] Complete summary logic.
+  * Complete summary logic.
   [ x ] Guide for the API.
   [ x ] 
 
