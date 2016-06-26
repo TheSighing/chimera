@@ -29,7 +29,7 @@ Then use it in a project::
 Features
 --------
 
-* TODO
+TODO:
 * Complete summary logic.
 * Guide for the API.
 
