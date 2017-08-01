@@ -28,6 +28,8 @@ TODO
 --------
 * Complete summary logic.
 * Guide for the API.
+* Instagram pull for images with the same context logic applied.
+*Possibly swithc to using wikipedia api to pull context and text deirectly from source.
 
 Running Tests
 --------------
